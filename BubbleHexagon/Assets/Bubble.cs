@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Slot slot;
+
+    public void SetSlot(Slot s)
     {
-        
+        slot = s;
+        slot.bubble = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UnSlot()
     {
-        
+        slot.bubble = null;
+        slot = null;
+    }
+
+    public void FitToSlot()
+    {
+        transform.position = slot.transform.position;
     }
 }

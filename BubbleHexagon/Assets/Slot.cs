@@ -27,27 +27,13 @@ public class DirSlotPair
 
 public class Slot : MonoBehaviour
 {
-
     public Bubble bubble;
     public int level;
 
     public List<DirSlotPair> adjacents;
 
-    public void InitializeAdj()
-    {
-        if(adjacents.Count == 0)
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                adjacents.Add(new DirSlotPair((Direction)i, null));
-            }
-        }
-    }
-
     public DirSlotPair GetPairByDir(Direction dir)
     {
         return adjacents.Find(p => p.direction == dir);
     }
-    
-
 }

@@ -20,7 +20,7 @@ public class GridGenerator : MonoBehaviour
         for (int i = 0; i < depth; i++)
         {
             pool = new Queue<GameObject>();
-            foreach(Slot s in GetComponentsInChildren<Slot>())
+            foreach(Slot s in poolTr.GetComponentsInChildren<Slot>())
             {
                 pool.Enqueue(s.gameObject);
             }
