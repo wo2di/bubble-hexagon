@@ -69,7 +69,7 @@ public class SaveAndLoad : MonoBehaviour
             int i = sd.slotIndex;
             BubbleColor c = sd.color;
             GameObject obj = bubbleFactory.SpawnBubble("color");
-            obj.transform.SetParent(bubbleParent);
+            //obj.transform.SetParent(bubbleParent);
             obj.GetComponent<Bubble>().SetSlot(gridParent.GetChild(i).GetComponent<Slot>());
             obj.GetComponent<Bubble>().FitToSlot();
             obj.GetComponent<BubbleBHColor>().SetColor(c);
