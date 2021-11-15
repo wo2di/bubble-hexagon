@@ -7,14 +7,8 @@ public class BubbleBHColor : BubbleBehaviour
 {
     public BubbleColor color;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetColor(BubbleColor c)
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        color = c;
     }
 }

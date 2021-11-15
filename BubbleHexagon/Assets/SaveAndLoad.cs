@@ -5,6 +5,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 
+#region save data class
+
 [Serializable]
 public class BubbleSD
 {
@@ -35,9 +37,13 @@ public class GameData
     }
 }
 
+#endregion
+
 public class SaveAndLoad : MonoBehaviour
 {
     public Transform bubbleParent;
+    public Transform gridParent;
+    public BubbleFactory bubbleFactory;
 
     public GameData data;
     
@@ -56,6 +62,21 @@ public class SaveAndLoad : MonoBehaviour
         }
     }
 
+    public void DataToGame()
+    {
+        foreach(ColorBubbleSD sd in data.ColorList)
+        {
+            int i = sd.slotIndex;
+            BubbleColor c = sd.color;
+            GameObject obj = bubbleFactory.SpawnBubble("color");
+            obj.transform.SetParent(bubbleParent);
+            obj.GetComponent<Bubble>().SetSlot(gridParent.GetChild(i).GetComponent<Slot>());
+            obj.GetComponent<Bubble>().FitToSlot();
+            obj.GetComponent<BubbleBHColor>().SetColor(c);
+            
+        }
+    }
+
     public void SaveData()
     {
         string data_json = JsonUtility.ToJson(data, true);
@@ -69,6 +90,27 @@ public class SaveAndLoad : MonoBehaviour
         file.Close();
     }
 
+    public void LoadData()
+    {
+        try
+        {
+            //ResetGameData();
+            data = new GameData();
+            BinaryFormatter bf = new BinaryFormatter();
+#if UNITY_EDITOR
+            FileStream file = File.OpenRead(Application.dataPath + "/save.json");
+#else
+            FileStream file = File.OpenRead(Application.persistentDataPath + "/save.json");
+#endif
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
+            file.Close();
+        }
+        catch (FileNotFoundException e)
+        {
+            //InitialGameData();
+        }
+    }
+
     [ContextMenu("SAVE")]
     public void SaveSequence()
     {
@@ -76,15 +118,10 @@ public class SaveAndLoad : MonoBehaviour
         SaveData();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    [ContextMenu("Load")]
+    public void LoadSequence()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        LoadData();
+        DataToGame();
     }
 }
