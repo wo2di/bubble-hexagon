@@ -5,26 +5,13 @@ using BT;
 
 public class BubbleFactory : MonoBehaviour
 {
-    public Transform bubbleParent;
-
+    public BubbleParent bubbleParent;
     public BubbleListSO bubbleList;
-    public BubbleLauncher bubbleLauncher;
 
-    public GameObject SpawnBubble(string bname)
+    public Bubble SpawnBubble(string bname)
     {
-        GameObject obj = Instantiate(bubbleList.GetPrefabByName(bname));
-        obj.transform.SetParent(bubbleParent);
+        Bubble obj = Instantiate(bubbleList.GetPrefabByName(bname)).GetComponent<Bubble>();
+        obj.transform.SetParent(bubbleParent.transform);
         return obj;
-    }
-
-    public NodeState SpawnBubbleAction()
-    {
-        if (bubbleLauncher.IsEmpty())
-        {
-            Bubble b = SpawnBubble("color").GetComponent<Bubble>();
-            b.transform.SetPositionAndRotation(bubbleLauncher.transform.position, Quaternion.identity);
-            bubbleLauncher.SetBubble(b);
-        }
-        return NodeState.SUCCESS;
     }
 }

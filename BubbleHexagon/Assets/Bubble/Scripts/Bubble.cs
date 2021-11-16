@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    
     public Slot slot;
-
-    public float speed = 20;
-    public bool translated = false;
 
     public void SetSlot(Slot s)
     {
@@ -26,6 +22,10 @@ public class Bubble : MonoBehaviour
     {
         transform.position = slot.transform.position;
     }
+
+
+    public float speed = 20;
+    public bool translated = false;
 
     public IEnumerator Translate(Vector3[] waypoints)
     {
