@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
   color: 0
+  colorSprite: {fileID: 8797672163750185918}
 --- !u!1001 &1798933629594554059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,3 +156,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 908174516655658410, guid: b0f0fd44c5b7eb24d857f7e000f684c3, type: 3}
+--- !u!212 &8797672163750185918 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -2210171572544123205, guid: b0f0fd44c5b7eb24d857f7e000f684c3, type: 3}
+  m_PrefabInstance: {fileID: 1964827908710810885}
+  m_PrefabAsset: {fileID: 0}

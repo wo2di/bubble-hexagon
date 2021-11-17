@@ -5,17 +5,12 @@ using System;
 
 public class BubbleBHLock : BubbleBHColor
 {
+    public SpriteRenderer colorSprite_s;
     public bool hasLock = true;
 
-    // Start is called before the first frame update
-    void Start()
+    public override void SetColor(ColorEnumValuePair p)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.SetColor(p);
+        colorSprite_s.color = p.colorValue;
     }
 }

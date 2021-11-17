@@ -9,8 +9,6 @@ public enum BubbleColor
     color7,
     color8,
     color9,
-    color10,
-    color11,
-    color12,
-    color13
+    rainbow
+
 }

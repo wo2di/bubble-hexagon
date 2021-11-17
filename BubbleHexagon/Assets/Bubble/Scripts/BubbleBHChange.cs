@@ -5,15 +5,7 @@ using System;
 
 public class BubbleBHChange : BubbleBHColor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void SetColor(ColorEnumValuePair p)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

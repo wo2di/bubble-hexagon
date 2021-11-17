@@ -2,18 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
-public class BubbleBHRainbow : BubbleBehaviour
+public class BubbleBHRainbow : BubbleBHColor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnSetToSlot()
     {
-        
+        bsToPop = new List<Bubble>();
+        List<Bubble> rainbowVisited = new List<Bubble>();
+        List<Bubble> rainbowToVisit = new List<Bubble>();
+
+        FindSameColor(color, rainbowToVisit);
+
+        while (rainbowToVisit.Count > 0)
+        {
+            foreach (Bubble b in rainbowToVisit)
+            {
+                b.GetComponent<BubbleBHRainbow>().CheckAdjColorBubbleToPop(bsToPop);
+                rainbowVisited.Add(b);
+            }
+            rainbowToVisit = bsToPop.FindAll(b => b.GetComponent<BubbleBHRainbow>() != null).Except(rainbowVisited).ToList();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CheckAdjColorBubbleToPop(List<Bubble> bubbles)
     {
-        
+        foreach(Bubble b in bubble.slot.GetAdjacentBubbles())
+        {
+            BubbleBehaviour behav = b.GetComponent<BubbleBehaviour>();
+            switch (behav)
+            {
+                case BubbleBHColor behavColor:
+                    behavColor.GetBubblesToPop(bubbles);
+                    break;
+            }
+        }
     }
 }

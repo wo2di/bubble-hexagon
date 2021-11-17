@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public enum Direction
 {
@@ -35,5 +36,13 @@ public class Slot : MonoBehaviour
     public DirSlotPair GetPairByDir(Direction dir)
     {
         return adjacents.Find(p => p.direction == dir);
+    }
+
+    public List<Bubble> GetAdjacentBubbles()
+    {
+        var result = from p in adjacents
+                     where p.slot != null && p.slot.bubble != null
+                     select p.slot.bubble;
+        return result.ToList();
     }
 }

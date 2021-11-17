@@ -71,7 +71,7 @@ public class SaveAndLoad : MonoBehaviour
             Bubble b = bubbleFactory.SpawnBubble("color");
             b.SetSlot(gridParent.GetChild(i).GetComponent<Slot>());
             b.FitToSlot();
-            b.GetComponent<BubbleBHColor>().SetColor(c);
+            b.GetComponent<BubbleBHColor>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == c));
             
         }
     }

@@ -10,6 +10,7 @@ public class TestBubbleBuilder : MonoBehaviour
     private void Start()
     {
         slots = gridParent.GetComponentsInChildren<Slot>();
+        SetBubblesToSlot();
     }
 
     [ContextMenu("Set Bubbles To Slot")]

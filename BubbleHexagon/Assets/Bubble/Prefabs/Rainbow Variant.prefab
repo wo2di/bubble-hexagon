@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
+  color: 9
+  colorSprite: {fileID: 0}
+  bsToPop: []
 --- !u!1001 &5253446803904746461
 PrefabInstance:
   m_ObjectHideFlags: 0

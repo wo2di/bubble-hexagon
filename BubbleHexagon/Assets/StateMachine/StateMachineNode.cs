@@ -36,7 +36,8 @@ namespace FSM
         public override void Enter()
         {
             //버블 생성
-            Bubble b = _sm.bubbleFactory.SpawnBubble("color");
+            Bubble b = _sm.bubbleFactory.SpawnBubble("rainbow");
+            //Bubble b = _sm.bubbleFactory.SpawnRandomColorBubble();
             bubble = b;
             _sm.bubbleParent.SetBubbleNow(b);
         }
@@ -65,7 +66,7 @@ namespace FSM
                 {
                     if (Vector3.Distance(waypoints[0], tr.position) > 0.1)
                     {
-                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], 15 * Time.deltaTime);
+                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], 30 * Time.deltaTime);
                     }
                     else
                     {
@@ -76,7 +77,7 @@ namespace FSM
                 else
                 {
                     bubble.FitToSlot();
-                    _sm.ChangeState(_sm.standby);
+                    _sm.ChangeState(_sm.bubblePop);
                 }
             }
         }
@@ -131,11 +132,14 @@ namespace FSM
         public override void Enter()
         {
             //터트림 확인 후 터트린다
+            _sm.bubbleParent.bubbleNow.GetComponent<BubbleBehaviour>().OnSetToSlot();
         }
 
         public override void UpdateLogic()
         {
             //터트림이 끝났는지 확인하여 다음 스테이트로
+
+            _sm.ChangeState(_sm.standby);
         }
 
         public override void UpdatePhysics()
