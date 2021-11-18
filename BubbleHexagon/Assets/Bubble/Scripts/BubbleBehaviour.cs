@@ -18,8 +18,27 @@ public class BubbleBehaviour : MonoBehaviour
         return bubble.slot != null ? bubble.slot.transform.GetSiblingIndex() : 0;
     }
 
-    public virtual void OnSetToSlot()
-    {
+    public virtual void OnSetToSlot() { }
 
+    public virtual void OnExitTurn() { }
+    public virtual void OnPop() 
+    {
+        bubble.Pop();
+    }
+    public virtual void OnDrop() 
+    {
+        bubble.Drop();
+    }
+
+    public void GetConnectedBubble(List<Bubble> bubbles)
+    {
+        foreach (Bubble b in bubble.slot.GetAdjacentBubbles())
+        {
+            if (!bubbles.Contains(b))
+            {
+                bubbles.Add(b);
+                b.GetComponent<BubbleBehaviour>().GetConnectedBubble(bubbles);
+            }
+        }
     }
 }

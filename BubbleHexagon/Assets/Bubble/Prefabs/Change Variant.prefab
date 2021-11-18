@@ -14,6 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
   color: 0
+  colorSprite: {fileID: 0}
+  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
+  colors: 0000000001000000
+  bigSprites:
+  - {fileID: 2143403334584647682}
+  - {fileID: 4651369143258197572}
+  smallSprites:
+  - {fileID: 7865426894507324733}
+  - {fileID: 2413142269724813760}
+  index: 0
 --- !u!1001 &633630858325243745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,3 +205,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -5371812966880141143, guid: e319eaa368b7ae3489d27d0ca5818758, type: 3}
+--- !u!212 &2143403334584647682 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: -78596666657165058, guid: e319eaa368b7ae3489d27d0ca5818758, type: 3}
+  m_PrefabInstance: {fileID: 7157945240187367676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7865426894507324733 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1040821157222761921, guid: e319eaa368b7ae3489d27d0ca5818758, type: 3}
+  m_PrefabInstance: {fileID: 7157945240187367676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4651369143258197572 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2583617935957221048, guid: e319eaa368b7ae3489d27d0ca5818758, type: 3}
+  m_PrefabInstance: {fileID: 7157945240187367676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2413142269724813760 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4767928125591755068, guid: e319eaa368b7ae3489d27d0ca5818758, type: 3}
+  m_PrefabInstance: {fileID: 7157945240187367676}
+  m_PrefabAsset: {fileID: 0}

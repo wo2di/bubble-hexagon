@@ -9,7 +9,8 @@ public class BubbleBHColor : BubbleBehaviour
     public BubbleColor color;
     public SpriteRenderer colorSprite;
 
-    public List<Bubble> bsToPop;
+    //public List<Bubble> bsToPop;
+    public BubbleListSO bubblesToPop;
 
     public virtual void SetColor(ColorEnumValuePair p)
     {
@@ -19,7 +20,7 @@ public class BubbleBHColor : BubbleBehaviour
 
     public override void OnSetToSlot()
     {
-        bsToPop = new List<Bubble>();
+        List<Bubble> bsToPop = new List<Bubble>();
         List<Bubble> rainbowVisited = new List<Bubble>();
         List<Bubble> rainbowToVisit = new List<Bubble>();
 
@@ -35,6 +36,8 @@ public class BubbleBHColor : BubbleBehaviour
             }
             rainbowToVisit = bsToPop.FindAll(b => b.GetComponent<BubbleBHRainbow>() != null).Except(rainbowVisited).ToList();
         }
+
+        bubblesToPop.bubbles.AddRange(bsToPop);
     }
 
     // 주변 찾고 4개 넘으면 여기에 넣어

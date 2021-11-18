@@ -23,20 +23,40 @@ public class Bubble : MonoBehaviour
         transform.position = slot.transform.position;
     }
 
-
-    public float speed = 20;
-    public bool translated = false;
-
-    public IEnumerator Translate(Vector3[] waypoints)
+    public void Delete()
     {
-        foreach(Vector3 v in waypoints)
-        {
-            while(Vector3.Distance(transform.position, v) > 0.1)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, v, speed * Time.deltaTime);
-                yield return null;
-            }
-        }
-        translated = true;
+        UnSlot();
+        Destroy(gameObject);
     }
+
+    public void Pop()
+    {
+        UnSlot();
+        Destroy(gameObject);
+    }
+
+    public void Drop()
+    {
+        UnSlot();
+        gameObject.layer = 2;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+    }
+
+
+    //public float speed = 20;
+    //public bool translated = false;
+
+    //public IEnumerator Translate(Vector3[] waypoints)
+    //{
+    //    foreach(Vector3 v in waypoints)
+    //    {
+    //        while(Vector3.Distance(transform.position, v) > 0.1)
+    //        {
+    //            transform.position = Vector3.MoveTowards(transform.position, v, speed * Time.deltaTime);
+    //            yield return null;
+    //        }
+    //    }
+    //    translated = true;
+    //}
 }

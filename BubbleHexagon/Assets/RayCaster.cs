@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class RayCaster : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class RayCaster : MonoBehaviour
 
     public float thetaMin = 30f;
     public float thetaMax = 150f;
+
+    /// 
+    public List<Collider2D> colls1;
+    public List<Collider2D> colls2;
 
     public void ClampAndSetDirection()
     {
@@ -27,6 +32,13 @@ public class RayCaster : MonoBehaviour
         target = null;
         waypoints = new List<Vector3>();
         RaycastHit2D[] hits = Physics2D.CircleCastAll(fireTR.position, rayRadius, direction, 50, layerMask);
+        
+        ///
+        var result = from h in hits
+                select h.collider;
+        colls1 = result.ToList();
+        colls2.Clear();
+
         RaycastHit2D hit;
         Collider2D coll;
         if (hits.Length >= 2)
@@ -39,6 +51,12 @@ public class RayCaster : MonoBehaviour
                 waypoints.Add(hit.centroid);
 
                 hits = Physics2D.CircleCastAll(hit.point, rayRadius, -hit.point, 50, layerMask);
+
+                ///
+                var result2 = from h in hits
+                             select h.collider;
+                colls2 = result2.ToList();
+
                 hit = hits[1];
                 coll = hit.collider;
             }
@@ -48,6 +66,8 @@ public class RayCaster : MonoBehaviour
             waypoints.Add(hit.centroid);
         }
     }
+
+
     public Direction GetSlotDirectionByHit(RaycastHit2D hit)
     {
         Vector3 hitpoint = hit.collider.transform.parent.InverseTransformPoint(hit.point);

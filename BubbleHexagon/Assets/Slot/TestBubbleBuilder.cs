@@ -22,10 +22,8 @@ public class TestBubbleBuilder : MonoBehaviour
             {
                 foreach(Slot s in slots)
                 {
-                    //Debug.Log(Vector3.Distance(s.transform.position, b.transform.position));
                     if (s.bubble == null && Vector3.Distance(s.transform.position, b.transform.position) < 0.2f)
                     {
-                        Debug.Log("Found One");
                         b.SetSlot(s);
                         b.FitToSlot();
                         break;

@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum BubbleColor
+{
+    color1,
+    color2,
+    color3,
+    color4,
+    color5,
+    color6,
+    color7,
+    color8,
+    color9,
+    rainbow
+
+}
+
 [Serializable]
 public class ColorEnumValuePair
 {

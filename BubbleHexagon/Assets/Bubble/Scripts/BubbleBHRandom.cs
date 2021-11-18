@@ -5,15 +5,28 @@ using System;
 
 public class BubbleBHRandom : BubbleBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    BubbleFactory factory;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        factory = FindObjectOfType<BubbleFactory>();
+    }
+    public override void OnSetToSlot()
+    {
+        foreach(Bubble b in bubble.slot.GetAdjacentBubbles())
+        {
+            switch (b.GetComponent<BubbleBehaviour>())
+            {
+                case BubbleBHChange behavChange:
+                    behavChange.SetColor(factory.GetRandomColors(2));
+                    break;
+                case BubbleBHColor behavColor:
+                    behavColor.SetColor(factory.GetRandomColor());
+                    break;
+            }
+        }
+        bubble.Pop();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

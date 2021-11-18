@@ -36,8 +36,7 @@ namespace FSM
         public override void Enter()
         {
             //버블 생성
-            Bubble b = _sm.bubbleFactory.SpawnBubble("rainbow");
-            //Bubble b = _sm.bubbleFactory.SpawnRandomColorBubble();
+            Bubble b = _sm.bubbleFactory.SpawnBubble("brick");
             bubble = b;
             _sm.bubbleParent.SetBubbleNow(b);
         }
@@ -45,15 +44,39 @@ namespace FSM
         public override void UpdateLogic()
         {
             //인풋 처리
-            if(Input.GetMouseButtonUp(0) && target == null)
+            if (Input.GetMouseButtonUp(0) && target == null && bubble != null)
             {
                 _sm.rayCaster.GetSlotByRay(out target, out waypoints);
+                //Debug.Log("Ray!");
 
-                if(target !=null)
+                if(target != null)
                 {
+                    //if (target.bubble != null)
+                    //{ Debug.Log("error!"); }
+
                     bubble.SetSlot(target);
+                    
+
+                    ///////////
+
+                    //_sm.gridParent.ResetSlotColor();
+                    //target.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
+
+
+            //////디버그//////
+            //if(Input.GetMouseButton(0) && target == null)
+            //{
+            //    Slot testTarget;
+            //    List<Vector3> testWaypoints;
+            //    _sm.rayCaster.GetSlotByRay(out testTarget, out testWaypoints);
+            //    if(testTarget != null)
+            //    {
+            //        _sm.gridParent.ResetSlotColor();
+            //        testTarget.GetComponent<SpriteRenderer>().color = Color.red;
+            //    }
+            //}
         }
 
         public override void UpdatePhysics()
@@ -66,7 +89,7 @@ namespace FSM
                 {
                     if (Vector3.Distance(waypoints[0], tr.position) > 0.1)
                     {
-                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], 30 * Time.deltaTime);
+                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], 100 * Time.deltaTime);
                     }
                     else
                     {
@@ -132,14 +155,16 @@ namespace FSM
         public override void Enter()
         {
             //터트림 확인 후 터트린다
+            _sm.bubblesToPop.bubbles = new List<Bubble>();
             _sm.bubbleParent.bubbleNow.GetComponent<BubbleBehaviour>().OnSetToSlot();
+            _sm.StartCoroutine(PopCoroutine());
         }
 
         public override void UpdateLogic()
         {
             //터트림이 끝났는지 확인하여 다음 스테이트로
 
-            _sm.ChangeState(_sm.standby);
+            //_sm.ChangeState(_sm.standby);
         }
 
         public override void UpdatePhysics()
@@ -150,6 +175,16 @@ namespace FSM
         public override void Exit()
         {
             base.Exit();
+        }
+
+        public IEnumerator PopCoroutine()
+        {
+            foreach(Bubble b in _sm.bubblesToPop.bubbles)
+            {
+                b.GetComponent<BubbleBehaviour>().OnPop();
+                yield return new WaitForSeconds(0.1f);
+            }
+            _sm.ChangeState(_sm.bubbleDrop);
         }
     }
 
@@ -165,6 +200,8 @@ namespace FSM
         public override void Enter()
         {
             //떨어트림을 확인하여 떨어트린다
+            _sm.rootBubble.GetBubblesToDrop();
+            _sm.StartCoroutine(DropCoroutine());
         }
 
         public override void UpdateLogic()
@@ -181,6 +218,16 @@ namespace FSM
         {
             base.Exit();
         }
+
+        public IEnumerator DropCoroutine()
+        {
+            foreach (Bubble b in _sm.bubblesToDrop.bubbles)
+            {
+                b.GetComponent<BubbleBehaviour>().OnDrop();
+                yield return new WaitForSeconds(0.1f);
+            }
+            _sm.ChangeState(_sm.exitTurn);
+        }
     }
 
     //점수 계산, 특수 버블 할일 함
@@ -194,7 +241,15 @@ namespace FSM
 
         public override void Enter()
         {
-            base.Enter();
+            foreach(Bubble b in _sm.bubbleParent.GetBubblesInGrid())
+            {
+                if (b != _sm.bubbleParent.bubbleNow)
+                {
+                    b.GetComponent<BubbleBehaviour>().OnExitTurn();
+                }
+            }
+
+            _sm.ChangeState(_sm.rotateGrid);
         }
 
         public override void UpdateLogic()
@@ -224,7 +279,7 @@ namespace FSM
 
         public override void Enter()
         {
-            base.Enter();
+            _sm.StartCoroutine(RotateCoroutine());
         }
 
         public override void UpdateLogic()
@@ -240,6 +295,24 @@ namespace FSM
         public override void Exit()
         {
             base.Exit();
+        }
+
+        public IEnumerator RotateCoroutine()
+        {
+            Transform tr = _sm.rotateGame.transform;
+            Quaternion before = tr.rotation;
+            tr.Rotate(0, 0, -60);
+            Quaternion after = tr.rotation;
+            tr.Rotate(0, 0, 60);
+
+            while (Quaternion.Angle(tr.rotation, after) > 1)
+            {
+                _sm.rotateGame.RotateToResult(after);
+                yield return null;
+            }
+            tr.rotation = after;
+
+            _sm.ChangeState(_sm.standby);
         }
     }
 }

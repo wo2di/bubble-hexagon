@@ -6,9 +6,11 @@ using System.Linq;
 
 public class BubbleBHRainbow : BubbleBHColor
 {
+    public override void SetColor(ColorEnumValuePair p) { }
+
     public override void OnSetToSlot()
     {
-        bsToPop = new List<Bubble>();
+        List<Bubble> bsToPop = new List<Bubble>();
         List<Bubble> rainbowVisited = new List<Bubble>();
         List<Bubble> rainbowToVisit = new List<Bubble>();
 
@@ -23,6 +25,8 @@ public class BubbleBHRainbow : BubbleBHColor
             }
             rainbowToVisit = bsToPop.FindAll(b => b.GetComponent<BubbleBHRainbow>() != null).Except(rainbowVisited).ToList();
         }
+
+        bubblesToPop.bubbles.AddRange(bsToPop);
     }
 
     public void CheckAdjColorBubbleToPop(List<Bubble> bubbles)

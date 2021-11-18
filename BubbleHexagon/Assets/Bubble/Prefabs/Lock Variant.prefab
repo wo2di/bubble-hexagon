@@ -15,8 +15,10 @@ MonoBehaviour:
   bubble: {fileID: 0}
   color: 0
   colorSprite: {fileID: 5965807770754785133}
+  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
   colorSprite_s: {fileID: 8196811101654579209}
   hasLock: 1
+  baby: {fileID: 3743006548896040599}
 --- !u!1001 &2095981363911300046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,6 +247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 2168242256232688920, guid: 153673a03074fdd498ac2e981034b822, type: 3}
+--- !u!1 &3743006548896040599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 957379137615535937, guid: 153673a03074fdd498ac2e981034b822, type: 3}
+  m_PrefabInstance: {fileID: 4519538006966229462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &8196811101654579209 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5726454038359187935, guid: 153673a03074fdd498ac2e981034b822, type: 3}
