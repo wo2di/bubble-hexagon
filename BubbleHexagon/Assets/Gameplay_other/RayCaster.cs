@@ -14,6 +14,7 @@ public class RayCaster : MonoBehaviour
     public float thetaMin = 30f;
     public float thetaMax = 150f;
 
+    public BubbleParent bubbleParent;
     /// 
     public List<Collider2D> colls1;
     public List<Collider2D> colls2;
@@ -32,18 +33,27 @@ public class RayCaster : MonoBehaviour
         target = null;
         waypoints = new List<Vector3>();
         RaycastHit2D[] hits = Physics2D.CircleCastAll(fireTR.position, rayRadius, direction, 50, layerMask);
-        
+
+        RaycastHit2D remove = hits.ToList().Find(h => h.collider.gameObject == bubbleParent.bubbleNow.gameObject);
+        if(remove.collider != null)
+        {
+            List<RaycastHit2D> removed = hits.ToList();
+            removed.Remove(remove);
+            hits = removed.ToArray();
+        }
+
         ///
         var result = from h in hits
                 select h.collider;
         colls1 = result.ToList();
         colls2.Clear();
 
+
         RaycastHit2D hit;
         Collider2D coll;
-        if (hits.Length >= 2)
+        if (hits.Length >= 1)
         {
-            hit = hits[1];
+            hit = hits[0];
             coll = hit.collider;
 
             if (coll.GetComponent<Wall>() != null)

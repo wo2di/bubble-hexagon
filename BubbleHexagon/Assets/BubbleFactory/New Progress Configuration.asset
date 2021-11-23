@@ -12,4 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befb02f122b55a242afb2c5321209c98, type: 3}
   m_Name: New Progress Configuration
   m_EditorClassIdentifier: 
-  colorIndex: 3
+  colorIndex: 8
+  bubbleProbabilities:
+  - bubble: color
+    probability: 0
+  - bubble: brick
+    probability: 0.1
+  - bubble: rainbow
+    probability: 0.1
+  - bubble: random
+    probability: 0.1
+  - bubble: change
+    probability: 0.1
+  - bubble: zombie
+    probability: 0.1
+  - bubble: lock
+    probability: 0.1
+  - bubble: spread
+    probability: 0.1

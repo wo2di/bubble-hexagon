@@ -7,6 +7,7 @@ public class BubbleParent : MonoBehaviour
 {
     public Bubble bubbleNow;
     public Transform fireTR;
+    public float bubbleSpeed;
 
     public void SetBubbleNow(Bubble b)
     {

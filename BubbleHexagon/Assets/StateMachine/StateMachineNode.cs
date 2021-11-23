@@ -36,7 +36,7 @@ namespace FSM
         public override void Enter()
         {
             //버블 생성
-            Bubble b = _sm.bubbleFactory.SpawnBubble("brick");
+            Bubble b = _sm.bubbleFactory.SpawnRandomBubble();
             bubble = b;
             _sm.bubbleParent.SetBubbleNow(b);
         }
@@ -49,13 +49,13 @@ namespace FSM
                 _sm.rayCaster.GetSlotByRay(out target, out waypoints);
                 //Debug.Log("Ray!");
 
-                if(target != null)
+                if (target != null)
                 {
                     //if (target.bubble != null)
                     //{ Debug.Log("error!"); }
 
                     bubble.SetSlot(target);
-                    
+
 
                     ///////////
 
@@ -82,14 +82,14 @@ namespace FSM
         public override void UpdatePhysics()
         {
             //버블 이동
-            if(target != null)
+            if (target != null)
             {
                 Transform tr = bubble.transform;
                 if(waypoints.Count != 0)
                 {
                     if (Vector3.Distance(waypoints[0], tr.position) > 0.1)
                     {
-                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], 100 * Time.deltaTime);
+                        tr.position = Vector3.MoveTowards(tr.position, waypoints[0], _sm.bubbleParent.bubbleSpeed * Time.deltaTime);
                     }
                     else
                     {
@@ -112,36 +112,6 @@ namespace FSM
             waypoints = null;
         }
     }
-
-    //버블이 날아가는중
-    public class BubbleFired : State 
-    {
-        GameplaySM _sm;
-        public BubbleFired(GameplaySM sm) : base("BubbleFired", sm)
-        {
-            _sm = sm;
-        }
-
-        public override void Enter()
-        {
-            base.Enter();
-        }
-
-        public override void UpdateLogic()
-        {
-            base.UpdateLogic();
-        }
-
-        public override void UpdatePhysics()
-        {
-            base.UpdatePhysics();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
-    }
     
     //터트릴 버블을 터트림
     public class BubblePop : State 
@@ -158,23 +128,6 @@ namespace FSM
             _sm.bubblesToPop.bubbles = new List<Bubble>();
             _sm.bubbleParent.bubbleNow.GetComponent<BubbleBehaviour>().OnSetToSlot();
             _sm.StartCoroutine(PopCoroutine());
-        }
-
-        public override void UpdateLogic()
-        {
-            //터트림이 끝났는지 확인하여 다음 스테이트로
-
-            //_sm.ChangeState(_sm.standby);
-        }
-
-        public override void UpdatePhysics()
-        {
-            base.UpdatePhysics();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public IEnumerator PopCoroutine()
@@ -202,21 +155,6 @@ namespace FSM
             //떨어트림을 확인하여 떨어트린다
             _sm.rootBubble.GetBubblesToDrop();
             _sm.StartCoroutine(DropCoroutine());
-        }
-
-        public override void UpdateLogic()
-        {
-            //다 덜어트렸는지 확인하여 다음 스테이트로
-        }
-
-        public override void UpdatePhysics()
-        {
-            base.UpdatePhysics();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public IEnumerator DropCoroutine()
@@ -280,21 +218,6 @@ namespace FSM
         public override void Enter()
         {
             _sm.StartCoroutine(RotateCoroutine());
-        }
-
-        public override void UpdateLogic()
-        {
-            base.UpdateLogic();
-        }
-
-        public override void UpdatePhysics()
-        {
-            base.UpdatePhysics();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
 
         public IEnumerator RotateCoroutine()

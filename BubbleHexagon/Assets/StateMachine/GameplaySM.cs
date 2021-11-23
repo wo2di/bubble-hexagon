@@ -14,7 +14,6 @@ public class GameplaySM : StateMachine
     public GridParent gridParent;
 
     public Standby standby;
-    public BubbleFired bubbleFired;
     public BubblePop bubblePop;
     public BubbleDrop bubbleDrop;
     public ExitTurn exitTurn;
@@ -23,7 +22,6 @@ public class GameplaySM : StateMachine
     private void Awake()
     {
         standby = new Standby(this);
-        bubbleFired = new BubbleFired(this);
         bubblePop = new BubblePop(this);
         bubbleDrop = new BubbleDrop(this);
         exitTurn = new ExitTurn(this);

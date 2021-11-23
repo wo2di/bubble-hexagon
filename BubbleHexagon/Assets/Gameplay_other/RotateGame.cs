@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateGame : MonoBehaviour
 {
-    float speed = 50;
+    public float speed = 10;
 
     public void RotateToResult(Quaternion result)
     {

@@ -13,34 +13,35 @@ public class BubbleFactory : MonoBehaviour
     public Bubble SpawnBubble(string bname)
     {
         Bubble obj = Instantiate(bubbleList.GetPrefabByName(bname)).GetComponent<Bubble>();
-        Debug.Log("Instantiated");
         obj.transform.SetParent(bubbleParent.transform);
 
-        switch(bname)
+        InitializeBubble(obj, bname);
+
+        return obj;
+    }
+
+    public void InitializeBubble(Bubble b, string bname)
+    {
+        switch (bname)
         {
-            
             case "change":
-                obj.GetComponent<BubbleBHChange>().SetColor(GetRandomColors(2));
+                b.GetComponent<BubbleBHChange>().SetColor(GetRandomColors(2));
                 break;
             case "color":
             case "lock":
             case "zombie":
-                obj.GetComponent<BubbleBHColor>().SetColor(GetRandomColor());
+                b.GetComponent<BubbleBHColor>().SetColor(GetRandomColor());
                 break;
             case "rainbow":
             case "brick":
             case "spread":
                 break;
-
         }
-
-        return obj;
     }
 
-    public Bubble SpawnRandomColorBubble()
+    public Bubble SpawnRandomBubble()
     {
-        Bubble b = SpawnBubble("color");
-        b.GetComponent<BubbleBHColor>().SetColor(GetRandomColor());
+        Bubble b = SpawnBubble(config.GetBubbleByProbability());
         return b;
     }
 
