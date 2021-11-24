@@ -7879,11 +7879,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d93af7049b60564e8a9031e45a9fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbleParent: {fileID: 1986091203}
+  bubbleParent: {fileID: 1986091205}
   gridParent: {fileID: 148235795}
   bubbleFactory: {fileID: 134929147}
   data:
     ColorList: []
+    BrickList: []
+    ChangeList: []
+    LockList: []
+    RainbowList: []
+    SpreadList: []
+    ZombieList: []
 --- !u!4 &777401123
 Transform:
   m_ObjectHideFlags: 0

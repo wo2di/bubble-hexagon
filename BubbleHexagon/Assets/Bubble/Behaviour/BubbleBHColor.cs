@@ -15,7 +15,10 @@ public class BubbleBHColor : BubbleBehaviour
     public virtual void SetColor(ColorEnumValuePair p)
     {
         color = p.colorEnum;
-        colorSprite.color = p.colorValue;
+        if (colorSprite != null)
+        {
+            colorSprite.color = p.colorValue;
+        }
     }
 
     public override void OnSetToSlot()

@@ -16,7 +16,6 @@ public class BubbleBHSpread : BubbleBehaviour
     {
         base.Awake();
         factory = FindObjectOfType<BubbleFactory>();
-        count = maxCount;
     }
 
     public override void OnExitTurn()
@@ -27,7 +26,7 @@ public class BubbleBHSpread : BubbleBehaviour
         List<Bubble> targets = result.ToList();
         if(targets.Count > 0)
         {
-            count = (count - 1) % 4;
+            count = (count + 1) % maxCount;
             if(count == 0)
             {
                 if (Random.value < spreadProbability)
@@ -59,7 +58,7 @@ public class BubbleBHSpread : BubbleBehaviour
         }
         else
         {
-            count = maxCount;
+            count = 0;
         }
     }
 }

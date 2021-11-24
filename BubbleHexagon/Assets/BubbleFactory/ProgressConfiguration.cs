@@ -13,6 +13,7 @@ public class ProgressConfiguration : ScriptableObject
         public float probability;
     }
 
+    [Range(1, 9)]
     public int colorIndex;
     public List<BubbleProbability> bubbleProbabilities;
 

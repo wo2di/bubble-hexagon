@@ -10,8 +10,6 @@ public class BubbleBHChange : BubbleBHColor
     public SpriteRenderer[] smallSprites;
     public int index;
 
-    public override void SetColor(ColorEnumValuePair p) { }
-
     public void SetColor(List<ColorEnumValuePair> colors)
     {
         for(int i = 0; i<colors.Count; i++)

@@ -28,12 +28,75 @@ public class ColorBubbleSD : BubbleSD
 }
 
 [Serializable]
+public class BrickBubbleSD : BubbleSD
+{
+    public BrickBubbleSD(int slotIndex) : base(slotIndex) { }
+}
+
+[Serializable]
+public class LockBubbleSD : ColorBubbleSD
+{
+    public bool hasLock;
+    public LockBubbleSD(int slotIndex, BubbleColor color, bool hasLock) : base(slotIndex, color) 
+    {
+        this.hasLock = hasLock;
+    }
+}
+
+[Serializable]
+public class ChangeBubbleSD : ColorBubbleSD
+{
+    public BubbleColor color1;
+    public BubbleColor color2;
+
+    public ChangeBubbleSD(int slotIndex, BubbleColor color, BubbleColor color1, BubbleColor color2) : base(slotIndex, color) 
+    {
+        this.color1 = color1;
+        this.color2 = color2;
+    }
+}
+
+[Serializable]
+public class RainbowBubbleSD : ColorBubbleSD
+{
+    public RainbowBubbleSD(int slotIndex, BubbleColor color) : base(slotIndex, color) { }
+}
+
+[Serializable]
+public class SpreadBubbleSD : BubbleSD
+{
+    public int count;
+    public SpreadBubbleSD(int slotIndex, int count) : base(slotIndex) 
+    {
+        this.count = count;
+    }
+}
+
+[Serializable]
+public class ZombieBubbleSD : ColorBubbleSD
+{
+    public ZombieBubbleSD(int slotIndex, BubbleColor color) : base(slotIndex, color) { }
+}
+
+[Serializable]
 public class GameData
 {
     public List<ColorBubbleSD> ColorList;
+    public List<BrickBubbleSD> BrickList;
+    public List<ChangeBubbleSD> ChangeList;
+    public List<LockBubbleSD> LockList;
+    public List<RainbowBubbleSD> RainbowList;
+    public List<SpreadBubbleSD> SpreadList;
+    public List<ZombieBubbleSD> ZombieList;
     public GameData()
     {
         ColorList = new List<ColorBubbleSD>();
+        BrickList = new List<BrickBubbleSD>();
+        ChangeList = new List<ChangeBubbleSD>();
+        LockList = new List<LockBubbleSD>();
+        RainbowList = new List<RainbowBubbleSD>();
+        SpreadList = new List<SpreadBubbleSD>();
+        ZombieList = new List<ZombieBubbleSD>();
     }
 }
 
@@ -41,22 +104,39 @@ public class GameData
 
 public class SaveAndLoad : MonoBehaviour
 {
-    public Transform bubbleParent;
+    public BubbleParent bubbleParent;
     public Transform gridParent;
     public BubbleFactory bubbleFactory;
 
     public GameData data;
     
-
     public void GameToData()
     {
         data = new GameData();
-        foreach(BubbleBehaviour b in bubbleParent.GetComponentsInChildren<BubbleBehaviour>())
+        foreach(Bubble b in bubbleParent.GetBubblesInGrid())
         {
-            switch(b)
+            switch(b.GetComponent<BubbleBehaviour>())
             {
+                case BubbleBHChange change:
+                    data.ChangeList.Add(new ChangeBubbleSD(change.GetSlotIndex(), change.color, change.colors[change.index % 2], change.colors[(change.index + 1) % 2]));
+                    break;
+                case BubbleBHLock lockB:
+                    data.LockList.Add(new LockBubbleSD(lockB.GetSlotIndex(), lockB.color, lockB.hasLock));
+                    break;
+                case BubbleBHZombie zombie:
+                    data.ZombieList.Add(new ZombieBubbleSD(zombie.GetSlotIndex(), zombie.color));
+                    break;
+                case BubbleBHRainbow rainbow:
+                    data.RainbowList.Add(new RainbowBubbleSD(rainbow.GetSlotIndex(), rainbow.color));
+                    break;
                 case BubbleBHColor color:
                     data.ColorList.Add(new ColorBubbleSD(color.GetSlotIndex(), color.color));
+                    break;
+                case BubbleBHBrick brick:
+                    data.BrickList.Add(new BrickBubbleSD(brick.GetSlotIndex()));
+                    break;
+                case BubbleBHSpread spread:
+                    data.SpreadList.Add(new SpreadBubbleSD(spread.GetSlotIndex(), spread.count));
                     break;
             }
         }
@@ -66,13 +146,57 @@ public class SaveAndLoad : MonoBehaviour
     {
         foreach(ColorBubbleSD sd in data.ColorList)
         {
-            int i = sd.slotIndex;
-            BubbleColor c = sd.color;
             Bubble b = bubbleFactory.SpawnBubble("color");
-            b.SetSlot(gridParent.GetChild(i).GetComponent<Slot>());
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
-            b.GetComponent<BubbleBHColor>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == c));
-            
+
+            b.GetComponent<BubbleBHColor>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+        }
+        foreach(BrickBubbleSD sd in data.BrickList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("brick");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+        }
+        foreach (ChangeBubbleSD sd in data.ChangeList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("change");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+
+            b.GetComponent<BubbleBHChange>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHChange>().SetColor(new List<ColorEnumValuePair> { bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color1), bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color2) });
+        }
+        foreach (LockBubbleSD sd in data.LockList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("lock");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+
+            b.GetComponent<BubbleBHLock>().hasLock = sd.hasLock;
+            b.GetComponent<BubbleBHLock>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+        }
+        foreach (RainbowBubbleSD sd in data.RainbowList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("rainbow");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+        }
+        foreach (ZombieBubbleSD sd in data.ZombieList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("zombie");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+
+            b.GetComponent<BubbleBHZombie>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+        }
+        foreach (SpreadBubbleSD sd in data.SpreadList)
+        {
+            Bubble b = bubbleFactory.SpawnBubble("spread");
+            b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
+            b.FitToSlot();
+
+            b.GetComponent<BubbleBHSpread>().count = sd.count;
         }
     }
 
@@ -118,7 +242,7 @@ public class SaveAndLoad : MonoBehaviour
         SaveData();
     }
 
-    [ContextMenu("Load")]
+    [ContextMenu("LOAD")]
     public void LoadSequence()
     {
         LoadData();
