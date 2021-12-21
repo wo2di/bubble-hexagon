@@ -222,6 +222,8 @@ namespace FSM
 
         public IEnumerator RotateCoroutine()
         {
+            yield return new WaitForSeconds(0.3f);
+
             Transform tr = _sm.rotateGame.transform;
             Quaternion before = tr.rotation;
             tr.Rotate(0, 0, -60);

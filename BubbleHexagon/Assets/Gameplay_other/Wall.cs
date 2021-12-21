@@ -9,10 +9,10 @@ public class Wall : MonoBehaviour
     private void Awake()
     {
         edgeCollider = GetComponent<EdgeCollider2D>();
-        SetSize(7);
+        SetSize(4.5f);
     }
 
-    public void SetSize(int i)
+    public void SetSize(float i)
     {
         float y = (1f / 3f) + (i / 2f);
         float x = y * Mathf.Sqrt(3);
