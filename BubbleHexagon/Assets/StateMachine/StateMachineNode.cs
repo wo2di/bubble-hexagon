@@ -25,7 +25,7 @@ namespace FSM
     {
         GameplaySM _sm;
 
-        Bubble bubble;
+        Bubble bubbleNow;
         Slot target;
         List<Vector3> waypoints;
         public Standby(GameplaySM sm) : base("Standby", sm)
@@ -35,16 +35,35 @@ namespace FSM
 
         public override void Enter()
         {
-            //버블 생성
-            Bubble b = _sm.bubbleFactory.SpawnRandomBubble();
-            bubble = b;
-            _sm.bubbleParent.SetBubbleNow(b);
+            if (_sm.bubbleParent.bubble2 == null)
+            {
+                bubbleNow = _sm.bubbleFactory.SpawnRandomBubble();
+                _sm.bubbleParent.bubble1 = bubbleNow;
+            }
+            else
+            {
+                bubbleNow = _sm.bubbleParent.bubble2;
+                _sm.bubbleParent.bubble1 = bubbleNow;
+            }
+
+            if (_sm.bubbleParent.bubble3 == null)
+            {
+                _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
+            }
+            else
+            {
+                _sm.bubbleParent.bubble2 = _sm.bubbleParent.bubble3;
+                _sm.bubbleParent.bubble3 = null;
+            }
+
+            _sm.bubbleParent.SetBubbles();
+
         }
 
         public override void UpdateLogic()
         {
             //인풋 처리
-            if (Input.GetMouseButtonUp(0) && target == null && bubble != null)
+            if (Input.GetMouseButtonUp(0) && target == null && _sm.bubbleParent.bubble1 != null)
             {
                 _sm.rayCaster.GetSlotByRay(out target, out waypoints);
                 //Debug.Log("Ray!");
@@ -54,7 +73,7 @@ namespace FSM
                     //if (target.bubble != null)
                     //{ Debug.Log("error!"); }
 
-                    bubble.SetSlot(target);
+                    _sm.bubbleParent.bubble1.SetSlot(target);
 
 
                     ///////////
@@ -84,7 +103,7 @@ namespace FSM
             //버블 이동
             if (target != null)
             {
-                Transform tr = bubble.transform;
+                Transform tr = bubbleNow.transform;
                 if(waypoints.Count != 0)
                 {
                     if (Vector3.Distance(waypoints[0], tr.position) > 0.1)
@@ -99,7 +118,8 @@ namespace FSM
                 }
                 else
                 {
-                    bubble.FitToSlot();
+                    bubbleNow.FitToSlot();
+                    bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
                     _sm.ChangeState(_sm.bubblePop);
                 }
             }
@@ -107,7 +127,7 @@ namespace FSM
 
         public override void Exit()
         {
-            bubble = null;
+            bubbleNow = null;
             target = null;
             waypoints = null;
         }
@@ -126,7 +146,7 @@ namespace FSM
         {
             //터트림 확인 후 터트린다
             _sm.bubblesToPop.bubbles = new List<Bubble>();
-            _sm.bubbleParent.bubbleNow.GetComponent<BubbleBehaviour>().OnSetToSlot();
+            _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
             _sm.StartCoroutine(PopCoroutine());
         }
 
@@ -181,7 +201,7 @@ namespace FSM
         {
             foreach(Bubble b in _sm.bubbleParent.GetBubblesInGrid())
             {
-                if (b != _sm.bubbleParent.bubbleNow)
+                if (b != _sm.bubbleParent.bubble1)
                 {
                     b.GetComponent<BubbleBehaviour>().OnExitTurn();
                 }

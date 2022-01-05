@@ -34,7 +34,7 @@ public class RayCaster : MonoBehaviour
         waypoints = new List<Vector3>();
         RaycastHit2D[] hits = Physics2D.CircleCastAll(fireTR.position, rayRadius, direction, 50, layerMask);
 
-        RaycastHit2D remove = hits.ToList().Find(h => h.collider.gameObject == bubbleParent.bubbleNow.gameObject);
+        RaycastHit2D remove = hits.ToList().Find(h => h.collider.gameObject == bubbleParent.bubble1.gameObject);
         if(remove.collider != null)
         {
             List<RaycastHit2D> removed = hits.ToList();
@@ -64,16 +64,19 @@ public class RayCaster : MonoBehaviour
 
                 ///
                 var result2 = from h in hits
-                             select h.collider;
+                              select h.collider;
                 colls2 = result2.ToList();
 
                 hit = hits[1];
                 coll = hit.collider;
             }
 
-            Direction direction =  GetSlotDirectionByHit(hit);
-            target = coll.GetComponent<Bubble>().slot.GetPairByDir(direction).slot;
-            waypoints.Add(hit.centroid);
+            if (coll.transform.parent == bubbleParent.transform)
+            {
+                Direction direction = GetSlotDirectionByHit(hit);
+                target = coll.GetComponent<Bubble>().slot.GetPairByDir(direction).slot;
+                waypoints.Add(hit.centroid);
+            }
         }
     }
 
