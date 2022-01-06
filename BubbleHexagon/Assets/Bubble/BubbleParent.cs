@@ -13,23 +13,28 @@ public class BubbleParent : MonoBehaviour
     public Transform nextTR;
     public float bubbleSpeed;
 
-    //public void SetBubbleNow(Bubble b)
-    //{
-    //    bubble1 = b;
-    //    b.transform.SetPositionAndRotation(fireTR.position, Quaternion.identity);
-    //}
-
     public void SetBubbles()
     {
+        bubble1.gameObject.SetActive(true);
+        bubble2.gameObject.SetActive(true);
+        if (bubble3 != null)
+        {
+            bubble3.gameObject.SetActive(false);
+        }
         bubble1.transform.SetPositionAndRotation(fireTR.position, Quaternion.identity);
         bubble2.transform.SetPositionAndRotation(nextTR.position, Quaternion.identity);
         bubble1.transform.SetParent(fireTR);
         bubble2.transform.SetParent(nextTR);
     }
 
-    public void ResetBubble()
+    public void ApplyItemBubble(Bubble itemBubble)
     {
-        bubble1 = null;
+        bubble3 = bubble2;
+        bubble2 = bubble1;
+        bubble1 = itemBubble;
+        
+        SetBubbles();
+        
     }
 
     public List<Bubble> GetBubblesInGrid()

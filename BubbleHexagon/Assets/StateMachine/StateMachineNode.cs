@@ -62,6 +62,7 @@ namespace FSM
 
         public override void UpdateLogic()
         {
+            bubbleNow = _sm.bubbleParent.bubble1;
             //¿Œ«≤ √≥∏Æ
             if (Input.GetMouseButtonUp(0) && target == null && _sm.bubbleParent.bubble1 != null)
             {
