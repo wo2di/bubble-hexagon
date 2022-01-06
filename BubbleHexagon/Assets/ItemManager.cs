@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public int fullCount;
     public BubbleParent bubbleParent;
     public ItemSlot[] itemSlots;
 
@@ -51,9 +50,9 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    [ContextMenu("Add 3 point")]
+    [ContextMenu("Add one item")]
     public void TestAddPoint()
     {
-        AddPoint(3);
+        AddPoint(itemSlots[0].maxPoint);
     }
 }

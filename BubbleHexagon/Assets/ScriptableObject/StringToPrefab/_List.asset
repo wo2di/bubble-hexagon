@@ -29,3 +29,5 @@ MonoBehaviour:
     prefab: {fileID: 8125501510210755529, guid: 8645bed151d29454d8013dffc9fa30e8, type: 3}
   - bubbleName: zombie
     prefab: {fileID: 7509793116834305620, guid: fab8d8434a9266a4daf0877a8b97bc93, type: 3}
+  - bubbleName: bomb
+    prefab: {fileID: 4043780185883393664, guid: f6171c800f10d474eb209768550176d3, type: 3}

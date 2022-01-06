@@ -1713,7 +1713,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorTheme: {fileID: 11400000, guid: 197d4c3c35e84a942b95fb7fb70b3d98, type: 2}
-  config: {fileID: 11400000, guid: 0f8430b453d6325499d3359e7b8201ff, type: 2}
+  shootConfig: {fileID: 11400000, guid: 983c53e595b041b49b538e9c2a771f3f, type: 2}
+  shootConfigEmpty: {fileID: 11400000, guid: ea98fe44429d5de43b87f38972a8afd0, type: 2}
+  itemConfig: {fileID: 11400000, guid: 78d5a92f2e8997046bac542c15569836, type: 2}
   bubbleParent: {fileID: 1986091205}
   bubbleList: {fileID: 11400000, guid: d8b9472631753e34f85fa8b39b5bad5b, type: 2}
 --- !u!4 &134929148
@@ -3288,7 +3290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d6277f71ed64a45981786406e1dcf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullCount: 10
   bubbleParent: {fileID: 1986091205}
   itemSlots:
   - {fileID: 707884268}
@@ -15721,6 +15722,7 @@ MonoBehaviour:
   bubblesToDrop: {fileID: 11400000, guid: 999b5f05ecdecde45afdef2969841a1b, type: 2}
   rotateGame: {fileID: 1947335213}
   gridParent: {fileID: 148235796}
+  itemManager: {fileID: 273310261}
 --- !u!4 &1739450913
 Transform:
   m_ObjectHideFlags: 0

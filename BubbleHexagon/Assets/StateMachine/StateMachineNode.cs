@@ -37,7 +37,14 @@ namespace FSM
         {
             if (_sm.bubbleParent.bubble2 == null)
             {
-                bubbleNow = _sm.bubbleFactory.SpawnRandomBubble();
+                if (_sm.bubbleParent.GetBubblesInGrid().Count == 1)
+                {
+                    bubbleNow = _sm.bubbleFactory.SpawnRandomBubbleWhenEmpty();
+                }
+                else
+                {
+                    bubbleNow = _sm.bubbleFactory.SpawnRandomBubble();
+                }
                 _sm.bubbleParent.bubble1 = bubbleNow;
             }
             else
@@ -176,6 +183,7 @@ namespace FSM
             //떨어트림을 확인하여 떨어트린다
             _sm.rootBubble.GetBubblesToDrop();
             _sm.StartCoroutine(DropCoroutine());
+            _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count);
         }
 
         public IEnumerator DropCoroutine()

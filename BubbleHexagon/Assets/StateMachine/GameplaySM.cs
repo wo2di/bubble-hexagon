@@ -12,6 +12,7 @@ public class GameplaySM : StateMachine
     public BubbleListSO bubblesToDrop;
     public RotateGame rotateGame;
     public GridParent gridParent;
+    public ItemManager itemManager;
 
     public Standby standby;
     public BubblePop bubblePop;

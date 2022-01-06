@@ -27,7 +27,7 @@ public class ItemSlot : MonoBehaviour
         SetFillScale();
         if (point >= maxPoint)
         {
-            itemBubble = FindObjectOfType<BubbleFactory>().SpawnRandomBubble();
+            itemBubble = FindObjectOfType<BubbleFactory>().SpawnItemBubble();
             SetBubbleTransform();
         }
     }

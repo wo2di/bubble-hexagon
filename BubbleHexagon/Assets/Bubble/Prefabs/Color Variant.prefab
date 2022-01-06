@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4115569275440684331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2374844022695518424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8741de8fe18c184da2a954ecacddc88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
-  color: 0
-  colorSprite: {fileID: 8797672163750185918}
-  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
 --- !u!1001 &1798933629594554059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,6 +72,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4035854825647582738, guid: 4ac302109bec68f4ead7eb3508730747, type: 3}
   m_PrefabInstance: {fileID: 1798933629594554059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4115569275440684331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374844022695518424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8741de8fe18c184da2a954ecacddc88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubble: {fileID: 0}
+  color: 0
+  colorSprite: {fileID: 8797672163750185918}
+  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
 --- !u!1001 &1964827908710810885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,8 +157,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 908174516655658410, guid: b0f0fd44c5b7eb24d857f7e000f684c3, type: 3}
+--- !u!1 &7909444656173141248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8540943173960370181, guid: b0f0fd44c5b7eb24d857f7e000f684c3, type: 3}
+  m_PrefabInstance: {fileID: 1964827908710810885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &8797672163750185918 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: -2210171572544123205, guid: b0f0fd44c5b7eb24d857f7e000f684c3, type: 3}
   m_PrefabInstance: {fileID: 1964827908710810885}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &2081632432202431413
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909444656173141248}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2

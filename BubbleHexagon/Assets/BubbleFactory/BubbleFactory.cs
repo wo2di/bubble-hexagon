@@ -6,7 +6,9 @@ using BT;
 public class BubbleFactory : MonoBehaviour
 {
     public ColorTheme colorTheme;
-    public ProgressConfiguration config;
+    public ProgressConfiguration shootConfig;
+    public ProgressConfiguration shootConfigEmpty;
+    public ProgressConfiguration itemConfig;
     public BubbleParent bubbleParent;
     public BubblesToPrefabsSO bubbleList;
 
@@ -39,15 +41,27 @@ public class BubbleFactory : MonoBehaviour
         }
     }
 
+    public Bubble SpawnRandomBubbleWhenEmpty()
+    {
+        Bubble b = SpawnBubble(shootConfigEmpty.GetBubbleByProbability());
+        return b;
+    }
+
     public Bubble SpawnRandomBubble()
     {
-        Bubble b = SpawnBubble(config.GetBubbleByProbability());
+        Bubble b = SpawnBubble(shootConfig.GetBubbleByProbability());
+        return b;
+    }
+
+    public Bubble SpawnItemBubble()
+    {
+        Bubble b = SpawnBubble(itemConfig.GetBubbleByProbability());
         return b;
     }
 
     public ColorEnumValuePair GetRandomColor()
     {
-        return colorTheme.colors[Random.Range(0, config.colorIndex)];
+        return colorTheme.colors[Random.Range(0, shootConfig.colorIndex)];
     }
 
     public List<ColorEnumValuePair> GetRandomColors(int num)
