@@ -155,6 +155,8 @@ namespace FSM
             //터트림 확인 후 터트린다
             _sm.bubblesToPop.bubbles = new List<Bubble>();
             _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
+
+            _sm.itemManager.AddPoint(_sm.bubblesToPop.bubbles.Count);
             _sm.StartCoroutine(PopCoroutine());
         }
 
@@ -182,8 +184,9 @@ namespace FSM
         {
             //떨어트림을 확인하여 떨어트린다
             _sm.rootBubble.GetBubblesToDrop();
+
+            _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count * 2);
             _sm.StartCoroutine(DropCoroutine());
-            _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count);
         }
 
         public IEnumerator DropCoroutine()
