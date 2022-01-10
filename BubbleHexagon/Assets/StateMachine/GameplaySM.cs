@@ -19,6 +19,7 @@ public class GameplaySM : StateMachine
     public BubbleDrop bubbleDrop;
     public ExitTurn exitTurn;
     public RotateGrid rotateGrid;
+    public Statistics statistics;
 
     private void Awake()
     {

@@ -138,6 +138,8 @@ namespace FSM
             bubbleNow = null;
             target = null;
             waypoints = null;
+
+            _sm.statistics.shootCnt.value++;
         }
     }
     
@@ -196,7 +198,9 @@ namespace FSM
                 b.GetComponent<BubbleBehaviour>().OnDrop();
                 yield return new WaitForSeconds(0.1f);
             }
-            _sm.ChangeState(_sm.exitTurn);
+            //_sm.ChangeState(_sm.exitTurn);
+            _sm.ChangeState(_sm.rotateGrid);
+
         }
     }
 
@@ -213,13 +217,17 @@ namespace FSM
         {
             foreach(Bubble b in _sm.bubbleParent.GetBubblesInGrid())
             {
-                if (b != _sm.bubbleParent.bubble1)
-                {
-                    b.GetComponent<BubbleBehaviour>().OnExitTurn();
-                }
+                //if (b != _sm.bubbleParent.bubble1)
+                //{
+                //    b.GetComponent<BubbleBehaviour>().OnExitTurn();
+                //}
+                
+                b.GetComponent<BubbleBehaviour>().OnExitTurn();
+
             }
 
-            _sm.ChangeState(_sm.rotateGrid);
+            //_sm.ChangeState(_sm.rotateGrid);
+            _sm.ChangeState(_sm.standby);
         }
 
         public override void UpdateLogic()
@@ -269,7 +277,8 @@ namespace FSM
             }
             tr.rotation = after;
 
-            _sm.ChangeState(_sm.standby);
+            //_sm.ChangeState(_sm.standby);
+            _sm.ChangeState(_sm.exitTurn);
         }
     }
 }
