@@ -20,6 +20,7 @@ public class GameplaySM : StateMachine
     public ExitTurn exitTurn;
     public RotateGrid rotateGrid;
     public Statistics statistics;
+    public LevelManager levelManager;
 
     private void Awake()
     {

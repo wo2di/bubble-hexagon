@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemBubble: {fileID: 0}
   point: 0
-  maxPoint: 30
+  maxPoint: 50
   fill: {fileID: 5256358691670632325}
 --- !u!1 &5256358691670632326
 GameObject:

@@ -35,6 +35,8 @@ namespace FSM
 
         public override void Enter()
         {
+            _sm.levelManager.CheckShootCount();
+
             if (_sm.bubbleParent.bubble2 == null)
             {
                 if (_sm.bubbleParent.GetBubblesInGrid().Count == 1)

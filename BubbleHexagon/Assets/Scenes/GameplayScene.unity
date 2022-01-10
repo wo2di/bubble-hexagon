@@ -2489,6 +2489,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1626996627406936084, guid: 02264f3af33e2624a81e2d1ee8ba923b, type: 3}
   m_PrefabInstance: {fileID: 168561140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &178825178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178825180}
+  - component: {fileID: 178825179}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &178825179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178825178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c202e7326ba7e4d99634e4c5275a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  shootCnt: {fileID: 11400000, guid: 559fbf06d2ab29746a25de36209a0494, type: 2}
+  shootConfigsEasy:
+  - {fileID: 11400000, guid: 729382eacdabd8646a78263536864601, type: 2}
+  - {fileID: 11400000, guid: 40d8a3cb42e10c047adb063695370da0, type: 2}
+  - {fileID: 11400000, guid: a1d1e7da8dddc054ab37e968bc4788ad, type: 2}
+  - {fileID: 11400000, guid: 07029b133d9ce9b43968290b07ada40a, type: 2}
+  - {fileID: 11400000, guid: 5e3ccaf026894474882d999bcfcc480a, type: 2}
+  - {fileID: 11400000, guid: 22e08eddeb793a644ab6bada8c82d388, type: 2}
+  shootConfigsEmptyEasy:
+  - {fileID: 11400000, guid: 54b24a833e15f9d459a1424287fa14fb, type: 2}
+  - {fileID: 11400000, guid: ec9dd2f1740b1e041a673dbea419c35c, type: 2}
+  - {fileID: 11400000, guid: 1cb796cdc705ead4da003dc36c3d3ca5, type: 2}
+  - {fileID: 11400000, guid: 7720eb23f573c7b409659e3082a623ae, type: 2}
+  - {fileID: 11400000, guid: 4f4cc6706477d10498b05d402eaa7335, type: 2}
+  - {fileID: 11400000, guid: 5e3375d8809fe4d40bd16a45fc80b785, type: 2}
+  shootConfigsHard:
+  - {fileID: 11400000, guid: b769db5bd8c94fb4a98afe571b0c6a15, type: 2}
+  - {fileID: 11400000, guid: 27873ef00ff8c9846a16f9475d94456a, type: 2}
+  - {fileID: 11400000, guid: 9af0898ddf4257846b45a03acf137d6a, type: 2}
+  - {fileID: 11400000, guid: 73b51c95ed8fe7643a2e7a4874ba5691, type: 2}
+  - {fileID: 11400000, guid: 85c2fbf864b23134093f5efc9804155d, type: 2}
+  - {fileID: 11400000, guid: 274fb88cd1ae1b54596b9cb48bb2e8ac, type: 2}
+  shootConfigsEmptyHard:
+  - {fileID: 11400000, guid: d905d191a3665bf41a44728a491e140f, type: 2}
+  - {fileID: 11400000, guid: 4142e4b5a5e1e754889d4e3620c5ddf2, type: 2}
+  - {fileID: 11400000, guid: e5890aa8a08ca3b4ebe08a898b82775a, type: 2}
+  - {fileID: 11400000, guid: ceb3676e92e0df74a874c89ab82b611a, type: 2}
+  - {fileID: 11400000, guid: 813715c886ab1e740a55861a5b44716a, type: 2}
+  - {fileID: 11400000, guid: bc25dd822ec8d374a9e5785e28b956e8, type: 2}
+  bubbleFactory: {fileID: 134929147}
+--- !u!4 &178825180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178825178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &188052243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15649,6 +15723,7 @@ MonoBehaviour:
   gridParent: {fileID: 148235796}
   itemManager: {fileID: 273310261}
   statistics: {fileID: 1620814844}
+  levelManager: {fileID: 178825179}
 --- !u!4 &1739450913
 Transform:
   m_ObjectHideFlags: 0
