@@ -22,7 +22,8 @@ public class BubbleBHRandom : BubbleBehaviour
                     behavChange.SetColor(factory.GetRandomColors(2));
                     break;
                 case BubbleBHColor behavColor:
-                    behavColor.SetColor(factory.GetRandomColor());
+                    //behavColor.SetColor(factory.GetRandomColor());
+                    behavColor.ChangeToNewColor();
                     break;
             }
         }

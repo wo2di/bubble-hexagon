@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c202e7326ba7e4d99634e4c5275a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 1
+  difficulty: 0
   shootCnt: {fileID: 11400000, guid: 559fbf06d2ab29746a25de36209a0494, type: 2}
   shootConfigsEasy:
   - {fileID: 11400000, guid: 729382eacdabd8646a78263536864601, type: 2}

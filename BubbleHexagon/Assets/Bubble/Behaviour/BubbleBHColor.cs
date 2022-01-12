@@ -7,19 +7,48 @@ using System.Linq;
 public class BubbleBHColor : BubbleBehaviour
 {
     public BubbleColor color;
+    public Color colorValue;
     public SpriteRenderer colorSprite;
 
     //public List<Bubble> bsToPop;
     public BubbleListSO bubblesToPop;
 
+    public Animator changeColorAnim;
+    public BubbleFactory factory;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        factory = FindObjectOfType<BubbleFactory>();
+    }
+
+
     public virtual void SetColor(ColorEnumValuePair p)
     {
         color = p.colorEnum;
+        colorValue = p.colorValue;
+        ApplyColor();
+    }
+
+    [ContextMenu("change color")]
+    public void ChangeToNewColor()
+    {
+        changeColorAnim.Play("change");
+
+        ColorEnumValuePair newColor = factory.GetRandomColor();
+        color = newColor.colorEnum;
+        colorValue = newColor.colorValue;
+    }
+
+    public void ApplyColor()
+    {
         if (colorSprite != null)
         {
-            colorSprite.color = p.colorValue;
+            colorSprite.color = colorValue;
         }
     }
+
+
 
     public override void OnSetToSlot()
     {
