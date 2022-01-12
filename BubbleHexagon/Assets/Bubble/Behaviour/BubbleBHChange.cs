@@ -6,32 +6,35 @@ using System;
 public class BubbleBHChange : BubbleBHColor
 {
     public BubbleColor[] colors;
-    public SpriteRenderer[] bigSprites;
-    public SpriteRenderer[] smallSprites;
-    public int index;
+    public SpriteRenderer[] Sprites;
+    public int nextColorIndex;
 
     public void SetColor(List<ColorEnumValuePair> colors)
     {
         for(int i = 0; i<colors.Count; i++)
         {
             this.colors[i] = colors[i].colorEnum;
-            bigSprites[i].color = colors[i].colorValue;
-            smallSprites[i].color = colors[i].colorValue;
+            Sprites[i].color = colors[i].colorValue;
         }
-        ChangeColor();
+
+        color = this.colors[nextColorIndex];
+        UpdateIndex();
     }
 
+    [ContextMenu("change color")]
     public void ChangeColor()
     {
-        color = colors[index];
-        for(int i = 0; i < colors.Length; i++)
-        {
-            bigSprites[i].gameObject.SetActive(false);
-            smallSprites[i].gameObject.SetActive(true);
-        }
-        bigSprites[index].gameObject.SetActive(true);
-        smallSprites[index].gameObject.SetActive(false);
-        index = (index + 1) % colors.Length;
+        color = colors[nextColorIndex];
+
+        Sprites[(nextColorIndex + 1) % colors.Length].GetComponent<Animator>().Play("shrink");
+        Sprites[nextColorIndex].GetComponent<Animator>().Play("grow");
+
+        UpdateIndex();
+    }
+
+    public void UpdateIndex()
+    {
+        nextColorIndex = (nextColorIndex + 1) % colors.Length;
     }
 
     public override void OnExitTurn()

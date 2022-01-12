@@ -118,7 +118,7 @@ public class SaveAndLoad : MonoBehaviour
             switch(b.GetComponent<BubbleBehaviour>())
             {
                 case BubbleBHChange change:
-                    data.ChangeList.Add(new ChangeBubbleSD(change.GetSlotIndex(), change.color, change.colors[change.index % 2], change.colors[(change.index + 1) % 2]));
+                    data.ChangeList.Add(new ChangeBubbleSD(change.GetSlotIndex(), change.color, change.colors[change.nextColorIndex % 2], change.colors[(change.nextColorIndex + 1) % 2]));
                     break;
                 case BubbleBHLock lockB:
                     data.LockList.Add(new LockBubbleSD(lockB.GetSlotIndex(), lockB.color, lockB.hasLock));
