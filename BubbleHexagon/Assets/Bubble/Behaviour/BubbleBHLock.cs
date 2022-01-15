@@ -10,10 +10,27 @@ public class BubbleBHLock : BubbleBHColor
 
     public GameObject baby;
 
-    public override void SetColor(ColorEnumValuePair p)
+    public override void InitializeColor(ColorEnumValuePair p)
     {
-        base.SetColor(p);
-        colorSprite_s.color = p.colorValue;
+        color = p.colorEnum;
+        colorValue = p.colorValue;
+
+        ApplyColor();
+    }
+
+    public override void ApplyColor()
+    {
+        colorSprite.color = colorValue;
+        colorSprite_s.color = colorValue;
+    }
+
+    public override void ChangeToNewColor()
+    {
+        changeColorAnim.Play("change");
+
+        ColorEnumValuePair newColor = factory.GetRandomColor();
+        color = newColor.colorEnum;
+        colorValue = newColor.colorValue;
     }
 
     public override void OnPop()

@@ -18,11 +18,7 @@ public class BubbleBHRandom : BubbleBehaviour
         {
             switch (b.GetComponent<BubbleBehaviour>())
             {
-                case BubbleBHChange behavChange:
-                    behavChange.SetColor(factory.GetRandomColors(2));
-                    break;
                 case BubbleBHColor behavColor:
-                    //behavColor.SetColor(factory.GetRandomColor());
                     behavColor.ChangeToNewColor();
                     break;
             }

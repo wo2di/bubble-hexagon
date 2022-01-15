@@ -6,8 +6,9 @@ using System.Linq;
 
 public class BubbleBHRainbow : BubbleBHColor
 {
-    public override void SetColor(ColorEnumValuePair p) { }
-
+    public override void InitializeColor(ColorEnumValuePair p) { }
+    public override void ApplyColor() { }
+    public override void ChangeToNewColor() { }
     public override void OnSetToSlot()
     {
         List<Bubble> bsToPop = new List<Bubble>();

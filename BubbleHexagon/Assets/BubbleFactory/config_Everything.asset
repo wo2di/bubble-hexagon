@@ -15,9 +15,9 @@ MonoBehaviour:
   colorIndex: 6
   bubbleProbabilities:
   - bubble: color
-    probability: 1
-  - bubble: change
     probability: 0
+  - bubble: change
+    probability: 1
   - bubble: lock
     probability: 0
   - bubble: brick

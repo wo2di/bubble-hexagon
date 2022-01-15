@@ -27,12 +27,12 @@ public class BubbleFactory : MonoBehaviour
         switch (bname)
         {
             case "change":
-                b.GetComponent<BubbleBHChange>().SetColor(GetRandomColors(2));
+                b.GetComponent<BubbleBHChange>().InitializeColors(GetRandomColors(2));
                 break;
             case "color":
             case "lock":
             case "zombie":
-                b.GetComponent<BubbleBHColor>().SetColor(GetRandomColor());
+                b.GetComponent<BubbleBHColor>().InitializeColor(GetRandomColor());
                 break;
             case "rainbow":
             case "brick":

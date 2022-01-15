@@ -23,24 +23,14 @@ public class BubbleBHColor : BubbleBehaviour
     }
 
 
-    public virtual void SetColor(ColorEnumValuePair p)
+    public virtual void InitializeColor(ColorEnumValuePair p)
     {
         color = p.colorEnum;
         colorValue = p.colorValue;
         ApplyColor();
     }
-
-    [ContextMenu("change color")]
-    public void ChangeToNewColor()
-    {
-        changeColorAnim.Play("change");
-
-        ColorEnumValuePair newColor = factory.GetRandomColor();
-        color = newColor.colorEnum;
-        colorValue = newColor.colorValue;
-    }
-
-    public void ApplyColor()
+    
+    public virtual void ApplyColor()
     {
         if (colorSprite != null)
         {
@@ -48,7 +38,15 @@ public class BubbleBHColor : BubbleBehaviour
         }
     }
 
+    [ContextMenu("change color")]
+    public virtual void ChangeToNewColor()
+    {
+        changeColorAnim.Play("change");
 
+        ColorEnumValuePair newColor = factory.GetRandomColor();
+        color = newColor.colorEnum;
+        colorValue = newColor.colorValue;
+    }
 
     public override void OnSetToSlot()
     {

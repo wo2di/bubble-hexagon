@@ -150,7 +150,7 @@ public class SaveAndLoad : MonoBehaviour
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
-            b.GetComponent<BubbleBHColor>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHColor>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
         }
         foreach(BrickBubbleSD sd in data.BrickList)
         {
@@ -164,8 +164,8 @@ public class SaveAndLoad : MonoBehaviour
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
-            b.GetComponent<BubbleBHChange>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
-            b.GetComponent<BubbleBHChange>().SetColor(new List<ColorEnumValuePair> { bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color1), bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color2) });
+            b.GetComponent<BubbleBHChange>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHChange>().InitializeColors(new List<ColorEnumValuePair> { bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color1), bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color2) });
         }
         foreach (LockBubbleSD sd in data.LockList)
         {
@@ -174,7 +174,7 @@ public class SaveAndLoad : MonoBehaviour
             b.FitToSlot();
 
             b.GetComponent<BubbleBHLock>().hasLock = sd.hasLock;
-            b.GetComponent<BubbleBHLock>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHLock>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
         }
         foreach (RainbowBubbleSD sd in data.RainbowList)
         {
@@ -188,7 +188,7 @@ public class SaveAndLoad : MonoBehaviour
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
-            b.GetComponent<BubbleBHZombie>().SetColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHZombie>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
         }
         foreach (SpreadBubbleSD sd in data.SpreadList)
         {
