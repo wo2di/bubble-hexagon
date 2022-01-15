@@ -12,13 +12,11 @@ public class BubbleFactory : MonoBehaviour
     public BubbleParent bubbleParent;
     public BubblesToPrefabsSO bubbleList;
 
+
     public Bubble SpawnBubble(string bname)
     {
         Bubble obj = Instantiate(bubbleList.GetPrefabByName(bname)).GetComponent<Bubble>();
-        obj.transform.SetParent(bubbleParent.transform);
-
         InitializeBubble(obj, bname);
-
         return obj;
     }
 
@@ -39,6 +37,14 @@ public class BubbleFactory : MonoBehaviour
             case "spread":
                 break;
         }
+    }
+
+    public Bubble SpawnBubbleInGrid(string bname)
+    {
+        Bubble obj = SpawnBubble(bname);
+        obj.transform.SetParent(bubbleParent.transform);
+
+        return obj;
     }
 
     public Bubble SpawnRandomBubbleWhenEmpty()

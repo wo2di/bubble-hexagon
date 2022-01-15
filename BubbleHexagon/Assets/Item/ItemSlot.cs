@@ -54,8 +54,9 @@ public class ItemSlot : MonoBehaviour
 
     public void SetBubbleTransform()
     {
-        itemBubble.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        itemBubble.transform.SetParent(transform);
+        itemBubble.transform.localPosition = Vector3.zero;
+        //itemBubble.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+        itemBubble.transform.SetParent(transform, false);
     }
 
 }

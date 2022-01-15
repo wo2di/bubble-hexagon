@@ -146,7 +146,7 @@ public class SaveAndLoad : MonoBehaviour
     {
         foreach(ColorBubbleSD sd in data.ColorList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("color");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("color");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
@@ -154,13 +154,13 @@ public class SaveAndLoad : MonoBehaviour
         }
         foreach(BrickBubbleSD sd in data.BrickList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("brick");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("brick");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
         }
         foreach (ChangeBubbleSD sd in data.ChangeList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("change");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("change");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
@@ -169,7 +169,7 @@ public class SaveAndLoad : MonoBehaviour
         }
         foreach (LockBubbleSD sd in data.LockList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("lock");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("lock");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
@@ -178,13 +178,13 @@ public class SaveAndLoad : MonoBehaviour
         }
         foreach (RainbowBubbleSD sd in data.RainbowList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("rainbow");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("rainbow");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
         }
         foreach (ZombieBubbleSD sd in data.ZombieList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("zombie");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("zombie");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
@@ -192,7 +192,7 @@ public class SaveAndLoad : MonoBehaviour
         }
         foreach (SpreadBubbleSD sd in data.SpreadList)
         {
-            Bubble b = bubbleFactory.SpawnBubble("spread");
+            Bubble b = bubbleFactory.SpawnBubbleInGrid("spread");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 

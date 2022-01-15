@@ -41,7 +41,7 @@ public class BubbleBHSpread : BubbleBehaviour
                     bubble.SetSlot(targetSlot);
                     bubble.FitToSlot();
 
-                    Bubble brick = factory.SpawnBubble("brick");
+                    Bubble brick = factory.SpawnBubbleInGrid("brick");
                     brick.SetSlot(currentSlot);
                     brick.FitToSlot();
                 }
@@ -49,7 +49,7 @@ public class BubbleBHSpread : BubbleBehaviour
                 {
                     Slot currentSlot = bubble.slot;
                     bubble.Delete();
-                    Bubble brick = factory.SpawnBubble("brick");
+                    Bubble brick = factory.SpawnBubbleInGrid("brick");
                     brick.SetSlot(currentSlot);
                     brick.FitToSlot();
                 }

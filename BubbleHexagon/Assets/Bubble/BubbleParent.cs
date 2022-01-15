@@ -21,10 +21,11 @@ public class BubbleParent : MonoBehaviour
         {
             bubble3.gameObject.SetActive(false);
         }
-        bubble1.transform.SetPositionAndRotation(fireTR.position, Quaternion.identity);
-        bubble2.transform.SetPositionAndRotation(nextTR.position, Quaternion.identity);
-        bubble1.transform.SetParent(fireTR);
-        bubble2.transform.SetParent(nextTR);
+
+        bubble1.transform.localPosition = Vector3.zero;
+        bubble2.transform.localPosition = Vector3.zero;
+        bubble1.transform.SetParent(fireTR, false);
+        bubble2.transform.SetParent(nextTR, false);
     }
 
     public void ApplyItemBubble(Bubble itemBubble)

@@ -29,7 +29,6 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    [ContextMenu("Use Item")]
     public void UseItem()
     {
         if (itemSlots[0].HasItem() && bubbleParent.bubble3 == null)
@@ -54,5 +53,10 @@ public class ItemManager : MonoBehaviour
     public void TestAddPoint()
     {
         AddPoint(itemSlots[0].maxPoint);
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        UseItem();
     }
 }
