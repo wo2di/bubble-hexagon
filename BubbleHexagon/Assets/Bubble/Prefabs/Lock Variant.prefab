@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &119658741098538060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4954149254024852301}
+  m_Layer: 0
+  m_Name: mom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4954149254024852301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119658741098538060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7613388131620760199}
+  - {fileID: 1177093327830760707}
+  - {fileID: 4722276521057924508}
+  m_Father: {fileID: 3837022366565205244}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983861674783467176
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +61,7 @@ Transform:
   m_LocalPosition: {x: -0.00090909004, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3837022366565205244}
+  m_Father: {fileID: 4954149254024852301}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5965807770754785133
@@ -110,7 +143,7 @@ Transform:
   m_LocalPosition: {x: -0.00090909004, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3837022366565205244}
+  m_Father: {fileID: 4954149254024852301}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5230770496429063193
@@ -256,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7034737533667329918}
   m_Layer: 0
-  m_Name: Lock
+  m_Name: baby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +310,7 @@ Transform:
   - {fileID: 4565124043803266535}
   - {fileID: 6438310182931959411}
   m_Father: {fileID: 3837022366565205244}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3772108133713795010
 GameObject:
@@ -391,9 +424,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7613388131620760199}
-  - {fileID: 1177093327830760707}
-  - {fileID: 4722276521057924508}
+  - {fileID: 4954149254024852301}
   - {fileID: 7034737533667329918}
   m_Father: {fileID: 2671856577555774940}
   m_RootOrder: 0
@@ -469,7 +500,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3837022366565205244}
+  m_Father: {fileID: 4954149254024852301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1163672111736803045
@@ -690,6 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
+  popEffect: {fileID: 8223096138406081514, guid: eee76aca713138c49ac596cc4c0e4190, type: 3}
   color: 0
   colorValue: {r: 0, g: 0, b: 0, a: 0}
   colorSprite: {fileID: 5965807770754785133}
@@ -699,3 +731,4 @@ MonoBehaviour:
   colorSprite_s: {fileID: 8196811101654579209}
   hasLock: 1
   baby: {fileID: 3743006548896040599}
+  mom: {fileID: 119658741098538060}

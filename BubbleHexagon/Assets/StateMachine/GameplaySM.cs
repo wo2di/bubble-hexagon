@@ -21,6 +21,7 @@ public class GameplaySM : StateMachine
     public RotateGrid rotateGrid;
     public Statistics statistics;
     public LevelManager levelManager;
+    public AudioManager audioManager;
 
     private void Awake()
     {

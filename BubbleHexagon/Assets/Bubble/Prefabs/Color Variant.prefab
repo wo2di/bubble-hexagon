@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
+  popEffect: {fileID: 8223096138406081514, guid: eee76aca713138c49ac596cc4c0e4190, type: 3}
   color: 0
   colorValue: {r: 0, g: 0, b: 0, a: 0}
   colorSprite: {fileID: 8797672163750185918}

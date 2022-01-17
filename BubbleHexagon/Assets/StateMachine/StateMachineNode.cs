@@ -83,6 +83,7 @@ namespace FSM
                     //if (target.bubble != null)
                     //{ Debug.Log("error!"); }
 
+                    _sm.audioManager.PlaySound("bubbleshoot");
                     _sm.bubbleParent.bubble1.SetSlot(target);
 
 
@@ -128,7 +129,10 @@ namespace FSM
                 }
                 else
                 {
-                    bubbleNow.FitToSlot();
+                    //bubbleNow.FitToSlot();
+
+                    _sm.audioManager.PlaySound("bubblecollide");
+                    bubbleNow.StartCoroutine(bubbleNow.TranslateToSlot());
                     bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
                     _sm.ChangeState(_sm.bubblePop);
                 }
@@ -168,6 +172,7 @@ namespace FSM
         {
             foreach(Bubble b in _sm.bubblesToPop.bubbles)
             {
+                _sm.audioManager.PlaySound("bubblepop");
                 b.GetComponent<BubbleBehaviour>().OnPop();
                 yield return new WaitForSeconds(0.1f);
             }

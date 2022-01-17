@@ -9,6 +9,7 @@ public class BubbleBHLock : BubbleBHColor
     public bool hasLock = true;
 
     public GameObject baby;
+    public GameObject mom;
 
     public override void InitializeColor(ColorEnumValuePair p)
     {
@@ -37,7 +38,8 @@ public class BubbleBHLock : BubbleBHColor
     {
         if(hasLock)
         {
-            baby.SetActive(false);
+            //baby.SetActive(false);
+            mom.SetActive(false);
             hasLock = false;
         }
         else

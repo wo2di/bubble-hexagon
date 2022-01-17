@@ -44,6 +44,18 @@ public class Bubble : MonoBehaviour
     }
 
 
+    public IEnumerator TranslateToSlot()
+    {
+        Vector3 to = slot.transform.position;
+        while(Vector3.Distance(transform.position, to) > 0.01)
+        {
+            transform.position = Vector3.Lerp(transform.position, to, 0.3f);
+            yield return null;
+        }
+            transform.position = to;
+
+    }
+
     //public float speed = 20;
     //public bool translated = false;
 
