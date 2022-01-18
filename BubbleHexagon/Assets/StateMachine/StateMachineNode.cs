@@ -202,8 +202,9 @@ namespace FSM
         {
             foreach (Bubble b in _sm.bubblesToDrop.bubbles)
             {
+                b.transform.SetParent(_sm.bubbleDroppedTR);
                 b.GetComponent<BubbleBehaviour>().OnDrop();
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.03f);
             }
             //_sm.ChangeState(_sm.exitTurn);
             _sm.ChangeState(_sm.rotateGrid);

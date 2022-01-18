@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     public BubbleParent bubbleParent;
+    public AudioManager audioManager;
     public ItemSlot[] itemSlots;
 
     public void AddPoint(int i)
@@ -34,6 +35,7 @@ public class ItemManager : MonoBehaviour
         if (itemSlots[0].HasItem() && bubbleParent.bubble3 == null)
         {
             itemSlots[0].UseItem();
+            audioManager.PlaySound("itemuse");
 
             for (int i = 1; i < itemSlots.Length; i++)
             {
@@ -53,6 +55,12 @@ public class ItemManager : MonoBehaviour
     public void TestAddPoint()
     {
         AddPoint(itemSlots[0].maxPoint);
+        //AddPoint(8);
+    }
+
+    public void ItemSpawned()
+    {
+        audioManager.PlaySound("itemspawn");
     }
 
     private void OnMouseUpAsButton()

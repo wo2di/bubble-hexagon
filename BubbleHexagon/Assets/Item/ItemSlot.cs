@@ -13,7 +13,7 @@ public class ItemSlot : MonoBehaviour
 
     public bool HasItem()
     {
-        return point >= maxPoint && itemBubble != null;
+        return point >= maxPoint;
     }
 
     public void UseItem()
@@ -27,9 +27,16 @@ public class ItemSlot : MonoBehaviour
         SetFillScale();
         if (point >= maxPoint)
         {
-            itemBubble = FindObjectOfType<BubbleFactory>().SpawnItemBubble();
-            SetBubbleTransform();
+            GetComponent<Animator>().Play("itemspawn");
+            SendMessageUpwards("ItemSpawned");
+            
         }
+    }
+
+    public void SpawnItem()
+    {
+        itemBubble = FindObjectOfType<BubbleFactory>().SpawnItemBubble();
+        SetBubbleTransform();
     }
 
     public void ApplyChange()

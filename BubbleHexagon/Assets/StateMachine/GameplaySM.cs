@@ -22,7 +22,7 @@ public class GameplaySM : StateMachine
     public Statistics statistics;
     public LevelManager levelManager;
     public AudioManager audioManager;
-
+    public Transform bubbleDroppedTR;
     private void Awake()
     {
         standby = new Standby(this);

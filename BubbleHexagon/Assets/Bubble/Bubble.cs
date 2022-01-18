@@ -39,7 +39,11 @@ public class Bubble : MonoBehaviour
     {
         UnSlot();
         gameObject.layer = 2;
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 3;
+        Vector2 v = new Vector2(Random.value - 0.5f, 1);
+        rb.AddForce(v * 300);
 
     }
 

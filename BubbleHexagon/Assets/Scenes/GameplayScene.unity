@@ -2564,6 +2564,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &180146323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180146324}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &180146324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180146323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.59, y: -6.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &188052243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3367,6 +3397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubbleParent: {fileID: 1986091205}
+  audioManager: {fileID: 1277895616}
   itemSlots:
   - {fileID: 707884268}
   - {fileID: 1182842153}
@@ -11713,6 +11744,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f0ede7e30c85d5499bffb286ecf77c8, type: 2}
   - {fileID: 11400000, guid: c19c256bc928b4245bfc5851a5162c57, type: 2}
   - {fileID: 11400000, guid: 36696e46b7f3d6d4ebda8c84cc9ca991, type: 2}
+  - {fileID: 11400000, guid: 268f1643559396c4587ee31f301ed605, type: 2}
+  - {fileID: 11400000, guid: 1c200ed476ed2be43bb7dcea1223df56, type: 2}
 --- !u!4 &1277895617
 Transform:
   m_ObjectHideFlags: 0
@@ -15814,6 +15847,7 @@ MonoBehaviour:
   statistics: {fileID: 1620814844}
   levelManager: {fileID: 178825179}
   audioManager: {fileID: 1277895616}
+  bubbleDroppedTR: {fileID: 1479582589}
 --- !u!4 &1739450913
 Transform:
   m_ObjectHideFlags: 0
