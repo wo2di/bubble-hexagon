@@ -41,6 +41,7 @@ public class BubbleBHLock : BubbleBHColor
             //baby.SetActive(false);
             mom.SetActive(false);
             hasLock = false;
+            baby.GetComponent<Animator>().Play("grow");
         }
         else
         {

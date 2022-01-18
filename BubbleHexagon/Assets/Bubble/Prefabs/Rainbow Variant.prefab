@@ -82,22 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4139929934995454803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135122279314128334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a58e2565b9be042884ab4ccb6eb652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
-  color: 9
-  colorSprite: {fileID: 0}
-  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
 --- !u!1001 &5253446803904746461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,3 +154,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4035854825647582738, guid: 4ac302109bec68f4ead7eb3508730747, type: 3}
   m_PrefabInstance: {fileID: 5253446803904746461}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4139929934995454803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135122279314128334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a58e2565b9be042884ab4ccb6eb652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubble: {fileID: 0}
+  popEffect: {fileID: 8223096138406081514, guid: eee76aca713138c49ac596cc4c0e4190, type: 3}
+  color: 9
+  colorValue: {r: 0, g: 0, b: 0, a: 0}
+  colorSprite: {fileID: 0}
+  bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
+  changeColorAnim: {fileID: 0}
+  factory: {fileID: 0}
