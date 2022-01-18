@@ -23,6 +23,8 @@ public class GameplaySM : StateMachine
     public LevelManager levelManager;
     public AudioManager audioManager;
     public Transform bubbleDroppedTR;
+    public ScoreManager scoreManager;
+
     private void Awake()
     {
         standby = new Standby(this);

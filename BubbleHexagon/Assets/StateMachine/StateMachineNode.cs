@@ -173,6 +173,7 @@ namespace FSM
             foreach(Bubble b in _sm.bubblesToPop.bubbles)
             {
                 yield return new WaitForSeconds(0.1f);
+                _sm.scoreManager.AddScore(10);
                 _sm.audioManager.PlaySound("bubblepop");
                 b.GetComponent<BubbleBehaviour>().OnPop();
             }
@@ -200,9 +201,15 @@ namespace FSM
 
         public IEnumerator DropCoroutine()
         {
+            int dropCount = _sm.bubblesToDrop.bubbles.Count;
+            if (dropCount > 0)
+            {
+                _sm.audioManager.PlaySound("bubblefall");
+            }
             foreach (Bubble b in _sm.bubblesToDrop.bubbles)
             {
                 b.transform.SetParent(_sm.bubbleDroppedTR);
+                _sm.scoreManager.AddScore(20);
                 b.GetComponent<BubbleBehaviour>().OnDrop();
                 yield return new WaitForSeconds(0.03f);
             }
