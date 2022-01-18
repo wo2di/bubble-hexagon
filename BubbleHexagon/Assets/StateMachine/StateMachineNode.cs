@@ -172,9 +172,9 @@ namespace FSM
         {
             foreach(Bubble b in _sm.bubblesToPop.bubbles)
             {
+                yield return new WaitForSeconds(0.1f);
                 _sm.audioManager.PlaySound("bubblepop");
                 b.GetComponent<BubbleBehaviour>().OnPop();
-                yield return new WaitForSeconds(0.1f);
             }
             _sm.ChangeState(_sm.bubbleDrop);
         }

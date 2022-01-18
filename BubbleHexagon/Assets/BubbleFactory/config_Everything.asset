@@ -17,9 +17,9 @@ MonoBehaviour:
   - bubble: color
     probability: 0
   - bubble: change
-    probability: 0
-  - bubble: lock
     probability: 1
+  - bubble: lock
+    probability: 0
   - bubble: brick
     probability: 0
   - bubble: spread

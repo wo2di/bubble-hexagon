@@ -26,7 +26,7 @@ public class BubbleBehaviour : MonoBehaviour
     {
         if(popEffect !=null)
         {
-            Instantiate(popEffect, bubble.transform.position, Quaternion.identity);
+            Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
         }
         bubble.Pop();
     }

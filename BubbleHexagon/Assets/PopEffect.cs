@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PopEffect : MonoBehaviour
 {
-
     public void EndOfEffect()
     {
         Destroy(gameObject);

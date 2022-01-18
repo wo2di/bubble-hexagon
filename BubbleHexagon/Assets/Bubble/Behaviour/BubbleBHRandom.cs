@@ -14,7 +14,13 @@ public class BubbleBHRandom : BubbleBehaviour
     }
     public override void OnSetToSlot()
     {
-        foreach(Bubble b in bubble.slot.GetAdjacentBubbles())
+        StartCoroutine(ChangeAdjacentColors());
+    }
+
+    public IEnumerator ChangeAdjacentColors()
+    {
+        yield return new WaitForSeconds(0.1f);
+        foreach (Bubble b in bubble.slot.GetAdjacentBubbles())
         {
             switch (b.GetComponent<BubbleBehaviour>())
             {
@@ -23,7 +29,7 @@ public class BubbleBHRandom : BubbleBehaviour
                     break;
             }
         }
-        bubble.Pop();
+        OnPop();
     }
 
 }
