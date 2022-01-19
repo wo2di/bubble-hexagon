@@ -16,6 +16,7 @@ public class BubbleBHSpread : BubbleBehaviour
     public BubbleFactory factory;
 
     public List<Bubble> targets;
+    public Bubble target;
 
     protected override void Awake()
     {
@@ -25,6 +26,9 @@ public class BubbleBHSpread : BubbleBehaviour
 
     public override void OnExitTurn()
     {
+        targets.Clear();
+        target = null;
+
         var result = from b in bubble.slot.GetAdjacentBubbles()
                      where b.GetComponent<BubbleBHBrick>() == null && b.GetComponent<BubbleBHSpread>() == null
                      select b;
@@ -39,14 +43,16 @@ public class BubbleBHSpread : BubbleBehaviour
                 if (Random.value < spreadProbability)
                 {
                     //°¨¿°½ÃÅ²´Ù
-                    Bubble target = targets[Random.Range(0, targets.Count)];
+                    target = targets[Random.Range(0, targets.Count)];
                     Slot targetSlot = target.slot;
                     Slot currentSlot = bubble.slot;
-                    target.Delete();
+                    target.UnSlot();
+                    //target.Delete();
 
                     bubble.UnSlot();
                     bubble.SetSlot(targetSlot);
-                    bubble.FitToSlot();
+                    bubble.GetComponent<Animator>().Play("shrink");
+                    
 
                     Bubble brick = factory.SpawnBubbleInGrid("brick");
                     brick.SetSlot(currentSlot);
@@ -55,7 +61,8 @@ public class BubbleBHSpread : BubbleBehaviour
                 else
                 {
                     Slot currentSlot = bubble.slot;
-                    bubble.Delete();
+                    //bubble.Delete();
+                    bubble.Drop();
                     Bubble brick = factory.SpawnBubbleInGrid("brick");
                     brick.SetSlot(currentSlot);
                     brick.FitToSlot();
@@ -79,6 +86,17 @@ public class BubbleBHSpread : BubbleBehaviour
         }
         sprite.color = colors[count];
         
+    }
+
+    public void EndOfShrink()
+    {
+        bubble.FitToSlot();
+        bubble.GetComponent<Animator>().Play("grow");
+    }
+
+    public void EndOfGrow()
+    {
+        target.Delete();
     }
 
 }

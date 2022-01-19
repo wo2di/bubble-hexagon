@@ -14,8 +14,11 @@ public class Bubble : MonoBehaviour
 
     public void UnSlot()
     {
-        slot.bubble = null;
-        slot = null;
+        if(slot !=null)
+        {
+            slot.bubble = null;
+            slot = null;
+        }
     }
 
     public void FitToSlot()
