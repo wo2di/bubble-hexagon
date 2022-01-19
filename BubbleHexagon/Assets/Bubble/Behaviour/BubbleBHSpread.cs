@@ -10,7 +10,12 @@ public class BubbleBHSpread : BubbleBehaviour
 
     public int count;
 
+    public Color[] colors;
+    public SpriteRenderer sprite;
+
     public BubbleFactory factory;
+
+    public List<Bubble> targets;
 
     protected override void Awake()
     {
@@ -21,12 +26,14 @@ public class BubbleBHSpread : BubbleBehaviour
     public override void OnExitTurn()
     {
         var result = from b in bubble.slot.GetAdjacentBubbles()
-                     where b.slot.level > 1 && b.GetComponent<BubbleBHBrick>() == null && b.GetComponent<BubbleBHSpread>() == null
+                     where b.GetComponent<BubbleBHBrick>() == null && b.GetComponent<BubbleBHSpread>() == null
                      select b;
-        List<Bubble> targets = result.ToList();
-        if(targets.Count > 0)
+        //List<Bubble> targets = result.ToList();
+        targets = result.ToList();
+        if (targets.Count > 0)
         {
             count = (count + 1) % maxCount;
+            StartCoroutine(ChangePhase(count));
             if(count == 0)
             {
                 if (Random.value < spreadProbability)
@@ -59,6 +66,19 @@ public class BubbleBHSpread : BubbleBehaviour
         else
         {
             count = 0;
+            StartCoroutine(ChangePhase(count));
         }
     }
+
+    public IEnumerator ChangePhase(int count)
+    {
+        for(int i = 0; i < 24; i++)
+        {
+            sprite.color = Color.Lerp(sprite.color, colors[count], 0.1f);
+            yield return null;
+        }
+        sprite.color = colors[count];
+        
+    }
+
 }
