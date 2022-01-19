@@ -56,7 +56,8 @@ public class ItemSlot : MonoBehaviour
 
     public void SetFillScale()
     {
-        fill.localScale = new Vector3(1, (float)point / maxPoint, 1);
+        fill.localPosition = new Vector3(fill.localPosition.x, (((float) point / maxPoint) - 1) * 0.8f, fill.localPosition.z);
+        //fill.localScale = new Vector3(1, (float)point / maxPoint, 1);
     }
 
     public void SetBubbleTransform()
