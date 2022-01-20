@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
   popEffect: {fileID: 0}
+  bombEffect: {fileID: 3688154657520342764, guid: 9f25f071def50b6419dd276403599b43, type: 3}

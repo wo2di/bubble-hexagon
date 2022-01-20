@@ -54,8 +54,8 @@ public class ItemManager : MonoBehaviour
     [ContextMenu("Add one item")]
     public void TestAddPoint()
     {
-        //AddPoint(itemSlots[0].maxPoint);
-        AddPoint(8);
+        AddPoint(itemSlots[0].maxPoint);
+        //AddPoint(8);
     }
 
     public void ItemSpawned()

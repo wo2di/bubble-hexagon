@@ -2519,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c202e7326ba7e4d99634e4c5275a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 0
+  difficulty: 1
   shootCnt: {fileID: 11400000, guid: 559fbf06d2ab29746a25de36209a0494, type: 2}
   shootConfigsEasy:
   - {fileID: 11400000, guid: 729382eacdabd8646a78263536864601, type: 2}
@@ -12161,8 +12161,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1547860
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 61c584183c65d0444b30289a3c895466, type: 2}
-  m_sharedMaterial: {fileID: -7427646256956305835, guid: 61c584183c65d0444b30289a3c895466, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
