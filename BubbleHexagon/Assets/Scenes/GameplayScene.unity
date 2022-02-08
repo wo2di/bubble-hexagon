@@ -12159,9 +12159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'bubble
-
-    hexagon'
+  m_text: 123456
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f1dcb381605d326428870baadd392834, type: 2}
   m_sharedMaterial: {fileID: 5595620801559528890, guid: f1dcb381605d326428870baadd392834, type: 2}
