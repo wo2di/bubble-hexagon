@@ -10,7 +10,7 @@ public enum Difficulty
 
 public class LevelManager : MonoBehaviour
 {
-    public Difficulty difficulty;
+    public GameConfigurationSO gameConfig;
 
     public IntegerSO shootCnt;
 
@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
         ProgressConfiguration[] shootConfig;
         ProgressConfiguration[] shootConfigEmpty;
 
-        if (difficulty == Difficulty.Easy)
+        if (gameConfig.difficulty == Difficulty.Easy)
         {
             shootConfig = shootConfigsEasy;
             shootConfigEmpty = shootConfigsEmptyEasy;

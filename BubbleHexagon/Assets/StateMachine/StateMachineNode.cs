@@ -95,13 +95,13 @@ namespace FSM
             }
 
 
-            //////디버그//////
-            //if(Input.GetMouseButton(0) && target == null)
+            ////디버그//////
+            //if (Input.GetMouseButton(0) && target == null)
             //{
             //    Slot testTarget;
             //    List<Vector3> testWaypoints;
             //    _sm.rayCaster.GetSlotByRay(out testTarget, out testWaypoints);
-            //    if(testTarget != null)
+            //    if (testTarget != null)
             //    {
             //        _sm.gridParent.ResetSlotColor();
             //        testTarget.GetComponent<SpriteRenderer>().color = Color.red;

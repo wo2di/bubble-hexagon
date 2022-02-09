@@ -60,10 +60,11 @@ public class RayCaster : MonoBehaviour
             {
                 waypoints.Add(hit.centroid);
 
-                hits = Physics2D.CircleCastAll(hit.point, rayRadius, -hit.point, 50, layerMask);
+                hits = Physics2D.CircleCastAll(hit.centroid, rayRadius, -hit.point, 50, layerMask);
 
                 ///
                 var result2 = from h in hits
+                              //where h.collider.gameObject.GetComponent<Wall>() == null
                               select h.collider;
                 colls2 = result2.ToList();
 
@@ -78,6 +79,13 @@ public class RayCaster : MonoBehaviour
                 waypoints.Add(hit.centroid);
             }
         }
+
+        //debug
+        for(int i = 0; i < waypoints.Count -1; i++)
+        {
+            Debug.DrawLine(waypoints[i], waypoints[i + 1], Color.red, 1f);
+        }
+
     }
 
 
