@@ -16,19 +16,24 @@ public class GameplaySM : StateMachine
 
     public Standby standby;
     public BubblePop bubblePop;
+    public ApplyItem applyItem;
     public BubbleDrop bubbleDrop;
     public ExitTurn exitTurn;
     public RotateGrid rotateGrid;
+
     public Statistics statistics;
     public LevelManager levelManager;
     public AudioManager audioManager;
     public Transform bubbleDroppedTR;
     public ScoreManager scoreManager;
 
+    public bool itemApplied;
+
     private void Awake()
     {
         standby = new Standby(this);
         bubblePop = new BubblePop(this);
+        applyItem = new ApplyItem(this);
         bubbleDrop = new BubbleDrop(this);
         exitTurn = new ExitTurn(this);
         rotateGrid = new RotateGrid(this);
@@ -37,5 +42,10 @@ public class GameplaySM : StateMachine
     protected override State GetInitialState()
     {
         return standby;
+    }
+
+    public void ItemApplied()
+    {
+        itemApplied = true;
     }
 }

@@ -8,6 +8,7 @@ public class BombEffect : MonoBehaviour
 
     public void EndOfEffect()
     {
+        bomb.ItemApplied();
         Destroy(gameObject);
         Destroy(bomb.gameObject);
     }

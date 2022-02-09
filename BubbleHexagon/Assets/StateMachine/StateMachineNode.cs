@@ -134,7 +134,18 @@ namespace FSM
                     _sm.audioManager.PlaySound("bubblecollide");
                     bubbleNow.StartCoroutine(bubbleNow.TranslateToSlot());
                     bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
-                    _sm.ChangeState(_sm.bubblePop);
+
+                    switch (bubbleNow.GetComponent<BubbleBehaviour>())
+                    {
+                        case BubbleBHBomb bhBomb:
+                        case BubbleBHRandom bhRandom:
+                            _sm.ChangeState(_sm.applyItem);
+                            break;
+                        default:
+                            _sm.ChangeState(_sm.bubblePop);
+                            break;
+                    }
+                    
                 }
             }
         }
@@ -178,6 +189,34 @@ namespace FSM
                 b.GetComponent<BubbleBehaviour>().OnPop();
             }
             _sm.ChangeState(_sm.bubbleDrop);
+        }
+    }
+
+    public class ApplyItem : State
+    {
+
+        GameplaySM _sm;
+        public ApplyItem(GameplaySM sm) : base("ApplyItem", sm)
+        {
+            _sm = sm;
+        }
+
+        public override void Enter()
+        {
+            _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
+        }
+
+        public override void UpdateLogic()
+        {
+            if (_sm.itemApplied)
+            {
+                _sm.ChangeState(_sm.bubbleDrop);
+            }
+        }
+
+        public override void Exit()
+        {
+            _sm.itemApplied = false;
         }
     }
 

@@ -6,4 +6,7 @@ using UnityEngine;
 public class GameConfigurationSO : ScriptableObject
 {
     public Difficulty difficulty;
+
+    public bool musicOn;
+    public bool soundOn;
 }
