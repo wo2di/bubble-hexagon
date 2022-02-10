@@ -20,6 +20,8 @@ public class RayCaster : MonoBehaviour
     public List<Collider2D> colls1;
     public List<Collider2D> colls2;
 
+    public BoolSO gamePaused;
+
     public void ClampAndSetDirection()
     {
         Vector3 v = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - fireTR.position).normalized;
@@ -32,6 +34,9 @@ public class RayCaster : MonoBehaviour
         target = null;
         waypoints = new List<Vector3>();
 
+        // 일시정지상태인지 확인
+        if (gamePaused.value) return;
+
         // 클릭한 곳이 영역 내부에 있는지 확인
         RaycastHit2D[] zoneTest = Physics2D.GetRayIntersectionAll(new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward));
         var x = from h in zoneTest
@@ -39,6 +44,7 @@ public class RayCaster : MonoBehaviour
                      select h;
         if (x.Count() == 0) return;
 
+        //direction 값 계산
         ClampAndSetDirection();
 
 

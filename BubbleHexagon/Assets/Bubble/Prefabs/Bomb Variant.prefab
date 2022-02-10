@@ -164,4 +164,4 @@ MonoBehaviour:
   bubble: {fileID: 0}
   popEffect: {fileID: 0}
   bombEffect: {fileID: 3688154657520342764, guid: 9f25f071def50b6419dd276403599b43, type: 3}
-  itemApplied: {fileID: 11400000, guid: 34a90472e6cbbb641aad6061c7ddccf4, type: 2}
+  bombSound: {fileID: 11400000, guid: 52c865288796dc44a89faacaa5fdbf54, type: 2}

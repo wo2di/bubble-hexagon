@@ -4,12 +4,15 @@ using UnityEngine;
 using FSM;
 public class GameplaySM : StateMachine
 {
+    public BubbleListSO bubblesToPop;
+    public BubbleListSO bubblesToDrop;
+    public IntegerSO popCount;
+    public IntegerSO dropCount;
+
     public BubbleFactory bubbleFactory;
     public BubbleParent bubbleParent;
     public RayCaster rayCaster;
-    public BubbleListSO bubblesToPop;
     public BubbleBHRoot rootBubble;
-    public BubbleListSO bubblesToDrop;
     public RotateGame rotateGame;
     public GridParent gridParent;
     public ItemManager itemManager;

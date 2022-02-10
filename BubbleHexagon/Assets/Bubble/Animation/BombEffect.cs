@@ -5,16 +5,16 @@ using UnityEngine;
 public class BombEffect : MonoBehaviour
 {
     public BubbleBHBomb bomb;
-
+    public GameEvent itemApplied;
     public void EndOfEffect()
     {
-        bomb.ItemApplied();
+        itemApplied.Raise();
         Destroy(gameObject);
-        Destroy(bomb.gameObject);
     }
 
     public void BiggestCirle()
     {
         bomb.DestroyAdjacents();
+        Destroy(bomb.gameObject);
     }
 }

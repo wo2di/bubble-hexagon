@@ -18,6 +18,8 @@ public class GameplayMenuUI : MonoBehaviour
     public Sprite collapse;
     public Sprite title;
 
+    public BoolSO gamePaused;
+
 
     private void Start()
     {
@@ -49,15 +51,18 @@ public class GameplayMenuUI : MonoBehaviour
         if (!isExpanded)
         {
             Expand();
+            gamePaused.value = true;
         }
         else
         {
             Collapse();
+            gamePaused.value = false;
         }
     }
 
     public void GoToTitle()
     {
+        gamePaused.value = false;
         SceneManager.LoadScene("TitleScene");
     }
 

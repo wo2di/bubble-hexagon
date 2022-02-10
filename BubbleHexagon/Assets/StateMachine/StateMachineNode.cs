@@ -176,6 +176,7 @@ namespace FSM
             _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
 
             _sm.itemManager.AddPoint(_sm.bubblesToPop.bubbles.Count);
+            _sm.popCount.value += _sm.bubblesToPop.bubbles.Count;
             _sm.StartCoroutine(PopCoroutine());
         }
 
@@ -235,6 +236,7 @@ namespace FSM
             _sm.rootBubble.GetBubblesToDrop();
 
             _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count * 2);
+            _sm.dropCount.value += _sm.bubblesToDrop.bubbles.Count;
             _sm.StartCoroutine(DropCoroutine());
         }
 

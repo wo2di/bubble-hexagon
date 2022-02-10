@@ -15,8 +15,8 @@ MonoBehaviour:
   colorIndex: 0
   bubbleProbabilities:
   - bubble: rainbow
-    probability: 0
+    probability: 0.3
   - bubble: random
-    probability: 0
+    probability: 0.5
   - bubble: bomb
-    probability: 1
+    probability: 0.2
