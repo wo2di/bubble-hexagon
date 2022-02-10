@@ -12,13 +12,11 @@ public class DifficultySelection : MonoBehaviour
         switch (d)
         {
             case "Easy":
-                Debug.Log("Easy Selected");
                 gameConfig.difficulty = Difficulty.Easy;
                 easyAnim.SetBool("Selected", true);
                 hardAnim.SetBool("Selected", false);
                 break;
             case "Hard":
-                Debug.Log("Hard Selected");
                 gameConfig.difficulty = Difficulty.Hard;
                 hardAnim.SetBool("Selected", true);
                 easyAnim.SetBool("Selected", false);

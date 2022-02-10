@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameplayMenuUI : MonoBehaviour
 {
-    public GameConfigurationSO gameConfig;
     public bool isExpanded;
 
     public GameObject button1;
@@ -18,14 +17,13 @@ public class GameplayMenuUI : MonoBehaviour
     public Sprite pause;
     public Sprite collapse;
     public Sprite title;
-    public Sprite soundOn;
-    public Sprite soundOff;
-    public Sprite musicOn;
-    public Sprite musicOff;
 
-    public Sound music;
-    public List<Sound> soundEffects;
 
+    private void Start()
+    {
+        button3.GetComponent<SoundButton>().ApplySoundBool();
+        button4.GetComponent<SoundButton>().ApplySoundBool();
+    }
     public void Expand()
     {
         button2.SetActive(true);
@@ -48,7 +46,6 @@ public class GameplayMenuUI : MonoBehaviour
 
     public void OnPauseClick()
     {
-        Debug.Log("!!");
         if (!isExpanded)
         {
             Expand();
@@ -64,64 +61,4 @@ public class GameplayMenuUI : MonoBehaviour
         SceneManager.LoadScene("TitleScene");
     }
 
-    public void TurnMusicOn()
-    {
-        music.source.mute = false;
-    }
-
-    public void TurnMusicOff()
-    {
-        music.source.mute = true;
-    }
-
-    public void TurnSoundOn()
-    {
-        foreach(Sound s in soundEffects)
-        {
-            s.source.mute = false;
-        }
-    }
-
-    public void TurnSoundOff()
-    {
-        foreach (Sound s in soundEffects)
-        {
-            s.source.mute = true;
-        }
-    }
-
-    public void OnMusicButton()
-    {
-        Image image = button4.GetComponent<Image>();
-        if(gameConfig.musicOn)
-        {
-            TurnMusicOff();
-            gameConfig.musicOn = false;
-            image.sprite = musicOff;
-        }
-        else
-        {
-            TurnMusicOn();
-            gameConfig.musicOn = true;
-            image.sprite = musicOn;
-        }
-    
-    }
-
-    public void OnSoundButton()
-    {
-        Image image = button3.GetComponent<Image>();
-        if (gameConfig.soundOn)
-        {
-            TurnSoundOff();
-            gameConfig.soundOn = false;
-            image.sprite = soundOff;
-        }
-        else
-        {
-            TurnSoundOn();
-            gameConfig.soundOn = true;
-            image.sprite = soundOn;
-        }
-    }
 }

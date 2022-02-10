@@ -13,6 +13,7 @@ public class RayCaster : MonoBehaviour
 
     public float thetaMin = 30f;
     public float thetaMax = 150f;
+    public Collider2D fireZone;
 
     public BubbleParent bubbleParent;
     /// 
@@ -28,10 +29,19 @@ public class RayCaster : MonoBehaviour
     }
     public void GetSlotByRay(out Slot target, out List<Vector3> waypoints)
     {
-        ClampAndSetDirection();
-
         target = null;
         waypoints = new List<Vector3>();
+
+        // 클릭한 곳이 영역 내부에 있는지 확인
+        RaycastHit2D[] zoneTest = Physics2D.GetRayIntersectionAll(new Ray(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward));
+        var x = from h in zoneTest
+                     where h.collider == fireZone
+                     select h;
+        if (x.Count() == 0) return;
+
+        ClampAndSetDirection();
+
+
         RaycastHit2D[] hits = Physics2D.CircleCastAll(fireTR.position, rayRadius, direction, 50, layerMask);
 
         RaycastHit2D remove = hits.ToList().Find(h => h.collider.gameObject == bubbleParent.bubble1.gameObject);
