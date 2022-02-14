@@ -5,7 +5,7 @@ using UnityEngine;
 public class DebugInfo : MonoBehaviour
 {
     public Statistics statistics;
-    public GameConfigurationSO gameConfig;
+    public GameDifficultySO gameConfig;
 
     private void OnGUI()
     {

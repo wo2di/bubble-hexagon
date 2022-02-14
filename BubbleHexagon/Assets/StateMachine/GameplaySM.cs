@@ -23,6 +23,7 @@ public class GameplaySM : StateMachine
     public BubbleDrop bubbleDrop;
     public ExitTurn exitTurn;
     public RotateGrid rotateGrid;
+    public GameOver gameOver;
 
     public Statistics statistics;
     public LevelManager levelManager;
@@ -40,6 +41,7 @@ public class GameplaySM : StateMachine
         bubbleDrop = new BubbleDrop(this);
         exitTurn = new ExitTurn(this);
         rotateGrid = new RotateGrid(this);
+        gameOver = new GameOver(this);
     }
 
     protected override State GetInitialState()

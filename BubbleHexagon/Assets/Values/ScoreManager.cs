@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-
     public IntegerSO score;
+    public IntegerSO scoreTopEasy;
+    public IntegerSO scoreTopHard;
+    public IntegerSO scoreTop;
+    
     public GameEvent scoreChangeEvent;
 
     public void AddScore(int i)

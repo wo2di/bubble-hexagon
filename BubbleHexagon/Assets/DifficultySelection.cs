@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DifficultySelection : MonoBehaviour
 {
-    public GameConfigurationSO gameConfig;
+    public GameDifficultySO gameConfig;
     public Animator easyAnim;
     public Animator hardAnim;
+    public Button easyButton;
+    public Button hardButton;
+    public BoolSO isHardmodeOpen;
     public void SetGameMode(string d)
     {
         switch (d)
@@ -26,6 +30,8 @@ public class DifficultySelection : MonoBehaviour
 
     private void Start()
     {
+        hardButton.interactable = isHardmodeOpen.value;
+        
         SetGameMode("Easy");
     }
 

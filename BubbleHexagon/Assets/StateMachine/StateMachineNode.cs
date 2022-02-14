@@ -135,16 +135,24 @@ namespace FSM
                     bubbleNow.StartCoroutine(bubbleNow.TranslateToSlot());
                     bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
 
-                    switch (bubbleNow.GetComponent<BubbleBehaviour>())
+                    if (!bubbleNow.slot.gameObject.activeSelf)
                     {
-                        case BubbleBHBomb bhBomb:
-                        case BubbleBHRandom bhRandom:
-                            _sm.ChangeState(_sm.applyItem);
-                            break;
-                        default:
-                            _sm.ChangeState(_sm.bubblePop);
-                            break;
+                        _sm.ChangeState(_sm.gameOver);
                     }
+                    else
+                    {
+                        switch (bubbleNow.GetComponent<BubbleBehaviour>())
+                        {
+                            case BubbleBHBomb bhBomb:
+                            case BubbleBHRandom bhRandom:
+                                _sm.ChangeState(_sm.applyItem);
+                                break;
+                            default:
+                                _sm.ChangeState(_sm.bubblePop);
+                                break;
+                        }
+                    }
+
                     
                 }
             }
@@ -336,5 +344,21 @@ namespace FSM
             //_sm.ChangeState(_sm.standby);
             _sm.ChangeState(_sm.exitTurn);
         }
+    }
+
+    public class GameOver : State
+    {
+        GameplaySM _sm;
+        public GameOver(GameplaySM sm) : base("Gameover", sm)
+        {
+            _sm = sm;
+        }
+
+        public override void Enter()
+        {
+            
+        }
+
+
     }
 }

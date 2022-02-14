@@ -10,7 +10,7 @@ public enum Difficulty
 
 public class LevelManager : MonoBehaviour
 {
-    public GameConfigurationSO gameConfig;
+    public GameDifficultySO difficulty;
 
     public IntegerSO shootCnt;
 
@@ -20,24 +20,15 @@ public class LevelManager : MonoBehaviour
     public ProgressConfiguration[] shootConfigsHard;
     public ProgressConfiguration[] shootConfigsEmptyHard;
 
+    ProgressConfiguration[] shootConfig;
+    ProgressConfiguration[] shootConfigEmpty;
+
+    public ScoreManager scoreManager;
+    public UIManager uiManager;
 
     public BubbleFactory bubbleFactory;
     public void CheckShootCount()
     {
-        ProgressConfiguration[] shootConfig;
-        ProgressConfiguration[] shootConfigEmpty;
-
-        if (gameConfig.difficulty == Difficulty.Easy)
-        {
-            shootConfig = shootConfigsEasy;
-            shootConfigEmpty = shootConfigsEmptyEasy;
-        }
-        else
-        {
-            shootConfig = shootConfigsHard;
-            shootConfigEmpty = shootConfigsEmptyHard;
-        }
-
 
         switch (shootCnt.value)
         {
@@ -66,5 +57,29 @@ public class LevelManager : MonoBehaviour
                 bubbleFactory.shootConfigEmpty = shootConfigEmpty[5];
                 break;
         }
+    }
+
+    public void CheckDifficulty()
+    {
+        switch (difficulty.difficulty)
+        {
+            case Difficulty.Easy:
+                shootConfig = shootConfigsEasy;
+                shootConfigEmpty = shootConfigsEmptyEasy;
+                scoreManager.scoreTop = scoreManager.scoreTopEasy;
+                uiManager.scoreTop = scoreManager.scoreTop;
+                break;
+            case Difficulty.Hard:
+                shootConfig = shootConfigsHard;
+                shootConfigEmpty = shootConfigsEmptyHard;
+                scoreManager.scoreTop = scoreManager.scoreTopHard;
+                uiManager.scoreTop = scoreManager.scoreTop;
+                break;
+        }
+    }
+
+    private void Awake()
+    {
+        CheckDifficulty();
     }
 }
