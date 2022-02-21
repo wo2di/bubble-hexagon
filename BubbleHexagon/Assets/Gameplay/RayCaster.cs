@@ -88,12 +88,16 @@ public class RayCaster : MonoBehaviour
                 coll = hit.collider;
             }
 
-            if (coll.transform.parent == bubbleParent.transform)
+            if(coll.transform.IsChildOf(bubbleParent.transform))
             {
                 Direction direction = GetSlotDirectionByHit(hit);
                 target = coll.GetComponent<Bubble>().slot.GetPairByDir(direction).slot;
                 waypoints.Add(hit.centroid);
-            }
+            }    
+            //if (coll.transform.parent == bubbleParent.transform)
+            //{
+                
+            //}
         }
 
         //debug

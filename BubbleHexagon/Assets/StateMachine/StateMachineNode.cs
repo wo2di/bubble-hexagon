@@ -92,6 +92,10 @@ namespace FSM
                     //_sm.gridParent.ResetSlotColor();
                     //target.GetComponent<SpriteRenderer>().color = Color.red;
                 }
+                else
+                {
+                    Debug.Log("Target is Null");
+                }
             }
 
 
