@@ -30,6 +30,7 @@ public class GameplaySM : StateMachine
     public AudioManager audioManager;
     public Transform bubbleDroppedTR;
     public ScoreManager scoreManager;
+    public BubbleTrajectory bubbleTrajectory;
 
     public bool itemApplied;
 
