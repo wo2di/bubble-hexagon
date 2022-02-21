@@ -101,10 +101,10 @@ public class RayCaster : MonoBehaviour
         }
 
         //debug
-        for(int i = 0; i < waypoints.Count -1; i++)
-        {
-            Debug.DrawLine(waypoints[i], waypoints[i + 1], Color.red, 1f);
-        }
+        //for(int i = 0; i < waypoints.Count -1; i++)
+        //{
+        //    Debug.DrawLine(waypoints[i], waypoints[i + 1], Color.red, 1f);
+        //}
 
     }
 

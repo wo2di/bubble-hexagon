@@ -28,6 +28,8 @@ namespace FSM
         Bubble bubbleNow;
         Slot target;
         List<Vector3> waypoints;
+        bool shoot = false;
+
         public Standby(GameplaySM sm) : base("Standby", sm)
         {
             _sm = sm;
@@ -72,31 +74,51 @@ namespace FSM
         public override void UpdateLogic()
         {
             bubbleNow = _sm.bubbleParent.bubble1;
-            //인풋 처리
-            if (Input.GetMouseButtonUp(0) && target == null && _sm.bubbleParent.bubble1 != null)
+
+            if (!shoot)
             {
-                _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-                //Debug.Log("Ray!");
-
-                if (target != null)
+                if (Input.GetMouseButton(0))
                 {
-                    //if (target.bubble != null)
-                    //{ Debug.Log("error!"); }
-
-                    _sm.audioManager.PlaySound("bubbleshoot");
-                    _sm.bubbleParent.bubble1.SetSlot(target);
-
-
-                    ///////////
-
-                    //_sm.gridParent.ResetSlotColor();
-                    //target.GetComponent<SpriteRenderer>().color = Color.red;
+                    _sm.rayCaster.GetSlotByRay(out target, out waypoints);
+                    _sm.bubbleTrajectory.DrawTrajectory(waypoints);
                 }
-                else
+                if (Input.GetMouseButtonUp(0))
                 {
-                    Debug.Log("Target is Null");
+                    _sm.rayCaster.GetSlotByRay(out target, out waypoints);
+                    _sm.bubbleTrajectory.ResetTrajectory();
+                    if (target != null)
+                    {
+                        _sm.audioManager.PlaySound("bubbleshoot");
+                        _sm.bubbleParent.bubble1.SetSlot(target);
+                        shoot = true;
+                    }
                 }
             }
+            ////인풋 처리
+            //if (Input.GetMouseButtonUp(0) && target == null && _sm.bubbleParent.bubble1 != null)
+            //{
+            //    _sm.rayCaster.GetSlotByRay(out target, out waypoints);
+            //    //Debug.Log("Ray!");
+
+            //    if (target != null)
+            //    {
+            //        //if (target.bubble != null)
+            //        //{ Debug.Log("error!"); }
+
+            //        _sm.audioManager.PlaySound("bubbleshoot");
+            //        _sm.bubbleParent.bubble1.SetSlot(target);
+
+
+            //        ///////////
+
+            //        //_sm.gridParent.ResetSlotColor();
+            //        //target.GetComponent<SpriteRenderer>().color = Color.red;
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("Target is Null");
+            //    }
+            //}
 
 
             ////디버그//////
@@ -116,7 +138,7 @@ namespace FSM
         public override void UpdatePhysics()
         {
             //버블 이동
-            if (target != null)
+            if (target != null && shoot)
             {
                 Transform tr = bubbleNow.transform;
                 if(waypoints.Count != 0)
@@ -167,10 +189,13 @@ namespace FSM
             bubbleNow = null;
             target = null;
             waypoints = null;
+            shoot = false;
 
             _sm.statistics.shootCnt.value++;
         }
     }
+
+
     
     //터트릴 버블을 터트림
     public class BubblePop : State 
