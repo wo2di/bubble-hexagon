@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3962463671596263929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3962463671596263815}
+  - component: {fileID: 3962463671596263814}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3962463671596263815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962463671596263929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3962463671596263814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3962463671596263929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3cf5b6b73bf2a45aeb14a2be821da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 11400000, guid: adda281b0d6e2b348a02a55d22737927, type: 2}
+  - {fileID: 11400000, guid: 1f0ede7e30c85d5499bffb286ecf77c8, type: 2}
+  - {fileID: 11400000, guid: c19c256bc928b4245bfc5851a5162c57, type: 2}
+  - {fileID: 11400000, guid: 36696e46b7f3d6d4ebda8c84cc9ca991, type: 2}
+  - {fileID: 11400000, guid: 268f1643559396c4587ee31f301ed605, type: 2}
+  - {fileID: 11400000, guid: 1c200ed476ed2be43bb7dcea1223df56, type: 2}
+  - {fileID: 11400000, guid: 30fd22af54a94b24aafddb1ae422a530, type: 2}
+  - {fileID: 11400000, guid: 52c865288796dc44a89faacaa5fdbf54, type: 2}
+  - {fileID: 11400000, guid: f1f589bb3edd6924b9f3f8d2017c262b, type: 2}
+  - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
+  playBGM: 1
