@@ -27,7 +27,14 @@ public class AudioManager : MonoBehaviour
         if (sound != null)
         {
             sound.source.Play();
+            
         }
+    }
+
+    public void TurnOffBGM()
+    {
+        Sound sound = System.Array.Find(sounds, s => s.name == "bgm");
+        sound.source.mute = true;
     }
 
     public IEnumerator RepeatSoundWithDelay(string name, int repeat, float delay)

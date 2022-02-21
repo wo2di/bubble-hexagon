@@ -31,6 +31,7 @@ public class GameplaySM : StateMachine
     public Transform bubbleDroppedTR;
     public ScoreManager scoreManager;
     public BubbleTrajectory bubbleTrajectory;
+    public GameEvent gameOverEvent;
 
     public bool itemApplied;
 

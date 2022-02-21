@@ -80,12 +80,12 @@ namespace FSM
                 if (Input.GetMouseButton(0))
                 {
                     _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-                    _sm.bubbleTrajectory.DrawTrajectory(waypoints);
+                    _sm.bubbleTrajectory?.DrawTrajectory(waypoints);
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
                     _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-                    _sm.bubbleTrajectory.ResetTrajectory();
+                    _sm.bubbleTrajectory?.ResetTrajectory();
                     if (target != null)
                     {
                         _sm.audioManager.PlaySound("bubbleshoot");
@@ -322,21 +322,6 @@ namespace FSM
             //_sm.ChangeState(_sm.rotateGrid);
             _sm.ChangeState(_sm.standby);
         }
-
-        public override void UpdateLogic()
-        {
-            base.UpdateLogic();
-        }
-
-        public override void UpdatePhysics()
-        {
-            base.UpdatePhysics();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
     }
 
     // 게임판 회전
@@ -385,9 +370,9 @@ namespace FSM
 
         public override void Enter()
         {
-            
+            _sm.gameOverEvent.Raise();
+            _sm.audioManager.PlaySound("gameover");
+            _sm.audioManager.TurnOffBGM();
         }
-
-
     }
 }
