@@ -118,7 +118,7 @@ public class SaveAndLoad : MonoBehaviour
             switch(b.GetComponent<BubbleBehaviour>())
             {
                 case BubbleBHChange change:
-                    data.ChangeList.Add(new ChangeBubbleSD(change.GetSlotIndex(), change.color, change.colors[change.nextColorIndex % 2], change.colors[(change.nextColorIndex + 1) % 2]));
+                    data.ChangeList.Add(new ChangeBubbleSD(change.GetSlotIndex(), change.color, change.colors[(change.nextColorIndex + 1) % 2], change.colors[change.nextColorIndex % 2]));
                     break;
                 case BubbleBHLock lockB:
                     data.LockList.Add(new LockBubbleSD(lockB.GetSlotIndex(), lockB.color, lockB.hasLock));
@@ -164,7 +164,8 @@ public class SaveAndLoad : MonoBehaviour
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
-            b.GetComponent<BubbleBHChange>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            //b.GetComponent<BubbleBHChange>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
+            b.GetComponent<BubbleBHChange>().nextColorIndex = 0;
             b.GetComponent<BubbleBHChange>().InitializeColors(new List<ColorEnumValuePair> { bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color1), bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color2) });
         }
         foreach (LockBubbleSD sd in data.LockList)
@@ -172,9 +173,11 @@ public class SaveAndLoad : MonoBehaviour
             Bubble b = bubbleFactory.SpawnBubbleInGrid("lock");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
+            BubbleBHLock bhLock = b.GetComponent<BubbleBHLock>();
+            bhLock.hasLock = sd.hasLock;
+            bhLock.ApplyLock();
+            bhLock.InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
 
-            b.GetComponent<BubbleBHLock>().hasLock = sd.hasLock;
-            b.GetComponent<BubbleBHLock>().InitializeColor(bubbleFactory.colorTheme.colors.Find(p => p.colorEnum == sd.color));
         }
         foreach (RainbowBubbleSD sd in data.RainbowList)
         {
@@ -196,7 +199,9 @@ public class SaveAndLoad : MonoBehaviour
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
             b.FitToSlot();
 
-            b.GetComponent<BubbleBHSpread>().count = sd.count;
+            BubbleBHSpread bhSpread = b.GetComponent<BubbleBHSpread>();
+            bhSpread.count = sd.count;
+            bhSpread.ApplyCount();
         }
     }
 

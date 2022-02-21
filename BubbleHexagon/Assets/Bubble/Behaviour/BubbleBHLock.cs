@@ -48,4 +48,15 @@ public class BubbleBHLock : BubbleBHColor
             base.OnPop();
         }
     }
+
+    public void ApplyLock()
+    {
+        if(!hasLock)
+        {
+            mom.SetActive(false);
+            baby.GetComponent<Animator>().enabled = false;
+            baby.transform.localPosition = Vector3.zero;
+            baby.transform.localScale = Vector3.one;
+        }
+    }
 }

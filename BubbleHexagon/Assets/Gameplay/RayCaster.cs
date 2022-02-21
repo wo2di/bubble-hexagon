@@ -5,14 +5,17 @@ using System.Linq;
 
 public class RayCaster : MonoBehaviour
 {
-    public float rayRadius = 0.4f;
+    public float rayRadius;
     public Transform fireTR;
+    public Transform leftTR;
+    public Transform rightTR;
+
     public LayerMask layerMask;
 
     public Vector3 direction;
 
-    public float thetaMin = 30f;
-    public float thetaMax = 150f;
+    public float thetaMin;
+    public float thetaMax;
     public Collider2D fireZone;
 
     public BubbleParent bubbleParent;
@@ -21,6 +24,16 @@ public class RayCaster : MonoBehaviour
     public List<Collider2D> colls2;
 
     public BoolSO gamePaused;
+
+    private void Start()
+    {
+        CalculateTheta();
+    }
+    public void CalculateTheta()
+    {
+        thetaMin = Vector2.SignedAngle(Vector2.right, rightTR.position - fireTR.position);
+        thetaMax = Vector2.SignedAngle(Vector2.right, leftTR.position - fireTR.position);
+    }
 
     public void ClampAndSetDirection()
     {

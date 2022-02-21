@@ -27,7 +27,7 @@ public class FireZone : MonoBehaviour
         points.Add(new Vector2(0, 2 * y));
         points.Add(new Vector2(x, y));
         points.Add(new Vector2(x, -y));
-        points.Add(new Vector2(0, - 2 * y));
+        points.Add(new Vector2(0, - 8.7f));
         polygonCollider.SetPath(0, points);
     }
 }

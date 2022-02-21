@@ -85,7 +85,11 @@ public class BubbleBHSpread : BubbleBehaviour
             yield return null;
         }
         sprite.color = colors[count];
-        
+    }
+
+    public void ApplyCount()
+    {
+        sprite.color = colors[count];
     }
 
     public void EndOfShrink()

@@ -12,6 +12,7 @@ public class BubbleBHChange : BubbleBHColor
 
     public void InitializeColors(List<ColorEnumValuePair> colors)
     {
+        Debug.Log("Initialized Change Bubble", gameObject);
         for(int i = 0; i<colors.Count; i++)
         {
             this.colors[i] = colors[i].colorEnum;
