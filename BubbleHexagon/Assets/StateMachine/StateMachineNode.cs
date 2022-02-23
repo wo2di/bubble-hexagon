@@ -407,6 +407,7 @@ namespace FSM
             _sm.scoreManager.CheckTopScore();
             _sm.playerdataSaveLoad.SaveSequence();
             _sm.gameplaySaveLoad.DeleteGameplaySave();
+
             _sm.gameOverEvent.Raise();
             _sm.audioManager.PlaySound("gameover");
             _sm.audioManager.TurnOffBGM();

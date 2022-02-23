@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class BoolSO : ScriptableObject
+public class DonotUnload : MonoBehaviour
 {
-    public bool value;
-
+    public Object[] objects;
 }

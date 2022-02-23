@@ -146,9 +146,18 @@ public class SaveAndLoadGameplay : MonoBehaviour
     public IntegerSO shootCountSO;
     public GameDifficultySO difficultySO;
 
-
     public GamePlayData data;
-    
+    string fileName;
+    string androidDatapath;
+    string editorDatapath;
+    private void Awake()
+    {
+        fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
+        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
+        androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
+
+    }
+
     private void GameToData()
     {
         data = new GamePlayData();
@@ -346,13 +355,12 @@ public class SaveAndLoadGameplay : MonoBehaviour
 
     private void SavePlayData()
     {
-        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
         string data_json = JsonUtility.ToJson(data, true);
         BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-        FileStream file = File.Create(Application.dataPath + "/" + fileName + ".json");
+        FileStream file = File.Create(editorDatapath);
 #else
-        FileStream file = File.Create(Application.persistentDataPath + "/" + fileName + ".json");
+        FileStream file = File.Create(androidDatapath);
 #endif
         bf.Serialize(file, data_json);
         file.Close();
@@ -362,14 +370,12 @@ public class SaveAndLoadGameplay : MonoBehaviour
     {
         try
         {
-            //ResetGameData();
-            string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
             data = new GamePlayData();
             BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-            FileStream file = File.OpenRead(Application.dataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(editorDatapath);
 #else
-            FileStream file = File.OpenRead(Application.persistentDataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(androidDatapath);
 #endif
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
             file.Close();
@@ -377,7 +383,6 @@ public class SaveAndLoadGameplay : MonoBehaviour
         catch (FileNotFoundException e)
         {
             Debug.Log(e);
-            //InitialGameData();
         }
     }
 
@@ -397,13 +402,12 @@ public class SaveAndLoadGameplay : MonoBehaviour
 
     public bool CheckGameplaySave()
     {
-        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
         try
         {
 #if UNITY_EDITOR
-            FileStream file = File.OpenRead(Application.dataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(editorDatapath);
 #else
-            FileStream file = File.OpenRead(Application.persistentDataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(androidDatapath);
 #endif
             file.Close();
         }
@@ -416,14 +420,10 @@ public class SaveAndLoadGameplay : MonoBehaviour
     
     public void DeleteGameplaySave()
     {
-        Debug.Log("delete");
-        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
-
 #if UNITY_EDITOR
-        File.Delete(Application.dataPath + "/" + fileName + ".json");
+        File.Delete(editorDatapath);
 #else
-        File.Delete(Application.persistentDataPath + "/" + fileName + ".json");
+        File.Delete(androidDatapath);
 #endif
-
     }
 }

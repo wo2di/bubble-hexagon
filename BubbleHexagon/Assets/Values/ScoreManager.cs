@@ -8,7 +8,8 @@ public class ScoreManager : MonoBehaviour
     public IntegerSO scoreTopEasy;
     public IntegerSO scoreTopHard;
     public IntegerSO scoreTop;
-    
+    public BoolSO isHardmodeOpen;
+    public int hardmodeOpenScore;
     public GameEvent scoreChangeEvent;
 
     public void AddScore(int i)
@@ -29,6 +30,11 @@ public class ScoreManager : MonoBehaviour
         if(scoreTop.value < score.value)
         {
             scoreTop.value = score.value;
+
+            if(scoreTop.value >= hardmodeOpenScore)
+            {
+                isHardmodeOpen.value = true;
+            }
         }
     }
 }

@@ -11,10 +11,7 @@ public class PlayerData
     public int topScoreHard;
     public bool isHardOpen;
 
-    public PlayerData()
-    {
-
-    }
+    public PlayerData() { }
 }
 
 public class SaveAndLoadPlayerData : MonoBehaviour
@@ -26,6 +23,14 @@ public class SaveAndLoadPlayerData : MonoBehaviour
     public PlayerData data;
 
     public string fileName;
+    string androidDatapath;
+    string editorDatapath;
+
+    private void Awake()
+    {
+        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
+        androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
+    }
     public void Serialize()
     {
         data = new PlayerData()
@@ -48,9 +53,9 @@ public class SaveAndLoadPlayerData : MonoBehaviour
         string data_json = JsonUtility.ToJson(data, true);
         BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-        FileStream file = File.Create(Application.dataPath + "/" + fileName + ".json");
+        FileStream file = File.Create(editorDatapath);
 #else
-        FileStream file = File.Create(Application.persistentDataPath + "/" + fileName + ".json");
+        FileStream file = File.Create(androidDatapath);
 #endif
         bf.Serialize(file, data_json);
         file.Close();
@@ -63,9 +68,9 @@ public class SaveAndLoadPlayerData : MonoBehaviour
             data = new PlayerData();
             BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-            FileStream file = File.OpenRead(Application.dataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(editorDatapath);
 #else
-            FileStream file = File.OpenRead(Application.persistentDataPath + "/" + fileName + ".json");
+            FileStream file = File.OpenRead(androidDatapath);
 #endif
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
             file.Close();
