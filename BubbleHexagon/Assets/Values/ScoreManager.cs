@@ -23,4 +23,12 @@ public class ScoreManager : MonoBehaviour
         score.Reset();
         scoreChangeEvent.Raise();
     }
+
+    public void CheckTopScore()
+    {
+        if(scoreTop.value < score.value)
+        {
+            scoreTop.value = score.value;
+        }
+    }
 }

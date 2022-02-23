@@ -10,4 +10,5 @@ public class RotateGame : MonoBehaviour
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, result, Time.deltaTime * speed) ;
     }
+
 }

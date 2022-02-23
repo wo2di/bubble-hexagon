@@ -17,6 +17,7 @@ public class GameplaySM : StateMachine
     public GridParent gridParent;
     public ItemManager itemManager;
 
+    public Initialize initialize;
     public Standby standby;
     public BubblePop bubblePop;
     public ApplyItem applyItem;
@@ -32,11 +33,14 @@ public class GameplaySM : StateMachine
     public ScoreManager scoreManager;
     public BubbleTrajectory bubbleTrajectory;
     public GameEvent gameOverEvent;
+    public SaveAndLoadGameplay gameplaySaveLoad;
+    public SaveAndLoadPlayerData playerdataSaveLoad;
 
     public bool itemApplied;
 
     private void Awake()
     {
+        initialize = new Initialize(this);
         standby = new Standby(this);
         bubblePop = new BubblePop(this);
         applyItem = new ApplyItem(this);
@@ -48,7 +52,7 @@ public class GameplaySM : StateMachine
 
     protected override State GetInitialState()
     {
-        return standby;
+        return initialize;
     }
 
     public void ItemApplied()

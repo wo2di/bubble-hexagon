@@ -79,7 +79,20 @@ public class ZombieBubbleSD : ColorBubbleSD
 }
 
 [Serializable]
-public class GameData
+public class itemSD
+{
+    public int point;
+    public string itemName;
+
+    public itemSD(int point, string itemName)
+    {
+        this.point = point;
+        this.itemName = itemName;
+    }
+}
+
+[Serializable]
+public class GamePlayData
 {
     public List<ColorBubbleSD> ColorList;
     public List<BrickBubbleSD> BrickList;
@@ -88,7 +101,17 @@ public class GameData
     public List<RainbowBubbleSD> RainbowList;
     public List<SpreadBubbleSD> SpreadList;
     public List<ZombieBubbleSD> ZombieList;
-    public GameData()
+
+    public itemSD[] items;
+
+    public List<string> bubble1;
+    public List<string> bubble2;
+
+    public int score;
+    public int shootCount;
+    
+
+    public GamePlayData()
     {
         ColorList = new List<ColorBubbleSD>();
         BrickList = new List<BrickBubbleSD>();
@@ -97,22 +120,38 @@ public class GameData
         RainbowList = new List<RainbowBubbleSD>();
         SpreadList = new List<SpreadBubbleSD>();
         ZombieList = new List<ZombieBubbleSD>();
+
+        bubble1 = new List<string>();
+        bubble2 = new List<string>();
+
+        score = 0;
+        shootCount = 0;
+        items = new itemSD[3];
     }
 }
 
 #endregion
 
-public class SaveAndLoad : MonoBehaviour
+public class SaveAndLoadGameplay : MonoBehaviour
 {
     public BubbleParent bubbleParent;
     public Transform gridParent;
     public BubbleFactory bubbleFactory;
+    public ItemManager itemManager;
+    public IntegerSO scoreSO;
+    public GameEvent scoreChangeEvent;
+    public RotateGame rotateGame;
+    public LevelManager levelManager;
+    public ColorTheme colorTheme;
+    public IntegerSO shootCountSO;
+    public GameDifficultySO difficultySO;
 
-    public GameData data;
+
+    public GamePlayData data;
     
-    public void GameToData()
+    private void GameToData()
     {
-        data = new GameData();
+        data = new GamePlayData();
         foreach(Bubble b in bubbleParent.GetBubblesInGrid())
         {
             switch(b.GetComponent<BubbleBehaviour>())
@@ -140,9 +179,42 @@ public class SaveAndLoad : MonoBehaviour
                     break;
             }
         }
+
+        data.bubble1.Add(bubbleParent.bubble1.gameObject.name.Split(' ')[0].ToLower());
+        switch(bubbleParent.bubble1.gameObject.GetComponent<BubbleBehaviour>())
+        {
+            case BubbleBHChange change:
+                data.bubble1.Add(change.colors[0].ToString());
+                data.bubble1.Add(change.colors[1].ToString());
+                break;
+            case BubbleBHColor color:
+                data.bubble1.Add(color.color.ToString());
+                break;
+        }
+
+        data.bubble2.Add(bubbleParent.bubble2.gameObject.name.Split(' ')[0].ToLower());
+        switch (bubbleParent.bubble2.gameObject.GetComponent<BubbleBehaviour>())
+        {
+            case BubbleBHChange change:
+                data.bubble2.Add(change.colors[0].ToString());
+                data.bubble2.Add(change.colors[1].ToString());
+                break;
+            case BubbleBHColor color:
+                data.bubble2.Add(color.color.ToString());
+                break;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            ItemSlot s = itemManager.itemSlots[i];
+            data.items[i] = new itemSD(s.point, s.itemBubble?.gameObject.name.Split(' ')[0].ToLower());
+        }
+
+        data.score = scoreSO.value;
+        data.shootCount = shootCountSO.value;
     }
 
-    public void DataToGame()
+    private void DataToGame()
     {
         foreach(ColorBubbleSD sd in data.ColorList)
         {
@@ -203,32 +275,101 @@ public class SaveAndLoad : MonoBehaviour
             bhSpread.count = sd.count;
             bhSpread.ApplyCount();
         }
+
+        for(int i = 0; i < 3; i++)
+        {
+            itemManager.itemSlots[i].point = data.items[i].point;
+            if(data.items[i].itemName != "")
+            {
+                Bubble b = bubbleFactory.SpawnBubble(data.items[i].itemName);
+                itemManager.itemSlots[i].itemBubble = b;
+            }
+
+            itemManager.itemSlots[i].ApplyChange();
+        }
+
+        scoreSO.value = data.score;
+        scoreChangeEvent.Raise();
+        
+        shootCountSO.value = data.shootCount;
+        levelManager.CheckShootCount();
+        rotateGame.transform.Rotate(0, 0, -60 * (shootCountSO.value % 6));
+
+        Bubble b1 = bubbleFactory.SpawnBubble(data.bubble1[0]);
+        switch(b1.GetComponent<BubbleBehaviour>())
+        {
+            case BubbleBHChange change:
+                BubbleColor color1 = (BubbleColor) System.Enum.Parse(typeof(BubbleColor), data.bubble1[1]);
+                BubbleColor color2 = (BubbleColor) System.Enum.Parse(typeof(BubbleColor), data.bubble1[2]);
+                change.colors[0] = color1;
+                change.colors[1] = color2;
+                change.color = color1;
+                change.values[0] = colorTheme.GetColorByEnum(color1);
+                change.values[1] = colorTheme.GetColorByEnum(color2);
+                change.colorValue = change.values[0] = colorTheme.GetColorByEnum(color1);
+                change.ApplyColor();
+                break;
+            case BubbleBHColor color:
+                BubbleColor c = (BubbleColor)System.Enum.Parse(typeof(BubbleColor), data.bubble1[1]);
+                color.color = c;
+                color.colorValue = colorTheme.GetColorByEnum(c);
+                color.ApplyColor();
+                break;
+        }
+
+        Bubble b2 = bubbleFactory.SpawnBubble(data.bubble2[0]);
+        switch (b2.GetComponent<BubbleBehaviour>())
+        {
+            case BubbleBHChange change:
+                BubbleColor color1 = (BubbleColor)System.Enum.Parse(typeof(BubbleColor), data.bubble2[1]);
+                BubbleColor color2 = (BubbleColor)System.Enum.Parse(typeof(BubbleColor), data.bubble2[2]);
+                change.colors[0] = color1;
+                change.colors[1] = color2;
+                change.color = color1;
+                change.values[0] = colorTheme.GetColorByEnum(color1);
+                change.values[1] = colorTheme.GetColorByEnum(color2);
+                change.colorValue = change.values[0] = colorTheme.GetColorByEnum(color1);
+                change.ApplyColor();
+                break;
+            case BubbleBHColor color:
+                BubbleColor c = (BubbleColor)System.Enum.Parse(typeof(BubbleColor), data.bubble2[1]);
+                color.color = c;
+                color.colorValue = colorTheme.GetColorByEnum(c);
+                color.ApplyColor();
+                break;
+        }
+
+        bubbleParent.bubble1 = b1;
+        bubbleParent.bubble2 = b2;
+
     }
 
-    public void SaveData()
+    private void SavePlayData()
     {
+        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
         string data_json = JsonUtility.ToJson(data, true);
         BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-        FileStream file = File.Create(Application.dataPath + "/save.json");
+        FileStream file = File.Create(Application.dataPath + "/" + fileName + ".json");
 #else
-        FileStream file = File.Create(Application.persistentDataPath + "/save.json");
+        FileStream file = File.Create(Application.persistentDataPath + "/" + fileName + ".json");
 #endif
         bf.Serialize(file, data_json);
         file.Close();
     }
 
-    public void LoadData()
+    private void LoadPlayData()
     {
         try
         {
             //ResetGameData();
-            data = new GameData();
+            string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
+            data = new GamePlayData();
             BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-            FileStream file = File.OpenRead(Application.dataPath + "/save.json");
+            FileStream file = File.OpenRead(Application.dataPath + "/" + fileName + ".json");
 #else
-            FileStream file = File.OpenRead(Application.persistentDataPath + "/save.json");
+            FileStream file = File.OpenRead(Application.persistentDataPath + "/" + fileName + ".json");
 #endif
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
             file.Close();
@@ -241,16 +382,48 @@ public class SaveAndLoad : MonoBehaviour
     }
 
     [ContextMenu("SAVE")]
-    public void SaveSequence()
+    public void SaveGameplay()
     {
         GameToData();
-        SaveData();
+        SavePlayData();
     }
 
     [ContextMenu("LOAD")]
-    public void LoadSequence()
+    public void LoadGameplay()
     {
-        LoadData();
+        LoadPlayData();
         DataToGame();
+    }
+
+    public bool CheckGameplaySave()
+    {
+        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
+        try
+        {
+#if UNITY_EDITOR
+            FileStream file = File.OpenRead(Application.dataPath + "/" + fileName + ".json");
+#else
+            FileStream file = File.OpenRead(Application.persistentDataPath + "/" + fileName + ".json");
+#endif
+            file.Close();
+        }
+        catch(FileNotFoundException e) 
+        {
+            return false;
+        }
+        return true;
+    }
+    
+    public void DeleteGameplaySave()
+    {
+        Debug.Log("delete");
+        string fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
+
+#if UNITY_EDITOR
+        File.Delete(Application.dataPath + "/" + fileName + ".json");
+#else
+        File.Delete(Application.persistentDataPath + "/" + fileName + ".json");
+#endif
+
     }
 }

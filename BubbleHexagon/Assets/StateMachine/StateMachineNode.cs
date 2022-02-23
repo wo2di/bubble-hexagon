@@ -20,6 +20,26 @@ namespace FSM
         public virtual void Exit() { }
     }
 
+    public class Initialize : State
+    {
+        GameplaySM _sm;
+
+        public Initialize(GameplaySM sm) : base("Initialize", sm)
+        {
+            _sm = sm;
+        }
+
+        public override void Enter()
+        {
+            if (_sm.gameplaySaveLoad.CheckGameplaySave())
+            {
+                Debug.Log("load!");
+                _sm.gameplaySaveLoad.LoadGameplay();
+            }
+            _sm.ChangeState(_sm.standby);
+        }
+    }
+
     //버블이 생기고 발사를 기다리는 상태
     public class Standby : State
     {
@@ -39,35 +59,48 @@ namespace FSM
         {
             _sm.levelManager.CheckShootCount();
 
-            if (_sm.bubbleParent.bubble2 == null)
+            if(_sm.bubbleParent.bubble1 != null && _sm.bubbleParent.bubble2 != null)
             {
-                if (_sm.bubbleParent.GetBubblesInGrid().Count == 1)
+                if (_sm.bubbleParent.bubble1.transform.IsChildOf(_sm.bubbleParent.transform))
                 {
-                    bubbleNow = _sm.bubbleFactory.SpawnRandomBubbleWhenEmpty();
+                    //게임 진행중
+
+                    _sm.bubbleParent.bubble1 = _sm.bubbleParent.bubble2;
+
+                    //bubble2 생성
+                    if (_sm.bubbleParent.bubble3 == null)
+                    {
+                        _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
+                    }
+                    //bubble3을 bubble2로
+                    else
+                    {
+                        _sm.bubbleParent.bubble2 = _sm.bubbleParent.bubble3;
+                        _sm.bubbleParent.bubble3 = null;
+                    }
                 }
                 else
                 {
-                    bubbleNow = _sm.bubbleFactory.SpawnRandomBubble();
+                    //첫 로드
                 }
-                _sm.bubbleParent.bubble1 = bubbleNow;
             }
             else
             {
-                bubbleNow = _sm.bubbleParent.bubble2;
-                _sm.bubbleParent.bubble1 = bubbleNow;
-            }
-
-            if (_sm.bubbleParent.bubble3 == null)
-            {
+                //새 게임
+                if (_sm.bubbleParent.GetBubblesInGrid().Count == 1)
+                {
+                    _sm.bubbleParent.bubble1 = _sm.bubbleFactory.SpawnRandomBubbleWhenEmpty();
+                }
+                else
+                {
+                    _sm.bubbleParent.bubble1 = _sm.bubbleFactory.SpawnRandomBubble();
+                }
                 _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
             }
-            else
-            {
-                _sm.bubbleParent.bubble2 = _sm.bubbleParent.bubble3;
-                _sm.bubbleParent.bubble3 = null;
-            }
 
+            bubbleNow = _sm.bubbleParent.bubble1;
             _sm.bubbleParent.SetBubbles();
+            _sm.gameplaySaveLoad.SaveGameplay();
 
         }
 
@@ -322,6 +355,7 @@ namespace FSM
             //_sm.ChangeState(_sm.rotateGrid);
             _sm.ChangeState(_sm.standby);
         }
+
     }
 
     // 게임판 회전
@@ -370,6 +404,9 @@ namespace FSM
 
         public override void Enter()
         {
+            _sm.scoreManager.CheckTopScore();
+            _sm.playerdataSaveLoad.SaveSequence();
+            _sm.gameplaySaveLoad.DeleteGameplaySave();
             _sm.gameOverEvent.Raise();
             _sm.audioManager.PlaySound("gameover");
             _sm.audioManager.TurnOffBGM();

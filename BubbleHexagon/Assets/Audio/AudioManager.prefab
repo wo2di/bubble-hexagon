@@ -54,4 +54,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 52c865288796dc44a89faacaa5fdbf54, type: 2}
   - {fileID: 11400000, guid: f1f589bb3edd6924b9f3f8d2017c262b, type: 2}
   - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
+  - {fileID: 11400000, guid: cc5a2dde0f0f0f04092f2f6e3912fff7, type: 2}
   playBGM: 1
