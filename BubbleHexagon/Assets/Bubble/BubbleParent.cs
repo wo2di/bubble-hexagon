@@ -13,6 +13,14 @@ public class BubbleParent : MonoBehaviour
     public Transform nextTR;
     public float bubbleSpeed;
 
+    public void OnExitTurn()
+    {
+        bubble1 = null;
+        bubble1 = bubble2;
+        bubble2 = bubble3;
+        bubble3 = null;
+    }
+
     public void SetBubbles()
     {
         bubble1.gameObject.SetActive(true);

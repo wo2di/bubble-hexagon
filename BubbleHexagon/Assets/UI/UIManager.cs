@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreTopText;
     public IntegerSO score;
     public IntegerSO scoreTop;
+    public Color newBestColor;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class UIManager : MonoBehaviour
         if(score.value > scoreTop.value)
         {
             scoreTopText.text = "NEW BEST";
-            scoreText.color = Color.red;
+            scoreTopText.color = newBestColor;
         }
     }
 }

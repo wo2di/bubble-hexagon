@@ -7,7 +7,7 @@ public class ItemManager : MonoBehaviour
     public BubbleParent bubbleParent;
     public AudioManager audioManager;
     public ItemSlot[] itemSlots;
-
+    public BoolSO gamePaused;
     public void AddPoint(int i)
     {
         int point = i;
@@ -65,6 +65,7 @@ public class ItemManager : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
+        if (gamePaused.value) return;
         UseItem();
     }
 }

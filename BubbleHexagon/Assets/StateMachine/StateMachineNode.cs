@@ -33,7 +33,6 @@ namespace FSM
         {
             if (_sm.gameplaySaveLoad.CheckGameplaySave())
             {
-                Debug.Log("load!");
                 _sm.gameplaySaveLoad.LoadGameplay();
             }
             _sm.ChangeState(_sm.standby);
@@ -59,42 +58,13 @@ namespace FSM
         {
             _sm.levelManager.CheckShootCount();
 
-            if(_sm.bubbleParent.bubble1 != null && _sm.bubbleParent.bubble2 != null)
+            if(_sm.bubbleParent.bubble1 == null)
             {
-                if (_sm.bubbleParent.bubble1.transform.IsChildOf(_sm.bubbleParent.transform))
-                {
-                    //게임 진행중
-
-                    _sm.bubbleParent.bubble1 = _sm.bubbleParent.bubble2;
-
-                    //bubble2 생성
-                    if (_sm.bubbleParent.bubble3 == null)
-                    {
-                        _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
-                    }
-                    //bubble3을 bubble2로
-                    else
-                    {
-                        _sm.bubbleParent.bubble2 = _sm.bubbleParent.bubble3;
-                        _sm.bubbleParent.bubble3 = null;
-                    }
-                }
-                else
-                {
-                    //첫 로드
-                }
+                _sm.bubbleParent.bubble1 = _sm.bubbleFactory.SpawnRandomBubble();
+                _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
             }
-            else
+            else if(_sm.bubbleParent.bubble2 == null)
             {
-                //새 게임
-                if (_sm.bubbleParent.GetBubblesInGrid().Count == 1)
-                {
-                    _sm.bubbleParent.bubble1 = _sm.bubbleFactory.SpawnRandomBubbleWhenEmpty();
-                }
-                else
-                {
-                    _sm.bubbleParent.bubble1 = _sm.bubbleFactory.SpawnRandomBubble();
-                }
                 _sm.bubbleParent.bubble2 = _sm.bubbleFactory.SpawnRandomBubble();
             }
 
@@ -113,12 +83,22 @@ namespace FSM
                 if (Input.GetMouseButton(0))
                 {
                     _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-                    _sm.bubbleTrajectory?.DrawTrajectory(waypoints);
+                    if(target !=null)
+                    {
+                        //_sm.bubbleTrajectory?.DrawTrajectory(waypoints);
+                        _sm.arrow.SetArrowDirection();
+                    }
+                    else
+                    {
+                        _sm.arrow.ResetArrow();
+                    }
+                    
                 }
                 if (Input.GetMouseButtonUp(0))
                 {
                     _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-                    _sm.bubbleTrajectory?.ResetTrajectory();
+                    //_sm.bubbleTrajectory?.ResetTrajectory();
+                    _sm.arrow.ResetArrow();
                     if (target != null)
                     {
                         _sm.audioManager.PlaySound("bubbleshoot");
@@ -354,6 +334,11 @@ namespace FSM
 
             //_sm.ChangeState(_sm.rotateGrid);
             _sm.ChangeState(_sm.standby);
+        }
+
+        public override void Exit()
+        {
+            _sm.bubbleParent.OnExitTurn();
         }
 
     }

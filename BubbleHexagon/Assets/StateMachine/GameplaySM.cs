@@ -35,6 +35,7 @@ public class GameplaySM : StateMachine
     public GameEvent gameOverEvent;
     public SaveAndLoadGameplay gameplaySaveLoad;
     public SaveAndLoadPlayerData playerdataSaveLoad;
+    public Arrow arrow;
 
     public bool itemApplied;
 
