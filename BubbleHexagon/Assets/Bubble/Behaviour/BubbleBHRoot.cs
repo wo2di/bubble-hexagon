@@ -5,7 +5,16 @@ using System.Linq;
 
 public class BubbleBHRoot : BubbleBehaviour
 {
+    public GameDifficultySO difficulty;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+
     public BubbleListSO bubblesToDrop;
+
+    private void Start()
+    {
+        spriteRenderer.sprite = sprites[(int) difficulty.difficulty];
+    }
 
     public void GetBubblesToDrop()
     {
