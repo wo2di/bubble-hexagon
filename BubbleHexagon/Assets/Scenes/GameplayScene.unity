@@ -12153,7 +12153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1028269878
 Transform:
   m_ObjectHideFlags: 0
@@ -12258,6 +12258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adTest: {fileID: 1967897389}
+  isGamePaused: {fileID: 11400000, guid: 1754f40a1b316d04cbeb5f66a1774974, type: 2}
 --- !u!95 &1028269882
 Animator:
   serializedVersion: 3
@@ -18501,6 +18502,7 @@ MonoBehaviour:
   gameplaySaveLoad: {fileID: 777401122}
   playerdataSaveLoad: {fileID: 4160416087049778834}
   arrow: {fileID: 25121545}
+  adTest: {fileID: 1967897389}
   itemApplied: 0
 --- !u!4 &1739450913
 Transform:
@@ -20249,8 +20251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15465490a9c9b254d9f8f2e8ff827371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adCoolTime: 0
+  adCoolTimeMax: 3
+  adButton: {fileID: 1028269877}
   adStatus: {fileID: 11400000, guid: 6eb0bde750987324bb23457778d61fc4, type: 2}
   itemManager: {fileID: 273310261}
+  saveAndLoadGameplay: {fileID: 777401122}
 --- !u!4 &1967897390
 Transform:
   m_ObjectHideFlags: 0

@@ -5,9 +5,13 @@ using UnityEngine;
 public class RewardedAdButton : MonoBehaviour
 {
     public AdTest adTest;
+    public BoolSO isGamePaused;
     private void OnMouseUpAsButton()
     {
-        adTest.ShowAd();
+        if(!isGamePaused.value)
+        {
+            adTest.ShowAd();
+        }
     }
 
 }

@@ -285,7 +285,6 @@ namespace FSM
             //떨어트림을 확인하여 떨어트린다
             _sm.rootBubble.GetBubblesToDrop();
 
-            _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count * 2);
             _sm.dropCount.value += _sm.bubblesToDrop.bubbles.Count;
             _sm.StartCoroutine(DropCoroutine());
         }
@@ -339,6 +338,7 @@ namespace FSM
         public override void Exit()
         {
             _sm.bubbleParent.OnExitTurn();
+            _sm.adTest.OnExitTurn();
         }
 
     }

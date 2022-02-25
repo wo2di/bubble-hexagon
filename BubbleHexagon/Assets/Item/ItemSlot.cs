@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemSlot : MonoBehaviour
 {
     public Bubble itemBubble;
-    [Range(0,1)]
     public int point;
     public int maxPoint;
 
@@ -13,7 +12,7 @@ public class ItemSlot : MonoBehaviour
 
     public bool HasItem()
     {
-        return point >= maxPoint;
+        return point >= maxPoint && itemBubble !=null;
     }
 
     public void UseItem()
@@ -27,9 +26,10 @@ public class ItemSlot : MonoBehaviour
         SetFillScale();
         if (point >= maxPoint)
         {
+            SpawnItem();
+            itemBubble.gameObject.SetActive(false);
             GetComponent<Animator>().Play("itemspawn");
-            SendMessageUpwards("ItemSpawned");
-            
+            SendMessageUpwards("ItemSpawned"); // play sound
         }
     }
 
@@ -37,6 +37,11 @@ public class ItemSlot : MonoBehaviour
     {
         itemBubble = FindObjectOfType<BubbleFactory>().SpawnItemBubble();
         SetBubbleTransform();
+    }
+
+    public void ActivateItem()
+    {
+        itemBubble?.gameObject.SetActive(true);
     }
 
     public void ApplyChange()
@@ -56,7 +61,11 @@ public class ItemSlot : MonoBehaviour
 
     public void SetFillScale()
     {
-        fill.localPosition = new Vector3(fill.localPosition.x, (((float) point / maxPoint) - 1) * 0.8f, fill.localPosition.z);
+        float min = -0.78f;
+        float max = -0.07f;
+        float p = (float)point / maxPoint;
+         
+        fill.localPosition = new Vector3(fill.localPosition.x, min + (max - min) * p, fill.localPosition.z);
         //fill.localScale = new Vector3(1, (float)point / maxPoint, 1);
     }
 
