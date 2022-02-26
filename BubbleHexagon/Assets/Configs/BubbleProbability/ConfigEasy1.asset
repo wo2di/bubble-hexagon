@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: befb02f122b55a242afb2c5321209c98, type: 3}
   m_Name: ConfigEasy1
   m_EditorClassIdentifier: 
-  colorIndex: 6
+  colorIndex: 5
   bubbleProbabilities:
   - bubble: lock
-    probability: 0.1
+    probability: 0
   - bubble: brick
     probability: 0.05
   - bubble: change

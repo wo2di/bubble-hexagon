@@ -72,11 +72,11 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90660db1605d6d742b01488c8b4575dc, type: 3}
-  m_Color: {r: 0.68235296, g: 1, b: 0.5803922, a: 1}
+  m_Color: {r: 0.1254902, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,32 +154,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4035854825647582738, guid: 4ac302109bec68f4ead7eb3508730747, type: 3}
   m_PrefabInstance: {fileID: 5242656185458767322}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6814222701543354376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125501510210755529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edd6b1fcdb98578428b0254bbbca7c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
-  popEffect: {fileID: 0}
-  maxCount: 4
-  spreadProbability: 0.5
-  count: 0
-  colors:
-  - {r: 0.68235296, g: 1, b: 0.5803922, a: 1}
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.45882353, b: 0.54509807, a: 1}
-  - {r: 0.7294118, g: 0.003921569, b: 0.11764706, a: 1}
-  sprite: {fileID: 5479513693623588611}
-  factory: {fileID: 0}
-  targets: []
-  target: {fileID: 0}
 --- !u!95 &2196014386992951383
 Animator:
   serializedVersion: 3
@@ -199,3 +173,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6814222701543354376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8125501510210755529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd6b1fcdb98578428b0254bbbca7c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubble: {fileID: 0}
+  popEffect: {fileID: 0}
+  maxCount: 4
+  spreadProbability: 0.5
+  count: 0
+  colors:
+  - {r: 0.12616038, g: 1, b: 0, a: 1}
+  - {r: 0.99215686, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.45709446, b: 0, a: 1}
+  - {r: 0.8773585, g: 0, b: 0.13753198, a: 1}
+  sprite: {fileID: 5479513693623588611}
+  factory: {fileID: 0}
+  targets: []
+  target: {fileID: 0}

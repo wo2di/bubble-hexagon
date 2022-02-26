@@ -6,7 +6,7 @@ using System;
 public class BubbleBHRandom : BubbleBehaviour
 {
     BubbleFactory factory;
-
+    public Sound randomSound;
     protected override void Awake()
     {
         base.Awake();
@@ -14,6 +14,7 @@ public class BubbleBHRandom : BubbleBehaviour
     }
     public override void OnSetToSlot()
     {
+        randomSound.source.Play();
         StartCoroutine(ChangeAdjacentColors());
     }
 

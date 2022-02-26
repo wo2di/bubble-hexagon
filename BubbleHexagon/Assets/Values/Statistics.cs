@@ -10,9 +10,7 @@ public class Statistics : MonoBehaviour
     public float time;
     private void Reset()
     {
-        shootCnt.Reset();
-        popCnt.Reset();
-        dropCnt.Reset();
+
         time = 0;
     }
 

@@ -21,7 +21,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        score.Reset();
         scoreChangeEvent.Raise();
     }
 

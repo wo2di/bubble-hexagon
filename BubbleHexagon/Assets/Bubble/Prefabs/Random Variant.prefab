@@ -168,3 +168,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
   popEffect: {fileID: 4142243785122668608, guid: fcb248ac829fc594d8c05906d23535e3, type: 3}
+  randomSound: {fileID: 11400000, guid: 83e7c6d10e19aba41a0b46df697ac6fc, type: 2}

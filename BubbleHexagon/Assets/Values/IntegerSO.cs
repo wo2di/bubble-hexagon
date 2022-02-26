@@ -6,8 +6,5 @@ using UnityEngine;
 public class IntegerSO : ScriptableObject
 {
     public int value;
-    public void Reset()
-    {
-        value = 0;
-    }
+
 }

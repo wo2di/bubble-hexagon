@@ -34,6 +34,11 @@ namespace FSM
             if (_sm.gameplaySaveLoad.CheckGameplaySave())
             {
                 _sm.gameplaySaveLoad.LoadGameplay();
+                _sm.adTest.OnExitTurn();
+            }
+            else
+            {
+                _sm.gameplaySaveLoad.InitializePlayData();
             }
             _sm.ChangeState(_sm.standby);
         }

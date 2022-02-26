@@ -40,7 +40,9 @@ public class BubbleBHSpread : BubbleBehaviour
             StartCoroutine(ChangePhase(count));
             if(count == 0)
             {
-                if (Random.value < spreadProbability)
+                float t = Random.value;
+                Debug.Log(t);
+                if (t < spreadProbability)
                 {
                     //°¨¿°½ÃÅ²´Ù
                     target = targets[Random.Range(0, targets.Count)];

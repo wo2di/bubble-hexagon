@@ -109,6 +109,9 @@ public class GamePlayData
 
     public int score;
     public int shootCount;
+    public int popCount;
+    public int dropCount;
+    public int adCount;
     
 
     public GamePlayData()
@@ -121,12 +124,20 @@ public class GamePlayData
         SpreadList = new List<SpreadBubbleSD>();
         ZombieList = new List<ZombieBubbleSD>();
 
+        items = new itemSD[3];
+        for(int i = 0; i < 3; i++)
+        {
+            items[i] = new itemSD(0, "");
+        }
+
         bubble1 = new List<string>();
         bubble2 = new List<string>();
 
         score = 0;
         shootCount = 0;
-        items = new itemSD[3];
+        popCount = 0;
+        dropCount = 0;
+        adCount = 20;
     }
 }
 
@@ -145,6 +156,10 @@ public class SaveAndLoadGameplay : MonoBehaviour
     public ColorTheme colorTheme;
     public IntegerSO shootCountSO;
     public GameDifficultySO difficultySO;
+
+    public IntegerSO dropCountSO;
+    public IntegerSO popCountSO;
+    public IntegerSO adCountSO;
 
     public GamePlayData data;
     string fileName;
@@ -221,6 +236,9 @@ public class SaveAndLoadGameplay : MonoBehaviour
 
         data.score = scoreSO.value;
         data.shootCount = shootCountSO.value;
+        data.dropCount = dropCountSO.value;
+        data.popCount = popCountSO.value;
+        data.adCount = adCountSO.value;
     }
 
     private void DataToGame()
@@ -304,6 +322,10 @@ public class SaveAndLoadGameplay : MonoBehaviour
         levelManager.CheckShootCount();
         rotateGame.transform.Rotate(0, 0, -60 * (shootCountSO.value % 6));
 
+        dropCountSO.value = data.dropCount;
+        popCountSO.value = data.popCount;
+        adCountSO.value = data.adCount;
+
         Bubble b1 = bubbleFactory.SpawnBubble(data.bubble1[0]);
         switch(b1.GetComponent<BubbleBehaviour>())
         {
@@ -384,6 +406,15 @@ public class SaveAndLoadGameplay : MonoBehaviour
         {
             Debug.Log(e);
         }
+    }
+
+    public void InitializePlayData()
+    {
+        scoreSO.value = 0;
+        shootCountSO.value = 0;
+        popCountSO.value = 0;
+        dropCountSO.value = 0;
+        adCountSO.value = 20;
     }
 
     [ContextMenu("SAVE")]

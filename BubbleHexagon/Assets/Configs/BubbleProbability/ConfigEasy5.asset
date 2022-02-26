@@ -17,8 +17,8 @@ MonoBehaviour:
   - bubble: lock
     probability: 0.1
   - bubble: brick
-    probability: 0.1
+    probability: 0.05
   - bubble: change
-    probability: 0.15
+    probability: 0.1
   - bubble: spread
-    probability: 0.03
+    probability: 0
