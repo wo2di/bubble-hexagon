@@ -31,7 +31,10 @@ public class SafeArea : MonoBehaviour
 
     void Start()
     {
+#if UNITY_EDITOR
+#else
         UpdateSafeArea();
+#endif
     }
 
 }
