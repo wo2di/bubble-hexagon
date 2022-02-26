@@ -20252,7 +20252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adCoolTime: 0
-  adCoolTimeMax: 3
+  adCoolTimeMax: 20
   adButton: {fileID: 1028269877}
   adStatus: {fileID: 11400000, guid: 6eb0bde750987324bb23457778d61fc4, type: 2}
   itemManager: {fileID: 273310261}
