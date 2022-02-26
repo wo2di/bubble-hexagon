@@ -37,16 +37,25 @@ public class AdTest : MonoBehaviour
 
     void Start()
     {
+        List<string> deviceIds = new List<string>();
+        //deviceIds.Add("4ADED87CA7245DFFFFEF01995B4CE374");
+        deviceIds.Add("24FC3733A61DC4B270B7D8B7CE8093E7");
+        RequestConfiguration requestConfiguration = new RequestConfiguration
+            .Builder()
+            .SetTestDeviceIds(deviceIds)
+            .build();
         MobileAds.Initialize(initStatus => { });
+        MobileAds.SetRequestConfiguration(requestConfiguration);
+
         CreateAndLoadRewardedAd();
     }
 
     public void CreateAndLoadRewardedAd()
     {
 
-        //string unitID = "ca-app-pub-2249383838668943/3121631983";//realID
+        string unitID = "ca-app-pub-2249383838668943/3121631983";//realID
 
-        string unitID = "ca-app-pub-3940256099942544/5224354917";//testID
+        //string unitID = "ca-app-pub-3940256099942544/5224354917";//testID
         rewardedAd = new RewardedAd(unitID);
 
         rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
