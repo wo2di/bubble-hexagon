@@ -7,6 +7,7 @@ public class DebugInfo : MonoBehaviour
     public Statistics statistics;
     public GameDifficultySO gameConfig;
     public StringSO adStatus;
+    public IntegerSO adCount;
 
     private void OnGUI()
     {
@@ -16,6 +17,7 @@ public class DebugInfo : MonoBehaviour
         string content3 = "PopCount: " + statistics.popCnt.value.ToString();
         string content4 = "DropCount: " + statistics.dropCnt.value.ToString();
         string content5 = "AdStatus: " + adStatus.value;
+        string content6 = "AdCount: " + adCount.value;
 
         GUILayout.Label("");
         GUILayout.Label("");
@@ -25,5 +27,6 @@ public class DebugInfo : MonoBehaviour
         GUILayout.Label($"<color='black'><size=40>{content3}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content4}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content5}</size></color>");
+        GUILayout.Label($"<color='black'><size=40>{content6}</size></color>");
     }
 }

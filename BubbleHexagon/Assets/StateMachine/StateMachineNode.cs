@@ -34,7 +34,7 @@ namespace FSM
             if (_sm.gameplaySaveLoad.CheckGameplaySave())
             {
                 _sm.gameplaySaveLoad.LoadGameplay();
-                _sm.adTest.OnExitTurn();
+                //_sm.admobEventHandler.OnExitTurn();
             }
             else
             {
@@ -343,7 +343,7 @@ namespace FSM
         public override void Exit()
         {
             _sm.bubbleParent.OnExitTurn();
-            _sm.adTest.OnExitTurn();
+            _sm.admobEventHandler.OnExitTurn();
         }
 
     }

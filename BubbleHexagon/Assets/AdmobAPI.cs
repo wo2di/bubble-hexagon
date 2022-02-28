@@ -6,34 +6,12 @@ using System;
 using GoogleMobileAds.Common;
 using UnityEngine.Events;
 
-public class AdTest : MonoBehaviour
+public class AdmobAPI : MonoBehaviour
 {
-    public IntegerSO adCoolTime;
-    public int adCoolTimeMax;
-    public GameObject adButton;
-
+    public AdmobEventHandler admobEventHandler;
     public StringSO adStatus;
-    public ItemManager itemManager;
-    public SaveAndLoadGameplay saveAndLoadGameplay;
-
-
+    public GameObject notifyNoAd;
     RewardedAd rewardedAd;
-    
-    public void OnExitTurn()
-    {
-        if(adCoolTime.value > 0)
-        {
-            adCoolTime.value--;
-        }
-        if (adCoolTime.value == 0)
-        {
-            adButton.SetActive(true);
-        }
-        if(itemManager.itemSlots[2].HasItem())
-        {
-            adButton.SetActive(false);
-        }
-    }
 
     void Start()
     {
@@ -70,6 +48,7 @@ public class AdTest : MonoBehaviour
     {
         adStatus.value = "Ad Failed To Load";
         adStatus.value = args.LoadAdError.GetMessage();
+        //adStatus.value = args.LoadAdError.GetCause().GetMessage();
     }
 
     public void HandleAdFailedToShow(object sender, AdErrorEventArgs args)
@@ -80,30 +59,33 @@ public class AdTest : MonoBehaviour
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
+        Debug.Log("user earned reward" + args.Type + (int)args.Amount);
         adStatus.value = "User Earned Reward";
-        //Debug.Log("user earned reward" + args.Type + (int) args.Amount);
-        itemManager.AddOneItem();
-        saveAndLoadGameplay.SaveGameplay();
+
+        admobEventHandler.userEarnedReward = true;
     }
 
     public void HandleAdClosed(object sender, EventArgs args)
     {
+        Debug.Log("ad closed");
         adStatus.value = "Ad Closed";
         CreateAndLoadRewardedAd();
-        adCoolTime.value = adCoolTimeMax;
-        adButton.SetActive(false);
+
+        admobEventHandler.AdClosed = true;
     }
 
     public void ShowAd()
     {
-        if(rewardedAd.IsLoaded())
+        if (rewardedAd.IsLoaded())
         {
+            adStatus.value = "ad loaded";
             rewardedAd.Show();
         }
         else
         {
+            adStatus.value = "no ad loaded";
+            notifyNoAd.SetActive(true);
             CreateAndLoadRewardedAd();
-            Debug.Log("No Ad Loaded");
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RewardedAdButton : MonoBehaviour
 {
-    public AdTest adTest;
+    public AdmobAPI adTest;
     public BoolSO isGamePaused;
     private void OnMouseUpAsButton()
     {

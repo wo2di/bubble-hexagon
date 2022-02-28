@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "LGMV300L60611882",
     "m_SelectedPackage": {
-        "deviceId": "21da473c550c7ece",
+        "deviceId": "LGMV300L60611882",
         "name": "com.DefaultCompany.BubbleHexagon",
-        "processId": 10256,
+        "processId": 24692,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,13 +17,61 @@
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 5818,
+            "processId": 9023,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 11855,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 14183,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 17044,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 18810,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 30008,
             "exited": false
         },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 9445,
+            "processId": 30954,
+            "exited": false
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 607,
+            "exited": false
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 11301,
+            "exited": false
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 24692,
             "exited": false
         },
         {
@@ -47,7 +95,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -63,7 +111,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
@@ -89,7 +137,7 @@
         "MemoryGroup": 2,
         "Behavior": 0
     },
-    "m_Filter": "device",
+    "m_Filter": "",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

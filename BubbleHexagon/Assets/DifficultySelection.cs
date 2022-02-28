@@ -11,6 +11,12 @@ public class DifficultySelection : MonoBehaviour
     public Button easyButton;
     public Button hardButton;
     public BoolSO isHardmodeOpen;
+
+    public Image hardButtonImage; 
+    public Sprite hardOpenSprite;
+    public Sprite hardLockSprite;
+    public GameObject notifyHardmodeCondition;
+    public AudioManager audioManager;
     public void SetGameMode(string d)
     {
         switch (d)
@@ -28,9 +34,32 @@ public class DifficultySelection : MonoBehaviour
         }
     }
 
+    public void HardModeClicked()
+    {
+        if (isHardmodeOpen.value) 
+        {
+            SetGameMode("Hard");
+            audioManager.PlaySound("uiclick");
+        }
+        else
+        {
+            if(!notifyHardmodeCondition.activeSelf)
+            {
+                notifyHardmodeCondition.SetActive(true);
+            }
+        }
+    }
+
     private void Start()
     {
-        hardButton.interactable = isHardmodeOpen.value;
+        if (isHardmodeOpen.value)
+        {
+            hardButtonImage.sprite = hardOpenSprite;
+        }
+        else
+        {
+            hardButtonImage.sprite = hardLockSprite;
+        }
         
         SetGameMode("Easy");
     }
