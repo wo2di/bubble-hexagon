@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LMG710N25835aed",
         "name": "com.oohohgames.bubblehexagon",
-        "processId": 17199,
+        "processId": 27705,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -96,6 +96,42 @@
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 17199,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 17150,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 19694,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 23154,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 24707,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 25790,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 27705,
             "exited": false
         }
     ],
