@@ -16,7 +16,8 @@ public class AdmobAPI : MonoBehaviour
     void Start()
     {
         List<string> deviceIds = new List<string>();
-        //deviceIds.Add("4ADED87CA7245DFFFFEF01995B4CE374"); //재이
+        deviceIds.Add("5874059908FE6295023F7261C5F00585"); //재이2
+        deviceIds.Add("4ADED87CA7245DFFFFEF01995B4CE374"); //재이
         deviceIds.Add("24FC3733A61DC4B270B7D8B7CE8093E7"); //병훈
         RequestConfiguration requestConfiguration = new RequestConfiguration
             .Builder()
