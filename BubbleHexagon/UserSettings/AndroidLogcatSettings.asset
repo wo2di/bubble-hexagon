@@ -1,83 +1,47 @@
 {
     "m_SelectedDeviceId": "LMG710N25835aed",
     "m_SelectedPackage": {
-        "deviceId": "LMG710N25835aed",
+        "deviceId": "LGMV300L60611882",
         "name": "com.oohohgames.bubblehexagon",
-        "processId": 27705,
+        "processId": 14120,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "LGMV300L60611882",
-            "name": "com.lge.launcher3",
-            "processId": 4339,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 30008,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 30954,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 607,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 11301,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 24692,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 13775,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 15572,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 16432,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
             "processId": 19495,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
             "processId": 21389,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
             "processId": 23873,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.android.vending",
+            "processId": 5640,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 7764,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 14120,
             "exited": false
         },
         {
@@ -95,43 +59,37 @@
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 17199,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 17150,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
             "processId": 19694,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 23154,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 24707,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 25790,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 27705,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 21560,
             "exited": false
         }
     ],

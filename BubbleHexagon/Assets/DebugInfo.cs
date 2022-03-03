@@ -8,7 +8,7 @@ public class DebugInfo : MonoBehaviour
     public GameDifficultySO gameConfig;
     public StringSO adStatus;
     public IntegerSO adCount;
-
+    public StringSO gpgsStatus;
     private void OnGUI()
     {
         string time = "Seconds: " + statistics.time.ToString();
@@ -18,6 +18,7 @@ public class DebugInfo : MonoBehaviour
         string content4 = "DropCount: " + statistics.dropCnt.value.ToString();
         string content5 = "AdStatus: " + adStatus.value;
         string content6 = "AdCount: " + adCount.value;
+        string content7 = "GoogleSignIn: " + gpgsStatus.value;
 
         GUILayout.Label("");
         GUILayout.Label("");
@@ -28,5 +29,6 @@ public class DebugInfo : MonoBehaviour
         GUILayout.Label($"<color='black'><size=40>{content4}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content5}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content6}</size></color>");
+        GUILayout.Label($"<color='black'><size=40>{content7}</size></color>");
     }
 }
