@@ -3,11 +3,29 @@
     "m_SelectedPackage": {
         "deviceId": "LGMV300L60611882",
         "name": "com.oohohgames.bubblehexagon",
-        "processId": 28799,
+        "processId": 14120,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 19495,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 21389,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 23873,
+            "exited": true
+        },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.android.vending",
@@ -24,30 +42,6 @@
             "deviceId": "LGMV300L60611882",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 14120,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.kakao.talk",
-            "processId": 21167,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.lge.launcher3",
-            "processId": 4307,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 32493,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 28799,
             "exited": false
         },
         {
@@ -64,44 +58,38 @@
         },
         {
             "deviceId": "LMG710N25835aed",
-            "name": "com.lge.launcher3",
-            "processId": 2968,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 31091,
+            "processId": 19694,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 32437,
+            "processId": 23154,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 13232,
+            "processId": 24707,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 16307,
+            "processId": 25790,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 16825,
+            "processId": 27705,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 17355,
+            "processId": 21560,
             "exited": false
         }
     ],
@@ -113,7 +101,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -129,7 +117,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
