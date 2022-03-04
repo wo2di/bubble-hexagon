@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 0}
-  popEffect: {fileID: 8223096138406081514, guid: eee76aca713138c49ac596cc4c0e4190, type: 3}
   color: 9
-  colorValue: {r: 0, g: 0, b: 0, a: 0}
+  colorValue: {r: 1, g: 1, b: 1, a: 0}
   colorSprite: {fileID: 0}
+  popEffect: {fileID: 8223096138406081514, guid: eee76aca713138c49ac596cc4c0e4190, type: 3}
   bubblesToPop: {fileID: 11400000, guid: 6463a2d729d4ac241a8f0f4f13c94d41, type: 2}
   changeColorAnim: {fileID: 0}
   factory: {fileID: 0}

@@ -7,7 +7,7 @@ using System.Linq;
 public class BubbleBehaviour : MonoBehaviour
 {
     public Bubble bubble;
-    public GameObject popEffect;
+    
 
     protected virtual void Awake()
     {
@@ -24,10 +24,10 @@ public class BubbleBehaviour : MonoBehaviour
     public virtual void OnExitTurn() { }
     public virtual void OnPop() 
     {
-        if(popEffect !=null)
-        {
-            Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
-        }
+        //if(popEffect !=null)
+        //{
+        //    Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
+        //}
         bubble.Pop();
     }
     public virtual void OnDrop() 

@@ -1,31 +1,13 @@
 {
-    "m_SelectedDeviceId": "LMG710N25835aed",
+    "m_SelectedDeviceId": "LGMV300L60611882",
     "m_SelectedPackage": {
         "deviceId": "LGMV300L60611882",
         "name": "com.oohohgames.bubblehexagon",
-        "processId": 14120,
+        "processId": 28799,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 19495,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 21389,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.DefaultCompany.BubbleHexagon",
-            "processId": 23873,
-            "exited": true
-        },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.android.vending",
@@ -42,6 +24,30 @@
             "deviceId": "LGMV300L60611882",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 14120,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.kakao.talk",
+            "processId": 21167,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.lge.launcher3",
+            "processId": 4307,
+            "exited": false
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 32493,
+            "exited": true
+        },
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 28799,
             "exited": false
         },
         {
@@ -58,38 +64,44 @@
         },
         {
             "deviceId": "LMG710N25835aed",
+            "name": "com.lge.launcher3",
+            "processId": 2968,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 19694,
+            "processId": 31091,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 23154,
+            "processId": 32437,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 24707,
+            "processId": 13232,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 25790,
+            "processId": 16307,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 27705,
+            "processId": 16825,
             "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 21560,
+            "processId": 17355,
             "exited": false
         }
     ],
@@ -101,7 +113,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "",
@@ -117,7 +129,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "CRASH",

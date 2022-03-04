@@ -19,6 +19,7 @@ public class DebugInfo : MonoBehaviour
         string content5 = "AdStatus: " + adStatus.value;
         string content6 = "AdCount: " + adCount.value;
         string content7 = "GoogleSignIn: " + gpgsStatus.value;
+        string content8 = "version 7";
 
         GUILayout.Label("");
         GUILayout.Label("");
@@ -30,5 +31,6 @@ public class DebugInfo : MonoBehaviour
         GUILayout.Label($"<color='black'><size=40>{content5}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content6}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content7}</size></color>");
+        GUILayout.Label($"<color='black'><size=40>{content8}</size></color>");
     }
 }

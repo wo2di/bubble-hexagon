@@ -19,6 +19,7 @@ public class BubbleBHChange : BubbleBHColor
         }
 
         color = this.colors[nextColorIndex];
+        colorValue = this.values[nextColorIndex];
         UpdateIndex();
 
         ApplyColor();
@@ -48,7 +49,7 @@ public class BubbleBHChange : BubbleBHColor
     public void ChangeColor()
     {
         color = colors[nextColorIndex];
-
+        colorValue = values[nextColorIndex];
         sprites[(nextColorIndex + 1) % colors.Length].GetComponent<Animator>().Play("shrink");
         sprites[nextColorIndex].GetComponent<Animator>().Play("grow");
 

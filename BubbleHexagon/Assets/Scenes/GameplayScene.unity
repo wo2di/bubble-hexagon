@@ -4796,7 +4796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &328537894
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14943,6 +14943,9 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: 90223861118da4d4ea9edce610fbe9b9, type: 2}
   scoreTop: {fileID: 0}
   newBestColor: {r: 1, g: 0.27058825, b: 0.3019608, a: 1}
+  isFirstPlay: {fileID: 11400000, guid: 067c32d0346125e498f35016cf4180d5, type: 2}
+  howto: {fileID: 1555874802}
+  saveAndLoadPlayerData: {fileID: 4160416087049778834}
 --- !u!4 &1196860675
 Transform:
   m_ObjectHideFlags: 0
@@ -22568,7 +22571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2019862884
 RectTransform:
   m_ObjectHideFlags: 0

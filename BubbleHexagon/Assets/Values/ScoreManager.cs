@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
         if(scoreTop.value < score.value)
         {
             scoreTop.value = score.value;
-            playGameServices.PostScoreToLeaderboard(scoreTop.value);
+            //playGameServices.PostScoreToLeaderboard(scoreTop.value);
             if(scoreTop.value >= hardmodeOpenScore)
             {
                 isHardmodeOpen.value = true;
