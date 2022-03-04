@@ -10,9 +10,19 @@ public class UIManager : MonoBehaviour
     public IntegerSO scoreTop;
     public Color newBestColor;
 
+    public BoolSO isFirstPlay;
+    public GameObject howto;
+    public SaveAndLoadPlayerData saveAndLoadPlayerData;
+
     private void Start()
     {
         scoreTopText.text = "TOP " + scoreTop.value.ToString();
+        if(isFirstPlay.value)
+        {
+            howto.SetActive(true);
+            isFirstPlay.value = false;
+            saveAndLoadPlayerData.SaveSequence();
+        }
     }
 
     public void UpdateScoreUI()

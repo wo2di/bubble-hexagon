@@ -10,7 +10,6 @@ public class BubbleBHColor : BubbleBehaviour
     public Color colorValue;
     public SpriteRenderer colorSprite;
 
-    //public List<Bubble> bsToPop;
     public BubbleListSO bubblesToPop;
 
     public Animator changeColorAnim;
@@ -22,6 +21,15 @@ public class BubbleBHColor : BubbleBehaviour
         factory = FindObjectOfType<BubbleFactory>();
     }
 
+    public override void OnPop()
+    {
+        if (popEffect != null)
+        {
+            GameObject obj = Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
+            obj.GetComponent<SpriteRenderer>().color = colorValue;
+        }
+        bubble.Pop();
+    }
 
     public virtual void InitializeColor(ColorEnumValuePair p)
     {

@@ -2757,12 +2757,12 @@ MonoBehaviour:
   shootConfigsEasy:
   - {fileID: 11400000, guid: 031ae896c2fc02343aeed88ef897094b, type: 2}
   - {fileID: 11400000, guid: 84c82693d6a60b74f831c87d6f6db2a4, type: 2}
-  - {fileID: 11400000, guid: 729382eacdabd8646a78263536864601, type: 2}
-  - {fileID: 11400000, guid: 40d8a3cb42e10c047adb063695370da0, type: 2}
   - {fileID: 11400000, guid: a1d1e7da8dddc054ab37e968bc4788ad, type: 2}
   - {fileID: 11400000, guid: 07029b133d9ce9b43968290b07ada40a, type: 2}
   - {fileID: 11400000, guid: 5e3ccaf026894474882d999bcfcc480a, type: 2}
   - {fileID: 11400000, guid: 22e08eddeb793a644ab6bada8c82d388, type: 2}
+  - {fileID: 11400000, guid: 82089b60a6e04f94fbc00b386ddaf03c, type: 2}
+  - {fileID: 11400000, guid: e6dd7aab2d5f11d44962c02bc2b934ad, type: 2}
   shootConfigsHard:
   - {fileID: 11400000, guid: b769db5bd8c94fb4a98afe571b0c6a15, type: 2}
   - {fileID: 11400000, guid: 27873ef00ff8c9846a16f9475d94456a, type: 2}
@@ -14604,6 +14604,9 @@ MonoBehaviour:
   score: {fileID: 11400000, guid: 90223861118da4d4ea9edce610fbe9b9, type: 2}
   scoreTop: {fileID: 0}
   newBestColor: {r: 1, g: 0.27058825, b: 0.3019608, a: 1}
+  isFirstPlay: {fileID: 11400000, guid: 067c32d0346125e498f35016cf4180d5, type: 2}
+  howto: {fileID: 1555874802}
+  saveAndLoadPlayerData: {fileID: 4160416087049778834}
 --- !u!4 &1196860675
 Transform:
   m_ObjectHideFlags: 0

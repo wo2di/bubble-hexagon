@@ -24,9 +24,9 @@ public class BubbleBehaviour : MonoBehaviour
     public virtual void OnExitTurn() { }
     public virtual void OnPop() 
     {
-        if(popEffect !=null)
+        if (popEffect != null)
         {
-            Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
+            GameObject obj = Instantiate(popEffect, bubble.slot.transform.position, Quaternion.identity, transform.parent.parent.Find("Effect"));
         }
         bubble.Pop();
     }

@@ -10,8 +10,16 @@ public class PlayerData
     public int topScoreEasy;
     public int topScoreHard;
     public bool isHardOpen;
+    public bool isFirstPlay;
 
-    public PlayerData() { }
+    public PlayerData() 
+    {
+        topScoreEasy = 0;
+        topScoreHard = 0;
+        isHardOpen = false;
+        isFirstPlay = true;
+
+    }
 }
 
 public class SaveAndLoadPlayerData : MonoBehaviour
@@ -19,6 +27,7 @@ public class SaveAndLoadPlayerData : MonoBehaviour
     public IntegerSO topEasySO;
     public IntegerSO topHardSO;
     public BoolSO hardOpenSO;
+    public BoolSO isFirstPlaySO;
 
     public PlayerData data;
 
@@ -37,7 +46,9 @@ public class SaveAndLoadPlayerData : MonoBehaviour
         {
             topScoreEasy = topEasySO.value,
             topScoreHard = topHardSO.value,
-            isHardOpen = hardOpenSO.value
+            isHardOpen = hardOpenSO.value,
+            isFirstPlay = isFirstPlaySO.value
+
         };
     }
 
@@ -46,6 +57,7 @@ public class SaveAndLoadPlayerData : MonoBehaviour
         topEasySO.value = data.topScoreEasy;
         topHardSO.value = data.topScoreHard;
         hardOpenSO.value = data.isHardOpen;
+        isFirstPlaySO.value = data.isFirstPlay;
     }
 
     public void SaveData()
@@ -63,22 +75,16 @@ public class SaveAndLoadPlayerData : MonoBehaviour
 
     public void LoadData()
     {
-        try
-        {
-            data = new PlayerData();
-            BinaryFormatter bf = new BinaryFormatter();
+        data = new PlayerData();
+        BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
-            FileStream file = File.OpenRead(editorDatapath);
+        FileStream file = File.OpenRead(editorDatapath);
 #else
-            FileStream file = File.OpenRead(androidDatapath);
+        FileStream file = File.OpenRead(androidDatapath);
 #endif
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
-            file.Close();
-        }
-        catch (FileNotFoundException e)
-        {
-            Debug.Log(e);
-        }
+        JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
+        file.Close();
+
     }
 
     public void SaveSequence()
@@ -89,7 +95,16 @@ public class SaveAndLoadPlayerData : MonoBehaviour
 
     public void LoadSequence()
     {
-        LoadData();
+        try
+        {
+            LoadData();
+        }
+        catch (FileNotFoundException e)
+        {
+            data = new PlayerData();
+            SaveData();
+        }
+        
         Deserialize();
     }
 
