@@ -35,13 +35,6 @@ public class GameplayMenuUI : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        foreach(SoundButton sb in soundButtons)
-        {
-            sb.ApplySoundBool();
-        }
-    }
     public void Expand()
     {
         EnableButtons();

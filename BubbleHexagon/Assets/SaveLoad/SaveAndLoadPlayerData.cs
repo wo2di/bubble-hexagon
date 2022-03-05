@@ -11,6 +11,9 @@ public class PlayerData
     public int topScoreHard;
     public bool isHardOpen;
     public bool isFirstPlay;
+    public bool musicOn;
+    public bool soundOn;
+
 
     public PlayerData() 
     {
@@ -18,6 +21,8 @@ public class PlayerData
         topScoreHard = 0;
         isHardOpen = false;
         isFirstPlay = true;
+        musicOn = true;
+        soundOn = true;
 
     }
 }
@@ -28,6 +33,10 @@ public class SaveAndLoadPlayerData : MonoBehaviour
     public IntegerSO topHardSO;
     public BoolSO hardOpenSO;
     public BoolSO isFirstPlaySO;
+    public BoolSO musicOnSO;
+    public BoolSO soundOnSO;
+
+
 
     public PlayerData data;
 
@@ -39,7 +48,10 @@ public class SaveAndLoadPlayerData : MonoBehaviour
     {
         editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
         androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
+
+        LoadSequence();
     }
+
     public void Serialize()
     {
         data = new PlayerData()
@@ -47,7 +59,10 @@ public class SaveAndLoadPlayerData : MonoBehaviour
             topScoreEasy = topEasySO.value,
             topScoreHard = topHardSO.value,
             isHardOpen = hardOpenSO.value,
-            isFirstPlay = isFirstPlaySO.value
+            isFirstPlay = isFirstPlaySO.value,
+            musicOn = musicOnSO.value,
+            soundOn = soundOnSO.value
+            
 
         };
     }
@@ -58,6 +73,8 @@ public class SaveAndLoadPlayerData : MonoBehaviour
         topHardSO.value = data.topScoreHard;
         hardOpenSO.value = data.isHardOpen;
         isFirstPlaySO.value = data.isFirstPlay;
+        musicOnSO.value = data.musicOn;
+        soundOnSO.value = data.soundOn;
     }
 
     public void SaveData()

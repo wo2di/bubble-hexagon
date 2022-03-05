@@ -6,6 +6,8 @@ public class Arrow : MonoBehaviour
 {
     public RayCaster rayCaster;
 
+
+
     public void SetArrowDirection()
     {
         gameObject.SetActive(true);
@@ -18,6 +20,11 @@ public class Arrow : MonoBehaviour
     {
         transform.rotation = Quaternion.identity;
         gameObject.SetActive(false);
+    }
+
+    private void OnApplicationPause()
+    {
+        ResetArrow();
     }
 
 }

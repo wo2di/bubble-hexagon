@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2822415512824665732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6894978416581319146}
+  - component: {fileID: 5213726150431431862}
+  m_Layer: 0
+  m_Name: MusicButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6894978416581319146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822415512824665732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3962463671596263815}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5213726150431431862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822415512824665732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c2ae0ac8806c4fb60b0504b7a7aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveAndLoadPlayerData: {fileID: 0}
+  sounds:
+  - {fileID: 11400000, guid: adda281b0d6e2b348a02a55d22737927, type: 2}
+  soundBool: {fileID: 11400000, guid: 8c9caf09b0913f04e88dddade647c52f, type: 2}
 --- !u!1 &3962463671596263929
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +74,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8795975798730107029}
+  - {fileID: 6894978416581319146}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,4 +104,62 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f1f589bb3edd6924b9f3f8d2017c262b, type: 2}
   - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
   - {fileID: 11400000, guid: cc5a2dde0f0f0f04092f2f6e3912fff7, type: 2}
+  - {fileID: 11400000, guid: 83e7c6d10e19aba41a0b46df697ac6fc, type: 2}
   playBGM: 1
+--- !u!1 &6103633485752071550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8795975798730107029}
+  - component: {fileID: 4561101052482887215}
+  m_Layer: 0
+  m_Name: SoundButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8795975798730107029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103633485752071550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3962463671596263815}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4561101052482887215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6103633485752071550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c2ae0ac8806c4fb60b0504b7a7aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveAndLoadPlayerData: {fileID: 0}
+  sounds:
+  - {fileID: 11400000, guid: 52c865288796dc44a89faacaa5fdbf54, type: 2}
+  - {fileID: 11400000, guid: 1f0ede7e30c85d5499bffb286ecf77c8, type: 2}
+  - {fileID: 11400000, guid: 30fd22af54a94b24aafddb1ae422a530, type: 2}
+  - {fileID: 11400000, guid: c19c256bc928b4245bfc5851a5162c57, type: 2}
+  - {fileID: 11400000, guid: 36696e46b7f3d6d4ebda8c84cc9ca991, type: 2}
+  - {fileID: 11400000, guid: f1f589bb3edd6924b9f3f8d2017c262b, type: 2}
+  - {fileID: 11400000, guid: 268f1643559396c4587ee31f301ed605, type: 2}
+  - {fileID: 11400000, guid: 1c200ed476ed2be43bb7dcea1223df56, type: 2}
+  - {fileID: 11400000, guid: cc5a2dde0f0f0f04092f2f6e3912fff7, type: 2}
+  - {fileID: 11400000, guid: 83e7c6d10e19aba41a0b46df697ac6fc, type: 2}
+  - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
+  soundBool: {fileID: 11400000, guid: 169cb60d2e41dea46a12834a20742388, type: 2}

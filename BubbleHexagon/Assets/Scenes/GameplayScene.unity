@@ -7731,8 +7731,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 599714949}
-        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
+      - m_Target: {fileID: 3962463672467032648}
+        m_TargetAssemblyTypeName: MuteSound, Assembly-CSharp
         m_MethodName: OnSoundButton
         m_Mode: 1
         m_Arguments:
@@ -7805,17 +7805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac93cc645bca7147bee3407137a29af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 11400000, guid: 1f0ede7e30c85d5499bffb286ecf77c8, type: 2}
-  - {fileID: 11400000, guid: 30fd22af54a94b24aafddb1ae422a530, type: 2}
-  - {fileID: 11400000, guid: c19c256bc928b4245bfc5851a5162c57, type: 2}
-  - {fileID: 11400000, guid: 36696e46b7f3d6d4ebda8c84cc9ca991, type: 2}
-  - {fileID: 11400000, guid: 268f1643559396c4587ee31f301ed605, type: 2}
-  - {fileID: 11400000, guid: 1c200ed476ed2be43bb7dcea1223df56, type: 2}
-  - {fileID: 11400000, guid: 52c865288796dc44a89faacaa5fdbf54, type: 2}
-  - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
-  - {fileID: 11400000, guid: f1f589bb3edd6924b9f3f8d2017c262b, type: 2}
-  - {fileID: 11400000, guid: cc5a2dde0f0f0f04092f2f6e3912fff7, type: 2}
   soundBool: {fileID: 11400000, guid: 169cb60d2e41dea46a12834a20742388, type: 2}
   soundOn: {fileID: 21300000, guid: a9e98d8f1235a224c8f0a2dbd6b17672, type: 3}
   soundOff: {fileID: 21300000, guid: 99230b89b52e0234c9c04269cc4ee229, type: 3}
@@ -9578,8 +9567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 699297344}
-        m_TargetAssemblyTypeName: SoundButton, Assembly-CSharp
+      - m_Target: {fileID: 3962463672467032647}
+        m_TargetAssemblyTypeName: MuteSound, Assembly-CSharp
         m_MethodName: OnSoundButton
         m_Mode: 1
         m_Arguments:
@@ -9652,8 +9641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac93cc645bca7147bee3407137a29af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 11400000, guid: adda281b0d6e2b348a02a55d22737927, type: 2}
   soundBool: {fileID: 11400000, guid: 8c9caf09b0913f04e88dddade647c52f, type: 2}
   soundOn: {fileID: 21300000, guid: 8e2bb131b432b1a4c8b1d78a564f6754, type: 3}
   soundOff: {fileID: 21300000, guid: 6858f3db375ca2344af2479c0c6c6fbb, type: 3}
@@ -23584,14 +23571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3962463671596263814, guid: 67690599901db7d42adb825147dd197d, type: 3}
-      propertyPath: sounds.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 3962463671596263814, guid: 67690599901db7d42adb825147dd197d, type: 3}
-      propertyPath: sounds.Array.data[11]
-      value: 
-      objectReference: {fileID: 11400000, guid: 83e7c6d10e19aba41a0b46df697ac6fc, type: 2}
     - target: {fileID: 3962463671596263815, guid: 67690599901db7d42adb825147dd197d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -23640,8 +23619,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4561101052482887215, guid: 67690599901db7d42adb825147dd197d, type: 3}
+      propertyPath: saveAndLoadPlayerData
+      value: 
+      objectReference: {fileID: 4160416087049778834}
+    - target: {fileID: 5213726150431431862, guid: 67690599901db7d42adb825147dd197d, type: 3}
+      propertyPath: saveAndLoadPlayerData
+      value: 
+      objectReference: {fileID: 4160416087049778834}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67690599901db7d42adb825147dd197d, type: 3}
+--- !u!114 &3962463672467032647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5213726150431431862, guid: 67690599901db7d42adb825147dd197d, type: 3}
+  m_PrefabInstance: {fileID: 3962463672467032646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c2ae0ac8806c4fb60b0504b7a7aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3962463672467032648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4561101052482887215, guid: 67690599901db7d42adb825147dd197d, type: 3}
+  m_PrefabInstance: {fileID: 3962463672467032646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1c2ae0ac8806c4fb60b0504b7a7aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4160416087049778833
 PrefabInstance:
   m_ObjectHideFlags: 0
