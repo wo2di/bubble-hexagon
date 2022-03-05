@@ -12280,8 +12280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.48699993, y: 1.5450001}
-  m_SizeDelta: {x: 1.8, y: 0.5}
+  m_AnchoredPosition: {x: -0.48699993, y: 1.683}
+  m_SizeDelta: {x: 2.5801, y: 0.5}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &938373302
 MonoBehaviour:
@@ -12364,8 +12364,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12400,7 +12400,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.011305332, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17966,7 +17966,7 @@ MonoBehaviour:
   scoreTopHard: {fileID: 11400000, guid: 46f7593ee3ad3224eb98da09faeb82dc, type: 2}
   scoreTop: {fileID: 0}
   isHardmodeOpen: {fileID: 11400000, guid: 09dd4c07ccf287c4e86d0b2e1fe94f32, type: 2}
-  hardmodeOpenScore: 4444
+  hardmodeOpenScore: 5000
   scoreChangeEvent: {fileID: 11400000, guid: 9e718bf2fa04db045a76a5810ba32d3f, type: 2}
 --- !u!4 &1556076457
 Transform:

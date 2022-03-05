@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemBubble: {fileID: 0}
   point: 0
-  maxPoint: 50
+  maxPoint: 80
   fill: {fileID: 6970381742302546816}
 --- !u!95 &1230919404855199348
 Animator:
