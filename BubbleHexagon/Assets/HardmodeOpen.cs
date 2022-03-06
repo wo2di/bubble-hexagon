@@ -5,6 +5,7 @@ using UnityEngine;
 public class HardmodeOpen : MonoBehaviour
 {
     public BoolSO gamePaused;
+    bool canDisable;
     private void OnEnable()
     {
         gamePaused.value = true;
@@ -12,13 +13,19 @@ public class HardmodeOpen : MonoBehaviour
     private void OnDisable()
     {
         gamePaused.value = false;
+        canDisable = false;
+    }
+
+    public void CanDisable()
+    {
+        canDisable = true;
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0) && canDisable)
         {
-
+            GetComponent<Disabler>().DisableGameobjects();
         }
     }
 }

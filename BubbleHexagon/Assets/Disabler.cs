@@ -5,7 +5,7 @@ using UnityEngine;
 public class Disabler : MonoBehaviour
 {
     public GameObject[] objsToDisable;
-    public void DisableGameobject()
+    public void DisableGameobjects()
     {
         foreach(GameObject obj in objsToDisable)
         {
