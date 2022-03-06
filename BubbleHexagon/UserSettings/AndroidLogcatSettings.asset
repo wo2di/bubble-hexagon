@@ -1,13 +1,19 @@
 {
     "m_SelectedDeviceId": "LGMV300L60611882",
     "m_SelectedPackage": {
-        "deviceId": "LGMV300L60611882",
-        "name": "com.oohohgames.bubblehexagon",
-        "processId": 19884,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "LGMV300L60611882",
+            "name": "com.DefaultCompany.BubbleHexagon",
+            "processId": 16432,
+            "exited": true
+        },
         {
             "deviceId": "LGMV300L60611882",
             "name": "com.DefaultCompany.BubbleHexagon",
@@ -36,18 +42,6 @@
             "deviceId": "LGMV300L60611882",
             "name": "com.lge.launcher3",
             "processId": 4307,
-            "exited": false
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 17606,
-            "exited": true
-        },
-        {
-            "deviceId": "LGMV300L60611882",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 19884,
             "exited": false
         },
         {
@@ -113,7 +107,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -129,7 +123,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
