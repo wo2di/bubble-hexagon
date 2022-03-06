@@ -61,4 +61,9 @@ public class GameplaySM : StateMachine
     {
         itemApplied = true;
     }
+
+    public bool IsSafe()
+    {
+        return (GetCurrentState() == "Standby" && standby.shoot == false);
+    }
 }

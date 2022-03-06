@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RewardedAdButton : MonoBehaviour
 {
-    public AdmobAPI adTest;
+    public AdmobAPI admobAPI;
     public BoolSO isGamePaused;
     public GameplaySM gameplaySM;
     public AudioManager audioManager;
@@ -15,9 +15,9 @@ public class RewardedAdButton : MonoBehaviour
     }
     private void OnMouseUpAsButton()
     {
-        if(!isGamePaused.value && gameplaySM.GetCurrentState() == "Standby")
+        if(!isGamePaused.value && gameplaySM.IsSafe())
         {
-            adTest.ShowAd();
+            admobAPI.ShowAd();
         }
     }
 

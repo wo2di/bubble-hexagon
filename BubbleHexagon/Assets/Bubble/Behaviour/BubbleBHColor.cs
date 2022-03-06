@@ -50,8 +50,13 @@ public class BubbleBHColor : BubbleBehaviour
     public virtual void ChangeToNewColor()
     {
         changeColorAnim.Play("change");
-
-        ColorEnumValuePair newColor = factory.GetRandomColor();
+        ColorEnumValuePair newColor;
+        do
+        {
+            newColor = factory.GetRandomColor();
+        }
+        while (color == newColor.colorEnum);
+        
         color = newColor.colorEnum;
         colorValue = newColor.colorValue;
     }

@@ -11,6 +11,7 @@ public class AdmobAPI : MonoBehaviour
     public AdmobEventHandler admobEventHandler;
     public StringSO adStatus;
     public GameObject notifyNoAd;
+    public AudioManager audioManager;
     RewardedAd rewardedAd;
 
     void Start()
@@ -86,6 +87,7 @@ public class AdmobAPI : MonoBehaviour
         {
             adStatus.value = "no ad loaded";
             notifyNoAd.SetActive(true);
+            audioManager.PlaySound("uipop");
             CreateAndLoadRewardedAd();
         }
     }

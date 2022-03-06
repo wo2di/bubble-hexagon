@@ -3926,6 +3926,7 @@ MonoBehaviour:
   - {fileID: 1182842153}
   - {fileID: 783156661}
   gamePaused: {fileID: 11400000, guid: 1754f40a1b316d04cbeb5f66a1774974, type: 2}
+  gameplaySM: {fileID: 1739450912}
 --- !u!4 &273310262
 Transform:
   m_ObjectHideFlags: 0
@@ -13281,7 +13282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8bacb6f198aea40947d680ffd0047c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adTest: {fileID: 1967897389}
+  admobAPI: {fileID: 1967897389}
   isGamePaused: {fileID: 11400000, guid: 1754f40a1b316d04cbeb5f66a1774974, type: 2}
   gameplaySM: {fileID: 1739450912}
   audioManager: {fileID: 1277895616}
@@ -21708,6 +21709,7 @@ MonoBehaviour:
   admobEventHandler: {fileID: 1967897393}
   adStatus: {fileID: 11400000, guid: 6eb0bde750987324bb23457778d61fc4, type: 2}
   notifyNoAd: {fileID: 938373300}
+  audioManager: {fileID: 1277895616}
 --- !u!4 &1967897390
 Transform:
   m_ObjectHideFlags: 0
@@ -21819,7 +21821,7 @@ MonoBehaviour:
   AdClosed: 0
   userEarnedReward: 0
   adCoolTime: {fileID: 11400000, guid: 22612af9ecd96674c89e7d57c8744c23, type: 2}
-  adCoolTimeMax: 2
+  adCoolTimeMax: 20
   adButton: {fileID: 1028269877}
   itemManager: {fileID: 273310261}
 --- !u!1001 &1977337405

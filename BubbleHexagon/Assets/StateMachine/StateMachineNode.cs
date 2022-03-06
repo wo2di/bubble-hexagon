@@ -52,7 +52,7 @@ namespace FSM
         Bubble bubbleNow;
         Slot target;
         List<Vector3> waypoints;
-        bool shoot = false;
+        public bool shoot = false;
 
         public Standby(GameplaySM sm) : base("Standby", sm)
         {
@@ -212,6 +212,7 @@ namespace FSM
             _sm.statistics.shootCnt.value++;
         }
     }
+
 
 
     

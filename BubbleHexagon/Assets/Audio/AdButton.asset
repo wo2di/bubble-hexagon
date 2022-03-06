@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: adbutton
   clip: {fileID: 8300000, guid: cb391839a5278d346bb6d1d2bb089769, type: 3}
-  volume: 0.7
+  volume: 1
   loop: 0
   native: 0
   nativePath: 

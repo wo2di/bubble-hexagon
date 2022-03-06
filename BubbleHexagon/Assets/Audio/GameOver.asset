@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: gameover
   clip: {fileID: 8300000, guid: 17a3c6c2470a78544987df907384fc13, type: 3}
-  volume: 0.5
+  volume: 1
   loop: 0
   native: 1
   nativePath: GameOver.mp3

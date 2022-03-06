@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: random
   clip: {fileID: 8300000, guid: 79c968cbb88cc7c4fb8c64d9bdd8d8ab, type: 3}
-  volume: 0.3
+  volume: 1
   loop: 0
   native: 0
   nativePath: Random.mp3

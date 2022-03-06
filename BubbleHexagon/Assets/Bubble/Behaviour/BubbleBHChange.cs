@@ -36,8 +36,12 @@ public class BubbleBHChange : BubbleBHColor
     public override void ChangeToNewColor()
     {
         changeColorAnim.Play("change");
-
-        List<ColorEnumValuePair> newColors = factory.GetRandomColors(2);
+        List<ColorEnumValuePair> newColors;
+        do
+        {
+            newColors = factory.GetRandomColors(2);
+        }
+        while (colors[0] == newColors[0].colorEnum || colors[1] == newColors[1].colorEnum || colors[0] == newColors[1].colorEnum || colors[1] == newColors[0].colorEnum);
         for (int i = 0; i < newColors.Count; i++)
         {
             colors[i] = newColors[i].colorEnum;

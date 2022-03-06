@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: bomb
   clip: {fileID: 8300000, guid: b9ca3b29b0a2c3c42885fb399c1bd0dd, type: 3}
-  volume: 0.5
+  volume: 1
   loop: 0
   native: 0
   nativePath: Bomb.mp3

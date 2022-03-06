@@ -46,6 +46,7 @@ public class DifficultySelection : MonoBehaviour
             if(!notifyHardmodeCondition.activeSelf)
             {
                 notifyHardmodeCondition.SetActive(true);
+                audioManager.PlaySound("uipop");
             }
         }
     }

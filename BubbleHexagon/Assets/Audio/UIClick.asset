@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: uiclick
   clip: {fileID: 8300000, guid: e6fd12d6297b96142afdeafea572b806, type: 3}
-  volume: 0.5
+  volume: 1
   loop: 0
   native: 1
   nativePath: UIClick.mp3
   FileID: 0
   SoundID: 0
+  nativeVolume: 0
   source: {fileID: 0}
