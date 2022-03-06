@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Disabler : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject[] objsToDisable;
     public void DisableGameobject()
     {
-        gameObject.SetActive(false);
+        foreach(GameObject obj in objsToDisable)
+        {
+            obj.SetActive(false);
+        }
+        
     }
 
 }

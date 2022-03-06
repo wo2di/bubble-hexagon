@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
     public int hardmodeOpenScore;
     public GameEvent scoreChangeEvent;
 
+    public GameObject hardmodeOpenCanvas;
+
     public void AddScore(int i)
     {
         score.value += i;
@@ -29,11 +31,15 @@ public class ScoreManager : MonoBehaviour
         if(scoreTop.value < score.value)
         {
             scoreTop.value = score.value;
+        }
+    }
 
-            if(scoreTop.value >= hardmodeOpenScore)
-            {
-                isHardmodeOpen.value = true;
-            }
+    public void CheckHardmodeScore()
+    {
+        if(score.value > hardmodeOpenScore && !isHardmodeOpen.value)
+        {
+            isHardmodeOpen.value = true;
+            hardmodeOpenCanvas.SetActive(true);
         }
     }
 }
