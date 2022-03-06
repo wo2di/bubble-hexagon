@@ -12837,7 +12837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255c674bc25a55648a0fdeba45ccde3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 938373300}
+  objsToDisable:
+  - {fileID: 938373300}
 --- !u!95 &938373303
 Animator:
   serializedVersion: 3
@@ -14078,6 +14079,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1072214991}
   - component: {fileID: 1072214992}
+  - component: {fileID: 1072214994}
+  - component: {fileID: 1072214993}
   m_Layer: 5
   m_Name: HardmodeOpen
   m_TagString: Untagged
@@ -14125,6 +14128,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1072214993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072214990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255c674bc25a55648a0fdeba45ccde3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objsToDisable:
+  - {fileID: 418980892}
+  - {fileID: 852807584}
+  - {fileID: 114096496}
+  - {fileID: 1913841458}
+  - {fileID: 1606869558}
+  - {fileID: 1897393883}
+  - {fileID: 1806079390}
+  - {fileID: 1428339709}
+  - {fileID: 1685044250}
+--- !u!114 &1072214994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072214990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96080139227bdf4bbabc86e6447f07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePaused: {fileID: 11400000, guid: 1754f40a1b316d04cbeb5f66a1774974, type: 2}
 --- !u!1 &1076139787
 GameObject:
   m_ObjectHideFlags: 0
@@ -18691,6 +18729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556076457}
   - component: {fileID: 1556076456}
+  - component: {fileID: 1556076458}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -18717,6 +18756,7 @@ MonoBehaviour:
   isHardmodeOpen: {fileID: 11400000, guid: 09dd4c07ccf287c4e86d0b2e1fe94f32, type: 2}
   hardmodeOpenScore: 5000
   scoreChangeEvent: {fileID: 11400000, guid: 9e718bf2fa04db045a76a5810ba32d3f, type: 2}
+  hardmodeOpenCanvas: {fileID: 418980892}
 --- !u!4 &1556076457
 Transform:
   m_ObjectHideFlags: 0
@@ -18731,6 +18771,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556076458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556076455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a096af1718912c94bbd8269f1f60fdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 9e718bf2fa04db045a76a5810ba32d3f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1556076456}
+        m_TargetAssemblyTypeName: ScoreManager, Assembly-CSharp
+        m_MethodName: CheckHardmodeScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1556749017
 PrefabInstance:
   m_ObjectHideFlags: 0
