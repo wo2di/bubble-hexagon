@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: bubblecollide
   clip: {fileID: 8300000, guid: 251b504d59be7b143bc6816e9bb31749, type: 3}
-  volume: 0.3
+  volume: 0.5
   loop: 0
   source: {fileID: 0}

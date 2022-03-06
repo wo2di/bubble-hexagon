@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "LGMV300L60611882",
+    "m_SelectedDeviceId": "LMG710N25835aed",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "LMG710N25835aed",
+        "name": "com.oohohgames.bubblehexagon",
+        "processId": 16418,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -59,43 +59,37 @@
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
-            "processId": 17199,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 17150,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 19694,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
             "processId": 23154,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 24707,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 25790,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 27705,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 11202,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 16418,
             "exited": false
         }
     ],
@@ -107,7 +101,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "",
@@ -123,7 +117,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "CRASH",

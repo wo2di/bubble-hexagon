@@ -16,4 +16,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: d8757c25f8e428049b06a7519141e3fa, type: 3}
   volume: 1
   loop: 0
+  native: 1
+  nativePath: BubblePop.wav
+  FileID: 0
+  SoundID: 0
   source: {fileID: 0}

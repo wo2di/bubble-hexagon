@@ -7,10 +7,15 @@ public class Sound : ScriptableObject
 {
     public new string name;
     public AudioClip clip;
-
+    
     [Range(0, 1)]
     public float volume;
     public bool loop;
+
+    public bool native;
+    public string nativePath;
+    public int FileID;
+    public int SoundID;
 
     [HideInInspector]
     public AudioSource source;

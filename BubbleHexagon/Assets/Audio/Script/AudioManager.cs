@@ -9,11 +9,19 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        AndroidNativeAudio.makePool();
         foreach (Sound sound in sounds)
         {
-            AudioSource source = gameObject.AddComponent<AudioSource>();
-            sound.source = source;
-            sound.SetSource();
+            if(sound.native)
+            {
+                sound.FileID = AndroidNativeAudio.load(sound.nativePath);
+            }
+            else
+            {
+                AudioSource source = gameObject.AddComponent<AudioSource>();
+                sound.source = source;
+                sound.SetSource();
+            }
         }
     }
 
@@ -30,10 +38,26 @@ public class AudioManager : MonoBehaviour
         Sound sound = System.Array.Find(sounds, s => s.name == name);
         if (sound != null)
         {
-            sound.source.Play();
+            if(sound.native)
+            {
+                sound.SoundID = AndroidNativeAudio.play(sound.FileID);
+            }
+            else
+            {
+                sound.source.Play();
+            }
+            //StartCoroutine(PlaySoundCoroutine(sound.source, sound.clip));
             
         }
     }
+
+    public IEnumerator PlaySoundCoroutine(AudioSource source , AudioClip clip)
+    {
+        yield return null;
+        //source.Play();
+        source.PlayOneShot(clip);
+    }
+
 
     public void TurnOffBGM()
     {
