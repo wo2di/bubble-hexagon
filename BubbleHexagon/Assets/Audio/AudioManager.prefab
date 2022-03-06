@@ -105,6 +105,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7de6114bd705bc42809a4acf10b3efa, type: 2}
   - {fileID: 11400000, guid: cc5a2dde0f0f0f04092f2f6e3912fff7, type: 2}
   - {fileID: 11400000, guid: 83e7c6d10e19aba41a0b46df697ac6fc, type: 2}
+  - {fileID: 11400000, guid: 40274a6468d03434c8f8ba61dcec616f, type: 2}
   playBGM: 1
 --- !u!1 &6103633485752071550
 GameObject:

@@ -16,4 +16,9 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 79c968cbb88cc7c4fb8c64d9bdd8d8ab, type: 3}
   volume: 0.3
   loop: 0
+  native: 0
+  nativePath: Random.mp3
+  FileID: 0
+  SoundID: 0
+  nativeVolume: 0
   source: {fileID: 0}

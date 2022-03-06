@@ -16,6 +16,7 @@ public class Sound : ScriptableObject
     public string nativePath;
     public int FileID;
     public int SoundID;
+    public float nativeVolume;
 
     [HideInInspector]
     public AudioSource source;
@@ -26,4 +27,30 @@ public class Sound : ScriptableObject
         source.volume = volume;
         source.loop = loop;
     }
+
+    public void TurnOn()
+    {
+        if (source != null)
+        {
+            source.mute = false;
+        }
+        else
+        {
+            nativeVolume = volume;
+        }
+    }
+
+    public void TurnOff()
+    {
+        if (source != null)
+        {
+            source.mute = true;
+        }
+        else
+        {
+            nativeVolume = 0;
+        }
+    }
+
+
 }

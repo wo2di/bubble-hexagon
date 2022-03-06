@@ -16,8 +16,7 @@ public class MuteSound : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            if(!s.native)
-            s.source.mute = false;
+            s.TurnOn();
         }
     }
 
@@ -25,8 +24,7 @@ public class MuteSound : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            if (!s.native)
-                s.source.mute = true;
+            s.TurnOff();
         }
     }
 

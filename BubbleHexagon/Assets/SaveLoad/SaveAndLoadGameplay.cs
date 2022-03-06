@@ -420,6 +420,7 @@ public class SaveAndLoadGameplay : MonoBehaviour
     [ContextMenu("SAVE")]
     public void SaveGameplay()
     {
+        Debug.Log("saving gameplay");
         GameToData();
         SavePlayData();
     }

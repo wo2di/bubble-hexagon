@@ -7,6 +7,6 @@ public class GameOverPopUp : MonoBehaviour
     public AudioManager audioManager;
     public void PlayPopUpSound()
     {
-        audioManager.PlaySound("popup");
+        audioManager.PlaySound("uipop");
     }
 }

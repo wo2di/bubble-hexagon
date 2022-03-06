@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LMG710N25835aed",
         "name": "com.oohohgames.bubblehexagon",
-        "processId": 22724,
+        "processId": 2447,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -58,30 +58,6 @@
         },
         {
             "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.test",
-            "processId": 14065,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.test",
-            "processId": 18101,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 18256,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG710N25835aed",
-            "name": "com.oohohgames.bubblehexagon",
-            "processId": 21221,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 21805,
             "exited": true
@@ -90,6 +66,30 @@
             "deviceId": "LMG710N25835aed",
             "name": "com.oohohgames.bubblehexagon",
             "processId": 22724,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 27180,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 31019,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 31608,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710N25835aed",
+            "name": "com.oohohgames.bubblehexagon",
+            "processId": 2447,
             "exited": false
         }
     ],
@@ -101,7 +101,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "",
@@ -125,7 +125,7 @@
             },
             {
                 "m_Name": "SoundPool",
-                "m_Selected": true
+                "m_Selected": false
             }
         ]
     },

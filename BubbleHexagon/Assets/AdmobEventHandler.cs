@@ -36,14 +36,14 @@ public class AdmobEventHandler : MonoBehaviour
         {
             adCoolTime.value--;
         }
-        if (adCoolTime.value == 0)
-        {
-            adButton.SetActive(true);
-        }
-        if (itemManager.itemSlots[2].HasItem())
-        {
-            adButton.SetActive(false);
-        }
+        //if (adCoolTime.value == 0)
+        //{
+        //    adButton.SetActive(true);
+        //}
+        //if (itemManager.itemSlots[2].HasItem())
+        //{
+        //    adButton.SetActive(false);
+        //}
     }
 
     public void ResetAdCooltime()
