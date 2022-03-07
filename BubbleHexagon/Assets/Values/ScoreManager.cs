@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
 
     public void CheckTopScore()
     {
-        if(scoreTop.value <= score.value)
+        if (scoreTop.value <= score.value && score.value != 0)
         {
             Debug.Log("Top Score");
             scoreTop.value = score.value;

@@ -9,6 +9,7 @@ public class DebugInfo : MonoBehaviour
     public StringSO adStatus;
     public IntegerSO adCount;
     public Playtime playtime;
+    public StringSO playserviceStatus;
     private void OnGUI()
     {
         string time = "Seconds: " + playtime.playtime.ToString();
@@ -18,6 +19,7 @@ public class DebugInfo : MonoBehaviour
         string content4 = "DropCount: " + statistics.dropCnt.value.ToString();
         string content5 = "AdStatus: " + adStatus.value;
         string content6 = "AdCount: " + adCount.value;
+        string content7 = "Play Games: " + playserviceStatus.value;
 
         GUILayout.Label("");
         GUILayout.Label("");
@@ -28,5 +30,6 @@ public class DebugInfo : MonoBehaviour
         GUILayout.Label($"<color='black'><size=40>{content4}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content5}</size></color>");
         GUILayout.Label($"<color='black'><size=40>{content6}</size></color>");
+        GUILayout.Label($"<color='black'><size=40>{content7}</size></color>");
     }
 }
