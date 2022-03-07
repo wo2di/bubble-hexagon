@@ -15,10 +15,8 @@ public class LevelManager : MonoBehaviour
     public IntegerSO shootCnt;
 
     public ProgressConfiguration[] shootConfigsEasy;
-    //public ProgressConfiguration[] shootConfigsEmptyEasy;
 
     public ProgressConfiguration[] shootConfigsHard;
-    //public ProgressConfiguration[] shootConfigsEmptyHard;
 
     ProgressConfiguration[] shootConfig;
     ProgressConfiguration[] shootConfigEmpty;
@@ -66,17 +64,15 @@ public class LevelManager : MonoBehaviour
 
     public void CheckDifficulty()
     {
-        switch (difficulty.difficulty)
+        switch (difficulty.value)
         {
             case Difficulty.Easy:
                 shootConfig = shootConfigsEasy;
-                //shootConfigEmpty = shootConfigsEmptyEasy;
                 scoreManager.scoreTop = scoreManager.scoreTopEasy;
                 uiManager.scoreTop = scoreManager.scoreTop;
                 break;
             case Difficulty.Hard:
                 shootConfig = shootConfigsHard;
-                //shootConfigEmpty = shootConfigsEmptyHard;
                 scoreManager.scoreTop = scoreManager.scoreTopHard;
                 uiManager.scoreTop = scoreManager.scoreTop;
                 break;

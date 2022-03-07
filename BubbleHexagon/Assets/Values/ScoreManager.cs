@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public Statistics statistics;
     public IntegerSO score;
     public IntegerSO scoreTopEasy;
     public IntegerSO scoreTopHard;
@@ -11,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     public BoolSO isHardmodeOpen;
     public int hardmodeOpenScore;
     public GameEvent scoreChangeEvent;
-
+    public GameEvent topScoreEvent;
     public GameObject hardmodeOpenCanvas;
 
     public void AddScore(int i)
@@ -28,9 +29,11 @@ public class ScoreManager : MonoBehaviour
 
     public void CheckTopScore()
     {
-        if(scoreTop.value < score.value)
+        if(scoreTop.value <= score.value)
         {
+            Debug.Log("Top Score");
             scoreTop.value = score.value;
+            topScoreEvent.Raise();
         }
     }
 

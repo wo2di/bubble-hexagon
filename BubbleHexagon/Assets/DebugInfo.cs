@@ -8,11 +8,11 @@ public class DebugInfo : MonoBehaviour
     public GameDifficultySO gameConfig;
     public StringSO adStatus;
     public IntegerSO adCount;
-
+    public Playtime playtime;
     private void OnGUI()
     {
-        string time = "Seconds: " + statistics.time.ToString();
-        string content1 = "Difficulty: " + gameConfig.difficulty.ToString();
+        string time = "Seconds: " + playtime.playtime.ToString();
+        string content1 = "Difficulty: " + gameConfig.value.ToString();
         string content2 = "ShootCount: " + statistics.shootCnt.value.ToString();
         string content3 = "PopCount: " + statistics.popCnt.value.ToString();
         string content4 = "DropCount: " + statistics.dropCnt.value.ToString();

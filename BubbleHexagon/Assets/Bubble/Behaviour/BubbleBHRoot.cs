@@ -13,7 +13,7 @@ public class BubbleBHRoot : BubbleBehaviour
 
     private void Start()
     {
-        spriteRenderer.sprite = sprites[(int) difficulty.difficulty];
+        spriteRenderer.sprite = sprites[(int) difficulty.value];
     }
 
     public void GetBubblesToDrop()

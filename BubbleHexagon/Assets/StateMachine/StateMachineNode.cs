@@ -76,6 +76,7 @@ namespace FSM
             bubbleNow = _sm.bubbleParent.bubble1;
             _sm.bubbleParent.SetBubbles();
             _sm.gameplaySaveLoad.SaveGameplay();
+            _sm.playerdataSaveLoad.SaveSequence();
 
         }
 
@@ -210,6 +211,7 @@ namespace FSM
             shoot = false;
 
             _sm.statistics.shootCnt.value++;
+            _sm.statistics.TotalShootCnt().value++;
         }
     }
 
@@ -232,7 +234,8 @@ namespace FSM
             _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
 
             _sm.itemManager.AddPoint(_sm.bubblesToPop.bubbles.Count);
-            _sm.popCount.value += _sm.bubblesToPop.bubbles.Count;
+            _sm.statistics.popCnt.value += _sm.bubblesToPop.bubbles.Count;
+            _sm.statistics.TotalPopCnt().value += _sm.bubblesToPop.bubbles.Count;
             _sm.StartCoroutine(PopCoroutine());
         }
 
@@ -291,7 +294,8 @@ namespace FSM
             //떨어트림을 확인하여 떨어트린다
             _sm.rootBubble.GetBubblesToDrop();
             _sm.itemManager.AddPoint(_sm.bubblesToDrop.bubbles.Count);
-            _sm.dropCount.value += _sm.bubblesToDrop.bubbles.Count;
+            _sm.statistics.dropCnt.value += _sm.bubblesToDrop.bubbles.Count;
+            _sm.statistics.TotalDropCnt().value += _sm.bubblesToDrop.bubbles.Count;
             _sm.StartCoroutine(DropCoroutine());
         }
 
@@ -395,8 +399,6 @@ namespace FSM
 
         public override void Enter()
         {
-            _sm.scoreManager.CheckTopScore();
-            _sm.playerdataSaveLoad.SaveSequence();
             _sm.gameplaySaveLoad.DeleteGameplaySave();
 
             _sm.gameOverEvent.Raise();

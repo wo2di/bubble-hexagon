@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class GameDifficultySO : ScriptableObject
+public class FloatSO : ScriptableObject
 {
-    public Difficulty value;
+    public float value;
 }

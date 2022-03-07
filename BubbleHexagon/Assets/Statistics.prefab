@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1994009435727716460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994009435727716458}
+  - component: {fileID: 1994009435727716459}
+  m_Layer: 0
+  m_Name: Statistics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994009435727716458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994009435727716460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994009435727716459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994009435727716460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c689d4c3e70222549921560623afef22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultySO: {fileID: 11400000, guid: 402f02d0c3586d249bfb5431e89c6bf5, type: 2}
+  shootCnt: {fileID: 11400000, guid: 559fbf06d2ab29746a25de36209a0494, type: 2}
+  popCnt: {fileID: 11400000, guid: dd42508e1e32f2545903aa6482a8ebad, type: 2}
+  dropCnt: {fileID: 11400000, guid: 9d10fecedc2030848acd43f0d7c6c5b8, type: 2}
+  playtime: 0
+  topShootCnts:
+  - {fileID: 11400000, guid: 45bde634bc2f9504fa9375afd059fd4c, type: 2}
+  - {fileID: 11400000, guid: 820eabf6265dfb045b2202af677b79c6, type: 2}
+  totalShootCnts:
+  - {fileID: 11400000, guid: 325eead6e9534f947881ef7892c7db82, type: 2}
+  - {fileID: 11400000, guid: 21936c2a0ead7e8449e2949c58c19749, type: 2}
+  topPopCnts:
+  - {fileID: 11400000, guid: 07ef8fb5d37293a45b0f99a5acb9c610, type: 2}
+  - {fileID: 11400000, guid: 8ecb31b8d40057b4c85ae10d9dc41f09, type: 2}
+  totalPopCnts:
+  - {fileID: 11400000, guid: 130ad2c78e85cad488fba43492ba4071, type: 2}
+  - {fileID: 11400000, guid: 7b2f7dfbd75bf0f42acd466d45888ba5, type: 2}
+  topDropCnts:
+  - {fileID: 11400000, guid: 568baaa04254a3346a5d23da0b04e3c2, type: 2}
+  - {fileID: 11400000, guid: 331d035dad2a9364781fac925ac80c66, type: 2}
+  totalDropCnts:
+  - {fileID: 11400000, guid: 8ebadb807fffa6f4d9dd9691a40ed176, type: 2}
+  - {fileID: 11400000, guid: 6ec82adae74cb6d45a604acb9b9d0c1a, type: 2}
+  totalPlaytimes:
+  - {fileID: 11400000, guid: 88df4a9121d59d646833b82ae8d37377, type: 2}
+  - {fileID: 11400000, guid: 3522fc9124ffa1f4784b5707fb838a92, type: 2}

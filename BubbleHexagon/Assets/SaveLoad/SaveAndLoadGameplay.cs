@@ -167,7 +167,7 @@ public class SaveAndLoadGameplay : MonoBehaviour
     string editorDatapath;
     private void Awake()
     {
-        fileName = "save_" + difficultySO.difficulty.ToString().ToLower();
+        fileName = "save_" + difficultySO.value.ToString().ToLower();
         editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
         androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
 
@@ -420,7 +420,7 @@ public class SaveAndLoadGameplay : MonoBehaviour
     [ContextMenu("SAVE")]
     public void SaveGameplay()
     {
-        Debug.Log("saving gameplay");
+        //Debug.Log("saving gameplay");
         GameToData();
         SavePlayData();
     }

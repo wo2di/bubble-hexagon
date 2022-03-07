@@ -11,6 +11,7 @@ public class RewardedAdButton : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("OnEnable of rewarded ad button");
         audioManager.PlaySound("adbutton");
     }
     private void OnMouseUpAsButton()

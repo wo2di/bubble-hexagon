@@ -6,8 +6,6 @@ public class GameplaySM : StateMachine
 {
     public BubbleListSO bubblesToPop;
     public BubbleListSO bubblesToDrop;
-    public IntegerSO popCount;
-    public IntegerSO dropCount;
 
     public BubbleFactory bubbleFactory;
     public BubbleParent bubbleParent;

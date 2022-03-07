@@ -28,10 +28,11 @@ public class UIManager : MonoBehaviour
     public void UpdateScoreUI()
     {
         scoreText.text = score.value.ToString();
-        if(score.value > scoreTop.value)
-        {
-            scoreTopText.text = "NEW BEST";
-            scoreTopText.color = newBestColor;
-        }
+    }
+
+    public void TopScore()
+    {
+        scoreTopText.text = "NEW BEST";
+        scoreTopText.color = newBestColor;
     }
 }

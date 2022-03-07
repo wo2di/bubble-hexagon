@@ -14,6 +14,15 @@ public class PlayerData
     public bool musicOn;
     public bool soundOn;
 
+    public int[] topShoots;
+    public int[] totalShoots;
+    public int[] topPops;
+    public int[] totalPops;
+    public int[] topDrops;
+    public int[] totalDrops;
+    public float[] totalPlaytimes;
+
+
 
     public PlayerData() 
     {
@@ -24,6 +33,14 @@ public class PlayerData
         musicOn = true;
         soundOn = true;
 
+        topShoots = new int[2];
+        totalShoots = new int[2];
+        topPops = new int[2];
+        totalPops = new int[2];
+        topDrops = new int[2];
+        totalDrops = new int[2];
+        totalPlaytimes = new float[2];
+
     }
 }
 
@@ -33,10 +50,11 @@ public class SaveAndLoadPlayerData : MonoBehaviour
     public IntegerSO topHardSO;
     public BoolSO hardOpenSO;
     public BoolSO isFirstPlaySO;
+
     public BoolSO musicOnSO;
     public BoolSO soundOnSO;
 
-
+    public Statistics statistics;
 
     public PlayerData data;
 
@@ -61,10 +79,30 @@ public class SaveAndLoadPlayerData : MonoBehaviour
             isHardOpen = hardOpenSO.value,
             isFirstPlay = isFirstPlaySO.value,
             musicOn = musicOnSO.value,
-            soundOn = soundOnSO.value
-            
-
+            soundOn = soundOnSO.value,
         };
+
+        data.topShoots[0] = statistics.topShootCnts[0].value;
+        data.topShoots[1] = statistics.topShootCnts[1].value;
+
+        data.totalShoots[0] = statistics.totalShootCnts[0].value;
+        data.totalShoots[1] = statistics.totalShootCnts[1].value;
+
+        data.topPops[0] = statistics.topPopCnts[0].value;
+        data.topPops[1] = statistics.topPopCnts[1].value;
+
+        data.totalPops[0] = statistics.totalPopCnts[0].value;
+        data.totalPops[1] = statistics.totalPopCnts[1].value;
+
+        data.topDrops[0] = statistics.topDropCnts[0].value;
+        data.topDrops[1] = statistics.topDropCnts[1].value;
+
+        data.totalDrops[0] = statistics.totalDropCnts[0].value;
+        data.totalDrops[1] = statistics.totalDropCnts[1].value;
+
+        data.totalPlaytimes[0] = statistics.totalPlaytimes[0].value;
+        data.totalPlaytimes[1] = statistics.totalPlaytimes[1].value;
+
     }
 
     public void Deserialize()
@@ -75,6 +113,28 @@ public class SaveAndLoadPlayerData : MonoBehaviour
         isFirstPlaySO.value = data.isFirstPlay;
         musicOnSO.value = data.musicOn;
         soundOnSO.value = data.soundOn;
+
+        statistics.topShootCnts[0].value = data.topShoots[0];
+        statistics.topShootCnts[1].value = data.topShoots[1];
+
+        statistics.totalShootCnts[0].value = data.totalShoots[0];
+        statistics.totalShootCnts[1].value = data.totalShoots[1];
+
+        statistics.topPopCnts[0].value = data.topPops[0];
+        statistics.topPopCnts[1].value = data.topPops[1];
+
+        statistics.totalPopCnts[0].value = data.totalPops[0];
+        statistics.totalPopCnts[1].value = data.totalPops[1];
+
+        statistics.topDropCnts[0].value = data.topDrops[0];
+        statistics.topDropCnts[1].value = data.topDrops[1];
+
+        statistics.totalDropCnts[0].value = data.totalDrops[0];
+        statistics.totalDropCnts[1].value = data.totalDrops[1];
+
+        statistics.totalPlaytimes[0].value = data.totalPlaytimes[0];
+        statistics.totalPlaytimes[1].value = data.totalPlaytimes[1];
+
     }
 
     public void SaveData()
