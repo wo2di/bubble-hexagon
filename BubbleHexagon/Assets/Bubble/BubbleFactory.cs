@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BT;
 
 public class BubbleFactory : MonoBehaviour
 {
     public ColorTheme colorTheme;
-    public ProgressConfiguration shootConfig;
-    public ProgressConfiguration shootConfigEmpty;
-    public ProgressConfiguration itemConfig;
+    public ProbabilityConfiguration shootConfig;
+    public ProbabilityConfiguration shootConfigEmpty;
+    public ProbabilityConfiguration itemConfig;
     public BubbleParent bubbleParent;
     public BubblesToPrefabsSO bubbleList;
 
