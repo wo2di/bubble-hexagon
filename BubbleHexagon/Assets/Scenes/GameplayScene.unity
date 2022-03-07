@@ -13734,7 +13734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1028269878
 Transform:
   m_ObjectHideFlags: 0
@@ -23440,7 +23440,7 @@ MonoBehaviour:
   AdClosed: 0
   userEarnedReward: 0
   adCoolTime: {fileID: 11400000, guid: 22612af9ecd96674c89e7d57c8744c23, type: 2}
-  adCoolTimeMax: 2
+  adCoolTimeMax: 20
   adButton: {fileID: 1028269877}
   itemManager: {fileID: 273310261}
 --- !u!1001 &1977337405
