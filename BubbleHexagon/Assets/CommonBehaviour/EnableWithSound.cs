@@ -8,7 +8,6 @@ public class EnableWithSound : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("enabled");
         FindObjectOfType<AudioManager>().PlaySound(soundName);
     }
 

@@ -320,10 +320,7 @@ public class SaveAndLoadGameplay : MonoBehaviour
                 Bubble b = bubbleFactory.SpawnBubble(data.items[i].itemName);
                 itemManager.itemSlots[i].itemBubble = b;
             }
-            catch
-            {
-                Debug.Log(data.items[i].itemName);
-            }
+            catch { }
             
 
             itemManager.itemSlots[i].ApplyChange();

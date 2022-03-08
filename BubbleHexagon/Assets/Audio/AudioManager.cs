@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("awake of audio manager");
         AndroidNativeAudio.makePool();
         if(Application.platform == RuntimePlatform.Android)
         {

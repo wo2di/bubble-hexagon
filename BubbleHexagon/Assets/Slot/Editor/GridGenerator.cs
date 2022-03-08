@@ -55,7 +55,6 @@ public class GridGenerator : MonoBehaviour
                 
                 float degree = ((int)p.direction) * 60 + 30;
                 float radian = degree * Mathf.Deg2Rad;
-                Debug.Log(degree);
                 int i = (int) ((degree + 150) % 360) / 60;
                 obj.transform.SetPositionAndRotation((new Vector3(Mathf.Cos(radian), Mathf.Sin(radian))) + s.transform.position, Quaternion.identity);
 

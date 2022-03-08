@@ -41,7 +41,6 @@ public class BubbleBHSpread : BubbleBehaviour
             if(count == 0)
             {
                 float t = Random.value;
-                Debug.Log(t);
                 if (t < spreadProbability)
                 {
                     //°¨¿°½ÃÅ²´Ù

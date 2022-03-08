@@ -31,7 +31,6 @@ public class ScoreManager : MonoBehaviour
     {
         if (scoreTop.value <= score.value && score.value != 0)
         {
-            Debug.Log("Top Score");
             scoreTop.value = score.value;
             topScoreEvent.Raise();
         }
