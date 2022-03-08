@@ -168,8 +168,8 @@ public class SaveAndLoadGameplay : MonoBehaviour
     private void Awake()
     {
         fileName = "save_" + difficultySO.value.ToString().ToLower();
-        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
-        androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
+        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".dat";
+        androidDatapath = Application.persistentDataPath + "/" + fileName + ".dat";
 
     }
 
@@ -243,7 +243,14 @@ public class SaveAndLoadGameplay : MonoBehaviour
 
     private void DataToGame()
     {
-        foreach(ColorBubbleSD sd in data.ColorList)
+        scoreSO.value = data.score;
+        scoreChangeEvent.Raise();
+
+        shootCountSO.value = data.shootCount;
+        levelManager.CheckShootCount();
+
+        #region BubblesInGrid
+        foreach (ColorBubbleSD sd in data.ColorList)
         {
             Bubble b = bubbleFactory.SpawnBubbleInGrid("color");
             b.SetSlot(gridParent.GetChild(sd.slotIndex).GetComponent<Slot>());
@@ -302,30 +309,33 @@ public class SaveAndLoadGameplay : MonoBehaviour
             bhSpread.count = sd.count;
             bhSpread.ApplyCount();
         }
+        #endregion
 
-        for(int i = 0; i < 3; i++)
+        //Items
+        for (int i = 0; i < 3; i++)
         {
             itemManager.itemSlots[i].point = data.items[i].point;
-            if(data.items[i].itemName != "")
+            try
             {
                 Bubble b = bubbleFactory.SpawnBubble(data.items[i].itemName);
                 itemManager.itemSlots[i].itemBubble = b;
             }
+            catch
+            {
+                Debug.Log(data.items[i].itemName);
+            }
+            
 
             itemManager.itemSlots[i].ApplyChange();
         }
 
-        scoreSO.value = data.score;
-        scoreChangeEvent.Raise();
-        
-        shootCountSO.value = data.shootCount;
-        levelManager.CheckShootCount();
         rotateGame.transform.Rotate(0, 0, -60 * (shootCountSO.value % 6));
 
         dropCountSO.value = data.dropCount;
         popCountSO.value = data.popCount;
         adCountSO.value = data.adCount;
 
+        #region BubblesToShoot
         Bubble b1 = bubbleFactory.SpawnBubble(data.bubble1[0]);
         switch(b1.GetComponent<BubbleBehaviour>())
         {
@@ -372,19 +382,20 @@ public class SaveAndLoadGameplay : MonoBehaviour
 
         bubbleParent.bubble1 = b1;
         bubbleParent.bubble2 = b2;
+        #endregion
 
     }
 
     private void SavePlayData()
     {
-        string data_json = JsonUtility.ToJson(data, true);
+        //string data_json = JsonUtility.ToJson(data, true);
         BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
         FileStream file = File.Create(editorDatapath);
 #else
         FileStream file = File.Create(androidDatapath);
 #endif
-        bf.Serialize(file, data_json);
+        bf.Serialize(file, data);
         file.Close();
     }
 
@@ -399,7 +410,8 @@ public class SaveAndLoadGameplay : MonoBehaviour
 #else
             FileStream file = File.OpenRead(androidDatapath);
 #endif
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
+            data = (GamePlayData)bf.Deserialize(file);
+            //JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
             file.Close();
         }
         catch (FileNotFoundException e)

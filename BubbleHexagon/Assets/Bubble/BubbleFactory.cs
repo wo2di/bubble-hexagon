@@ -6,7 +6,6 @@ public class BubbleFactory : MonoBehaviour
 {
     public ColorTheme colorTheme;
     public ProbabilityConfiguration shootConfig;
-    public ProbabilityConfiguration shootConfigEmpty;
     public ProbabilityConfiguration itemConfig;
     public BubbleParent bubbleParent;
     public BubblesToPrefabsSO bubbleList;
@@ -44,12 +43,6 @@ public class BubbleFactory : MonoBehaviour
         obj.transform.SetParent(bubbleParent.transform);
 
         return obj;
-    }
-
-    public Bubble SpawnRandomBubbleWhenEmpty()
-    {
-        Bubble b = SpawnBubble(shootConfigEmpty.GetBubbleByProbability());
-        return b;
     }
 
     public Bubble SpawnRandomBubble()

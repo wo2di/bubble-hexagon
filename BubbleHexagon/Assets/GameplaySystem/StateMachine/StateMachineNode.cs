@@ -34,7 +34,6 @@ namespace FSM
             if (_sm.gameplaySaveLoad.CheckGameplaySave())
             {
                 _sm.gameplaySaveLoad.LoadGameplay();
-                //_sm.admobEventHandler.OnExitTurn();
             }
             else
             {
@@ -75,6 +74,8 @@ namespace FSM
 
             bubbleNow = _sm.bubbleParent.bubble1;
             _sm.bubbleParent.SetBubbles();
+
+            _sm.scoreManager.CheckTopScore();
             _sm.gameplaySaveLoad.SaveGameplay();
             _sm.playerdataSaveLoad.SaveSequence();
 
@@ -100,7 +101,7 @@ namespace FSM
                     }
                     
                 }
-                if (Input.GetMouseButtonUp(0))
+                if (Input.GetMouseButtonUp(0) && _sm.arrow.gameObject.activeSelf)
                 {
                     _sm.rayCaster.GetSlotByRay(out target, out waypoints);
                     //_sm.bubbleTrajectory?.ResetTrajectory();
@@ -113,45 +114,6 @@ namespace FSM
                     }
                 }
             }
-            ////인풋 처리
-            //if (Input.GetMouseButtonUp(0) && target == null && _sm.bubbleParent.bubble1 != null)
-            //{
-            //    _sm.rayCaster.GetSlotByRay(out target, out waypoints);
-            //    //Debug.Log("Ray!");
-
-            //    if (target != null)
-            //    {
-            //        //if (target.bubble != null)
-            //        //{ Debug.Log("error!"); }
-
-            //        _sm.audioManager.PlaySound("bubbleshoot");
-            //        _sm.bubbleParent.bubble1.SetSlot(target);
-
-
-            //        ///////////
-
-            //        //_sm.gridParent.ResetSlotColor();
-            //        //target.GetComponent<SpriteRenderer>().color = Color.red;
-            //    }
-            //    else
-            //    {
-            //        Debug.Log("Target is Null");
-            //    }
-            //}
-
-
-            ////디버그//////
-            //if (Input.GetMouseButton(0) && target == null)
-            //{
-            //    Slot testTarget;
-            //    List<Vector3> testWaypoints;
-            //    _sm.rayCaster.GetSlotByRay(out testTarget, out testWaypoints);
-            //    if (testTarget != null)
-            //    {
-            //        _sm.gridParent.ResetSlotColor();
-            //        testTarget.GetComponent<SpriteRenderer>().color = Color.red;
-            //    }
-            //}
         }
 
         public override void UpdatePhysics()
@@ -174,8 +136,6 @@ namespace FSM
                 }
                 else
                 {
-                    //bubbleNow.FitToSlot();
-
                     _sm.audioManager.PlaySound("bubblecollide");
                     bubbleNow.StartCoroutine(bubbleNow.TranslateToSlot());
                     bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
@@ -313,7 +273,6 @@ namespace FSM
                 b.GetComponent<BubbleBehaviour>().OnDrop();
                 yield return new WaitForSeconds(0.03f);
             }
-            //_sm.ChangeState(_sm.exitTurn);
             _sm.ChangeState(_sm.rotateGrid);
 
         }
@@ -332,16 +291,11 @@ namespace FSM
         {
             foreach(Bubble b in _sm.bubbleParent.GetBubblesInGrid())
             {
-                //if (b != _sm.bubbleParent.bubble1)
-                //{
-                //    b.GetComponent<BubbleBehaviour>().OnExitTurn();
-                //}
-                
+
                 b.GetComponent<BubbleBehaviour>().OnExitTurn();
 
             }
 
-            //_sm.ChangeState(_sm.rotateGrid);
             _sm.ChangeState(_sm.standby);
         }
 
@@ -384,7 +338,6 @@ namespace FSM
             }
             tr.rotation = after;
 
-            //_sm.ChangeState(_sm.standby);
             _sm.ChangeState(_sm.exitTurn);
         }
     }
@@ -399,6 +352,8 @@ namespace FSM
 
         public override void Enter()
         {
+            _sm.scoreManager.CheckTopScore();
+            _sm.playerdataSaveLoad.SaveSequence();
             _sm.gameplaySaveLoad.DeleteGameplaySave();
 
             _sm.gameOverEvent.Raise();

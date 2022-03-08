@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System;
 
+[Serializable]
 public class PlayerData
 {
     public int topScoreEasy;
@@ -23,7 +24,7 @@ public class PlayerData
     public float[] totalPlaytimes;
 
 
-
+    
     public PlayerData() 
     {
         topScoreEasy = 0;
@@ -64,8 +65,8 @@ public class SaveAndLoadPlayerData : MonoBehaviour
 
     private void Awake()
     {
-        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".json";
-        androidDatapath = Application.persistentDataPath + "/" + fileName + ".json";
+        editorDatapath = Application.dataPath + "/SaveLoad/" + fileName + ".dat";
+        androidDatapath = Application.persistentDataPath + "/" + fileName + ".dat";
 
         LoadSequence();
     }
@@ -139,14 +140,14 @@ public class SaveAndLoadPlayerData : MonoBehaviour
 
     public void SaveData()
     {
-        string data_json = JsonUtility.ToJson(data, true);
+        //string data_json = JsonUtility.ToJson(data, true);
         BinaryFormatter bf = new BinaryFormatter();
 #if UNITY_EDITOR
         FileStream file = File.Create(editorDatapath);
 #else
         FileStream file = File.Create(androidDatapath);
 #endif
-        bf.Serialize(file, data_json);
+        bf.Serialize(file, data);
         file.Close();
     }
 
@@ -159,7 +160,8 @@ public class SaveAndLoadPlayerData : MonoBehaviour
 #else
         FileStream file = File.OpenRead(androidDatapath);
 #endif
-        JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
+        data = (PlayerData)bf.Deserialize(file);
+        //JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), data);
         file.Close();
 
     }
