@@ -230,7 +230,8 @@ namespace FSM
         {
             if (_sm.itemApplied)
             {
-                _sm.ChangeState(_sm.bubbleDrop);
+                _sm.ChangeState(_sm.bubblePop);
+                //_sm.ChangeState(_sm.bubbleDrop);
             }
         }
 
