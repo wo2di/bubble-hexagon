@@ -9,18 +9,31 @@ public class HowtoManager : MonoBehaviour
     public int openPagenum;
     public GameObject[] Arrows;
 
+    private void OnEnable()
+    {
+        SetOpenPage(0);
+    }
+
     public void NextPage()
     {
-        DisableAll();
         SetOpenPage(openPagenum + 1);
-        SetArrow();
     }
 
     public void PreviousPage()
     {
-        DisableAll();
         SetOpenPage(openPagenum - 1);
+    }
+
+    private void SetOpenPage(int i)
+    {
+        DisableAll();
+
+        howtos[i].SetActive(true);
+        openPage = howtos[i];
+        openPagenum = i;
+
         SetArrow();
+
     }
     private void DisableAll()
     {
@@ -28,13 +41,6 @@ public class HowtoManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
-    }
-
-    private void SetOpenPage(int i)
-    {
-        howtos[i].SetActive(true);
-        openPage = howtos[i];
-        openPagenum = i;
     }
 
     private void SetArrow()

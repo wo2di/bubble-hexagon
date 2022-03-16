@@ -47,6 +47,9 @@ public class BubbleBHChange : BubbleBHColor
             colors[i] = newColors[i].colorEnum;
             values[i] = newColors[i].colorValue;
         }
+        color = colors[(nextColorIndex + 1) % colors.Length];
+        colorValue = values[(nextColorIndex + 1) % colors.Length];
+
     }
 
     [ContextMenu("change color")]

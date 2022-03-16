@@ -33,6 +33,7 @@ public class BubbleBHRandom : BubbleBehaviour
         foreach (BubbleBHColor c in adjacentColorBubbles)
         {
             c.ChangeToNewColor();
+            Debug.Log(c.color);
         }
         foreach (BubbleBHColor c in adjacentColorBubbles)
         {

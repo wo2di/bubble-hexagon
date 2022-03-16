@@ -66,11 +66,15 @@ public class PlayGameServicesAPI : MonoBehaviour
                 else status.value = "score report fail";
             });
 
-            Social.ReportScore(scoreTopHard.value, "CgkI-a-VtNgfEAIQBA", (bool success) =>
+            if(scoreTopHard.value != 0)
             {
-                if (success) status.value = "score report success";
-                else status.value = "score report fail";
-            });
+                Social.ReportScore(scoreTopHard.value, "CgkI-a-VtNgfEAIQBA", (bool success) =>
+                {
+                    if (success) status.value = "score report success";
+                    else status.value = "score report fail";
+                });
+            }
+            
         }
     }
 
