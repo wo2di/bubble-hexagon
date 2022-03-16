@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace FSM
 {
@@ -202,7 +203,7 @@ namespace FSM
 
         public IEnumerator PopCoroutine()
         {
-            foreach(Bubble b in _sm.bubblesToPop.bubbles)
+            foreach(Bubble b in _sm.bubblesToPop.bubbles.Distinct())
             {
                 yield return new WaitForSeconds(0.1f);
                 _sm.scoreManager.AddScore(10);
