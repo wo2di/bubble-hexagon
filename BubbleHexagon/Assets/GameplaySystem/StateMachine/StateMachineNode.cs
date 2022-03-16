@@ -189,9 +189,10 @@ namespace FSM
 
         public override void Enter()
         {
-            //터트림 확인 후 터트린다
-            _sm.bubblesToPop.bubbles = new List<Bubble>();
-            _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
+            if(_sm.bubblesToPop.bubbles.Count == 0 && _sm.bubbleParent.bubble1 != null)
+            {
+                _sm.bubbleParent.bubble1.GetComponent<BubbleBehaviour>().OnSetToSlot();
+            }
 
             _sm.itemManager.AddPoint(_sm.bubblesToPop.bubbles.Count);
             _sm.statistics.popCnt.value += _sm.bubblesToPop.bubbles.Count;
@@ -209,6 +210,11 @@ namespace FSM
                 b.GetComponent<BubbleBehaviour>().OnPop();
             }
             _sm.ChangeState(_sm.bubbleDrop);
+        }
+
+        public override void Exit()
+        {
+            _sm.bubblesToPop.bubbles = new List<Bubble>();
         }
     }
 
