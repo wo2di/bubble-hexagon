@@ -33,6 +33,9 @@ public class BubbleBHRandom : BubbleBehaviour
         foreach (BubbleBHColor c in adjacentColorBubbles)
         {
             c.ChangeToNewColor();
+        }
+        foreach (BubbleBHColor c in adjacentColorBubbles)
+        {
             c.OnSetToSlot();
         }
         OnPop();
