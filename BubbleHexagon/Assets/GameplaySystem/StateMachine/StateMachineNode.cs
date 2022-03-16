@@ -141,12 +141,12 @@ namespace FSM
                     bubbleNow.StartCoroutine(bubbleNow.TranslateToSlot());
                     bubbleNow.transform.SetParent(_sm.bubbleParent.transform);
 
-                    if (!bubbleNow.slot.gameObject.activeSelf)
-                    {
-                        _sm.ChangeState(_sm.gameOver);
-                    }
-                    else
-                    {
+                    //if (!bubbleNow.slot.gameObject.activeSelf)
+                    //{
+                    //    _sm.ChangeState(_sm.gameOver);
+                    //}
+                    //else
+                    //{
                         switch (bubbleNow.GetComponent<BubbleBehaviour>())
                         {
                             case BubbleBHBomb bhBomb:
@@ -157,7 +157,7 @@ namespace FSM
                                 _sm.ChangeState(_sm.bubblePop);
                                 break;
                         }
-                    }
+                    //}
 
                     
                 }
@@ -282,6 +282,10 @@ namespace FSM
                 yield return new WaitForSeconds(0.03f);
             }
             _sm.ChangeState(_sm.rotateGrid);
+        }
+
+        public override void Exit()
+        {
 
         }
     }
@@ -326,6 +330,16 @@ namespace FSM
 
         public override void Enter()
         {
+            foreach (Bubble b in _sm.bubbleParent.GetBubblesInGrid())
+            {
+                if (b.slot.level >= 5)
+                {
+                    //Debug.Log("gameover");
+                    _sm.ChangeState(_sm.gameOver);
+                    return;
+                }
+
+            }
             _sm.StartCoroutine(RotateCoroutine());
         }
 

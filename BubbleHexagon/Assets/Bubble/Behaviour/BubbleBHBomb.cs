@@ -6,6 +6,14 @@ public class BubbleBHBomb : BubbleBehaviour
 {
     public GameObject bombEffect;
     public Sound bombSound;
+    public ScoreManager scoreManager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
+
     public override void OnSetToSlot()
     {
         bombSound.source.Play();
@@ -18,6 +26,7 @@ public class BubbleBHBomb : BubbleBehaviour
         foreach (Bubble b in bubble.slot.GetAdjacentBubbles())
         {
             b.Pop();
+            scoreManager.AddScore(10);
         }
     }
 }

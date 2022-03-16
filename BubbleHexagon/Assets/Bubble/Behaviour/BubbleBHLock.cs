@@ -25,20 +25,10 @@ public class BubbleBHLock : BubbleBHColor
         colorSprite_s.color = colorValue;
     }
 
-    //public override void ChangeToNewColor()
-    //{
-    //    changeColorAnim.Play("change");
-
-    //    ColorEnumValuePair newColor = factory.GetRandomColor();
-    //    color = newColor.colorEnum;
-    //    colorValue = newColor.colorValue;
-    //}
-
     public override void OnPop()
     {
         if(hasLock)
         {
-            //baby.SetActive(false);
             mom.SetActive(false);
             hasLock = false;
             baby.GetComponent<Animator>().Play("grow");
