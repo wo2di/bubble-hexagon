@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LeaderboardButton : MonoBehaviour
 {
+#if UNITY_ANDROID
+
     public PlayGameServicesAPI playGameServicesAPI;
 
     private void Awake()
@@ -16,5 +18,5 @@ public class LeaderboardButton : MonoBehaviour
         playGameServicesAPI.PostScoreToLeaderboard();
         playGameServicesAPI.ShowLeaderboardUI();
     }
-
+#endif
 }
