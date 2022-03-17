@@ -40,6 +40,15 @@ namespace FSM
             {
                 _sm.gameplaySaveLoad.InitializePlayData();
             }
+
+            bool setWarningLine = false;
+            foreach (Bubble b in _sm.bubbleParent.GetBubblesInGrid())
+            {
+                setWarningLine |= b.slot.level >= 4;
+            }
+            _sm.warningLine.SetBool("Warn", setWarningLine);
+
+
             _sm.ChangeState(_sm.standby);
         }
     }
@@ -330,7 +339,8 @@ namespace FSM
 
         public override void Enter()
         {
-            foreach (Bubble b in _sm.bubbleParent.GetBubblesInGrid())
+            List<Bubble> bubbles = _sm.bubbleParent.GetBubblesInGrid();
+            foreach (Bubble b in bubbles)
             {
                 if (b.slot.level >= 5)
                 {
@@ -338,8 +348,15 @@ namespace FSM
                     _sm.ChangeState(_sm.gameOver);
                     return;
                 }
-
             }
+
+            bool setWarningLine = false;
+            foreach (Bubble b in bubbles)
+            {
+                setWarningLine |= b.slot.level >= 4;
+            }
+            _sm.warningLine.SetBool("Warn", setWarningLine);
+
             _sm.StartCoroutine(RotateCoroutine());
         }
 

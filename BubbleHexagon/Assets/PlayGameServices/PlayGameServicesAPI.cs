@@ -1,3 +1,5 @@
+#if UNITY_ANDROID
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +18,7 @@ public class PlayGameServicesAPI : MonoBehaviour
 
     private void Awake()
     {
+
         if(instance == null)
         {
             instance = this;
@@ -35,6 +38,7 @@ public class PlayGameServicesAPI : MonoBehaviour
         PlayGamesPlatform.Activate();
 
         SingInToGooglePlayServices(SignInInteractivity.CanPromptOnce);
+
     }
 
     public void SingInToGooglePlayServices(SignInInteractivity i)
@@ -84,3 +88,5 @@ public class PlayGameServicesAPI : MonoBehaviour
     }
 
 }
+
+#endif
