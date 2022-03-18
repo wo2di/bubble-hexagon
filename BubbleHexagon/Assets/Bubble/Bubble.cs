@@ -53,13 +53,13 @@ public class Bubble : MonoBehaviour
 
     public IEnumerator TranslateToSlot()
     {
-        Vector3 to = slot.transform.position;
-        while(Vector3.Distance(transform.position, to) > 0.01)
+        //Vector3 to = slot.transform.position;
+        while(Vector3.Distance(transform.position, slot.transform.position) > 0.01)
         {
-            transform.position = Vector3.Lerp(transform.position, to, 0.3f);
+            transform.position = Vector3.Lerp(transform.position, slot.transform.position, 0.3f * Time.deltaTime * 50);
             yield return null;
         }
-            transform.position = to;
+            transform.position = slot.transform.position;
 
     }
 
