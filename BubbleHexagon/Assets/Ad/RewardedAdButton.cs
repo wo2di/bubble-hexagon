@@ -14,9 +14,17 @@ public class RewardedAdButton : MonoBehaviour
         Debug.Log("OnEnable of rewarded ad button");
         audioManager.PlaySound("adbutton");
     }
-    private void OnMouseUpAsButton()
+    //private void OnMouseUpAsButton()
+    //{
+    //    if(!isGamePaused.value && gameplaySM.IsSafe())
+    //    {
+    //        admobAPI.ShowAd();
+    //    }
+    //}
+
+    public void OnButtonClick()
     {
-        if(!isGamePaused.value && gameplaySM.IsSafe())
+        if (!isGamePaused.value && gameplaySM.IsSafe())
         {
             admobAPI.ShowAd();
         }

@@ -28,7 +28,11 @@ public class AdmobAPI : MonoBehaviour
 
     public void CreateAndLoadRewardedAd()
     {
+#if UNITY_ANDROID
         string unitID = "ca-app-pub-2249383838668943/3121631983";
+#elif UNITY_IOS
+        string unitID = "ca-app-pub-2249383838668943/5222853580";
+#endif
 
         rewardedAd = new RewardedAd(unitID);
 
