@@ -14107,7 +14107,7 @@ MonoBehaviour:
   - {fileID: 699297344}
   pauseAndResume: {fileID: 1311288279}
   grayPanel: {fileID: 448988386}
-  pauseSprite: {fileID: 21300000, guid: ea00af2609061d9458766b734791b58e, type: 3}
+  pauseSprite: {fileID: 21300000, guid: c8f833c74caba30469d8613952fb85d3, type: 3}
   resumeSprite: {fileID: 21300000, guid: 84e029e3fff1d8a41adf3f6521b9af06, type: 3}
 --- !u!1 &1072214990
 GameObject:
@@ -16936,7 +16936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea00af2609061d9458766b734791b58e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8f833c74caba30469d8613952fb85d3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
