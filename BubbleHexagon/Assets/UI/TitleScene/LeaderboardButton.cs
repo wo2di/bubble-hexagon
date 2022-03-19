@@ -10,7 +10,11 @@ public class LeaderboardButton : MonoBehaviour
 
     private void Awake()
     {
+#if UNITY_ANDROID
         playGameServicesAPI = FindObjectOfType<PlayGameServicesAPI>();
+#elif UNITY_IOS
+        gameObject.SetActive(false);
+#endif
     }
 
     public void OnLeaderboardButtonClick()
@@ -19,4 +23,4 @@ public class LeaderboardButton : MonoBehaviour
         playGameServicesAPI.ShowLeaderboardUI();
     }
 #endif
-}
+    }
