@@ -47,10 +47,5 @@ public class CameraSize : MonoBehaviour
         
     }
 
-//    void Update()
-//    {
-//#if UNITY_EDITOR
-//        CalculateCameraSize();
-//#endif
-//    }
+
 }
