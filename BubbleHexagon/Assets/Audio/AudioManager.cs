@@ -9,9 +9,9 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        AndroidNativeAudio.makePool();
         if(Application.platform == RuntimePlatform.Android)
         {
+            AndroidNativeAudio.makePool();
             foreach (Sound sound in sounds)
             {
                 if (sound.native)
