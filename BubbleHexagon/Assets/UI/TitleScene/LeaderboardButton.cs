@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class LeaderboardButton : MonoBehaviour
 {
-#if UNITY_ANDROID
-
     public PlayGameServicesAPI playGameServicesAPI;
 
     private void Awake()
     {
-#if UNITY_ANDROID
         playGameServicesAPI = FindObjectOfType<PlayGameServicesAPI>();
-#elif UNITY_IOS
-        gameObject.SetActive(false);
-#endif
     }
 
     public void OnLeaderboardButtonClick()
@@ -22,5 +16,4 @@ public class LeaderboardButton : MonoBehaviour
         playGameServicesAPI.PostScoreToLeaderboard();
         playGameServicesAPI.ShowLeaderboardUI();
     }
-#endif
-    }
+}

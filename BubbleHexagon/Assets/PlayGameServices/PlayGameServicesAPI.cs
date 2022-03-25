@@ -31,9 +31,8 @@ public class PlayGameServicesAPI : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            PlayGamesClientConfiguration clientConfiguration;
+#if UNITY_ANDROID
+        PlayGamesClientConfiguration clientConfiguration;
             clientConfiguration = new PlayGamesClientConfiguration.Builder().Build();
             PlayGamesPlatform.InitializeInstance(clientConfiguration);
             PlayGamesPlatform.DebugLogEnabled = true;
@@ -42,17 +41,17 @@ public class PlayGameServicesAPI : MonoBehaviour
             leaderboardIDEasy = "CgkI-a-VtNgfEAIQAw";
             leaderboardIDHard = "CgkI-a-VtNgfEAIQBA";
             SingInToGooglePlayServices(SignInInteractivity.CanPromptOnce);
-        }
-        else if(Application.platform == RuntimePlatform.IPhonePlayer)
-        {
+#elif UNITY_IOS
+       
             leaderboardIDEasy = "bubblehexagon_topscore_easy";
             leaderboardIDHard = "bubblehexagon_topscore_hard";
             SingInToiOSGamecenter();
-        }
+#endif
     }
 
     public void SingInToGooglePlayServices(SignInInteractivity i)
     {
+#if UNITY_ANDROID
         PlayGamesPlatform.Instance.Authenticate(i, (result) =>
         {
             status.value = "authenticating ...";
@@ -68,6 +67,7 @@ public class PlayGameServicesAPI : MonoBehaviour
                     break;
             }
         });
+#endif
     }
 
     public void SingInToiOSGamecenter()
