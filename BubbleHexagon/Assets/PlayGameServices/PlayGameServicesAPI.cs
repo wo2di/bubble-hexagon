@@ -1,5 +1,3 @@
-#if UNITY_ANDROID
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +12,13 @@ public class PlayGameServicesAPI : MonoBehaviour
     public IntegerSO scoreTopHard;
     public StringSO status;
 
+    public string leaderboardIDEasy;
+    public string leaderboardIDHard;
+
     public static PlayGameServicesAPI instance;
 
     private void Awake()
     {
-
         if(instance == null)
         {
             instance = this;
@@ -31,14 +31,24 @@ public class PlayGameServicesAPI : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        PlayGamesClientConfiguration clientConfiguration;
-        clientConfiguration = new PlayGamesClientConfiguration.Builder().Build();
-        PlayGamesPlatform.InitializeInstance(clientConfiguration);
-        PlayGamesPlatform.DebugLogEnabled = true;
-        PlayGamesPlatform.Activate();
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            PlayGamesClientConfiguration clientConfiguration;
+            clientConfiguration = new PlayGamesClientConfiguration.Builder().Build();
+            PlayGamesPlatform.InitializeInstance(clientConfiguration);
+            PlayGamesPlatform.DebugLogEnabled = true;
+            PlayGamesPlatform.Activate();
 
-        SingInToGooglePlayServices(SignInInteractivity.CanPromptOnce);
-
+            leaderboardIDEasy = "CgkI-a-VtNgfEAIQAw";
+            leaderboardIDHard = "CgkI-a-VtNgfEAIQBA";
+            SingInToGooglePlayServices(SignInInteractivity.CanPromptOnce);
+        }
+        else if(Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            leaderboardIDEasy = "bubblehexagon_topscore_easy";
+            leaderboardIDHard = "bubblehexagon_topscore_hard";
+            SingInToiOSGamecenter();
+        }
     }
 
     public void SingInToGooglePlayServices(SignInInteractivity i)
@@ -60,11 +70,28 @@ public class PlayGameServicesAPI : MonoBehaviour
         });
     }
 
+    public void SingInToiOSGamecenter()
+    {
+        Social.localUser.Authenticate(success =>
+        {
+            if (success)
+            {
+                status.value = Social.localUser.userName + " " + Social.localUser.id;
+                signin = true;
+            }
+            else
+            {
+                status.value = success.ToString();
+                signin = false;
+            }
+        });
+    }
+
     public void PostScoreToLeaderboard()
     {
         if(signin)
         {
-            Social.ReportScore(scoreTopEasy.value, "CgkI-a-VtNgfEAIQAw", (bool success) =>
+            Social.ReportScore(scoreTopEasy.value, leaderboardIDEasy, (bool success) =>
             {
                 if (success) status.value = "score report success";
                 else status.value = "score report fail";
@@ -72,7 +99,7 @@ public class PlayGameServicesAPI : MonoBehaviour
 
             if(scoreTopHard.value != 0)
             {
-                Social.ReportScore(scoreTopHard.value, "CgkI-a-VtNgfEAIQBA", (bool success) =>
+                Social.ReportScore(scoreTopHard.value, leaderboardIDHard, (bool success) =>
                 {
                     if (success) status.value = "score report success";
                     else status.value = "score report fail";
@@ -88,5 +115,3 @@ public class PlayGameServicesAPI : MonoBehaviour
     }
 
 }
-
-#endif
