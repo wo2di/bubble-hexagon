@@ -34,7 +34,7 @@ public class GameplaySM : StateMachine
     public SaveAndLoadGameplay gameplaySaveLoad;
     public SaveAndLoadPlayerData playerdataSaveLoad;
     public Arrow arrow;
-    public AdmobEventHandler admobEventHandler;
+    public AdEventHandler adEventHandler;
     public Animator warningLine;
 
     public bool itemApplied;

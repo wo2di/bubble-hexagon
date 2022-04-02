@@ -323,7 +323,7 @@ namespace FSM
         public override void Exit()
         {
             _sm.bubbleParent.OnExitTurn();
-            _sm.admobEventHandler.OnExitTurn();
+            _sm.adEventHandler.OnExitTurn();
         }
 
     }

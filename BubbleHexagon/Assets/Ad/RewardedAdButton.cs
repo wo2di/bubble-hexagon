@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RewardedAdButton : MonoBehaviour
 {
-    public AdmobAPI admobAPI;
+    //public AdmobAPI admobAPI;
+    public UnityAdsAPI unityAdsAPI;
+
     public BoolSO isGamePaused;
     public GameplaySM gameplaySM;
     public AudioManager audioManager;
@@ -13,6 +15,7 @@ public class RewardedAdButton : MonoBehaviour
     {
         Debug.Log("OnEnable of rewarded ad button");
         audioManager.PlaySound("adbutton");
+        unityAdsAPI.LoadAd();
     }
     //private void OnMouseUpAsButton()
     //{
@@ -26,7 +29,8 @@ public class RewardedAdButton : MonoBehaviour
     {
         if (!isGamePaused.value && gameplaySM.IsSafe())
         {
-            admobAPI.ShowAd();
+            //admobAPI.ShowAd();
+            unityAdsAPI.ShowAd();
         }
     }
 
