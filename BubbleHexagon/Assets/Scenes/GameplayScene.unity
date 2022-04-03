@@ -18039,6 +18039,10 @@ PrefabInstance:
       value: UnityAds
       objectReference: {fileID: 0}
     - target: {fileID: 2782652517778568099, guid: 8aef9207e228a9e488b871256f1bf9f7, type: 3}
+      propertyPath: _testMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782652517778568099, guid: 8aef9207e228a9e488b871256f1bf9f7, type: 3}
       propertyPath: adEventHandler
       value: 
       objectReference: {fileID: 170098161}
