@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1088883611641",
+    "project_id": "bubble-hexagon-57070485",
+    "storage_bucket": "bubble-hexagon-57070485.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088883611641:android:8784c44f781ab4ed130f28",
+        "android_client_info": {
+          "package_name": "com.oohohgames.bubblehexagon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088883611641-3iqolhsfsq7c6g2csp901sn562kk31cv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRQ952T346AEUMjUBe5kwKcQNhk2YiDBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088883611641-3iqolhsfsq7c6g2csp901sn562kk31cv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088883611641-0to1q5qsmotunlkgsab5gp76j3p5bt7i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.oohohgames.bubblehexagon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

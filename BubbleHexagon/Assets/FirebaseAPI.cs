@@ -19,9 +19,7 @@ public class FirebaseAPI : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-    }
-    void Start()
-    {
+
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             var dependencyStatus = task.Result;
             if (dependencyStatus == Firebase.DependencyStatus.Available)
@@ -39,6 +37,16 @@ public class FirebaseAPI : MonoBehaviour
                 // Firebase Unity SDK is not safe to use here.
             }
         });
+
+    }
+    //void Start()
+    //{
+    //    FBEventAppOpen();
+    //}
+
+    public void FBEventAppOpen()
+    {
+        Firebase.Analytics.FirebaseAnalytics.LogEvent(Firebase.Analytics.FirebaseAnalytics.EventAppOpen);
     }
 
 }
